@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
   include ActionController::RequestForgeryProtection
   protect_from_forgery with: :exception
 
-  rescue_from StandardError, with: :unhandled_error
+  rescue_from StandardError, with: :unhandled_error #formats csrf error responses with json
   rescue_from ActionController::InvalidAuthenticityToken,
       with: :invalid_authenticity_token
 
@@ -33,19 +33,19 @@ class ApplicationController < ActionController::API
       !!current_user
   end 
 
-  # def test
-  #     if params.has_key?(:login)
-  #         login!(User.first)
-  #     elsif params.has_key?(:logout)
-  #         logout!
-  #     end
+  def test
+      if params.has_key?(:login)
+          login!(User.first)
+      elsif params.has_key?(:logout)
+          logout!
+      end
 
-  #     if current_user
-  #         render json: { user: current_user.slice('id', 'username', 'session_token') }
-  #     else
-  #         render json: ['No current user']
-  #     end
-  # end
+      if current_user
+          render json: { user: current_user.slice('id', 'username', 'session_token') }
+      else
+          render json: ['No current user']
+      end
+  end
 
   private
 
@@ -53,7 +53,7 @@ class ApplicationController < ActionController::API
   params.deep_transform_keys!(&:underscore)
   end
 
-  def attach_authenticity_token
+  def attach_authenticity_token #how can I see what other values are in header??
       headers['X-CSRF-Token'] = masked_authenticity_token(session)
   end
 
