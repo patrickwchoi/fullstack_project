@@ -1,5 +1,6 @@
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+import LoginSignupModal from "./components/LoginSignupModal";
 import React from 'react';
 import {Route, Switch} from 'react-router-dom'
 import Navigation from "./components/Navigation";
@@ -11,8 +12,9 @@ function App() {
       <link rel="shortcut icon" href=""></link> 
 
       <Navigation />
-      <LoginFormPage />
-      <SignupFormPage />
+      {/* <LoginFormPage />
+      <SignupFormPage /> */}
+      <LoginSignupModal />
           <Switch> 
             <Route path="/login"> 
               <LoginFormPage />

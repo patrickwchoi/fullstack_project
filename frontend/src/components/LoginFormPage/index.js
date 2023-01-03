@@ -43,16 +43,6 @@ const LoginFormPage = () => {
   }
 
   return showLogin ? ( //only returns form if showLogin is true
-  <div className='modal'>
-    <div id='modal_img'>
-      <img src="https://assets.tumblr.com/pop/src/assets/images/login-wall/art_v2-3f0f7a0b.gif"></img>
-    </div>
-
-    <div className='modal-bottomhalf'>
-      <div className='modal-tumblr'>
-      <svg xmlns="http://www.w3.org/2000/svg" height="56" width="274" role="presentation"><use href="#managed-icon__logo-tumblr"></use></svg>
-      </div>
-
       <form onSubmit={handleSubmit}>
         <ul>
             {errors.map(error => <li key={error}>{error}</li>)}
@@ -79,8 +69,7 @@ const LoginFormPage = () => {
           <button onClick={closeLogin} className='close-button'>Close</button> {/* replace with closing modal when you click outside modal */}
           <button onClick={handleDemoLogin} >Demo Login</button> 
       </form>
-    </div>
-  </div>
+    
   ) : null;
 }
 

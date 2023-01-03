@@ -40,7 +40,7 @@ const SignupFormPage = () => {
     }
     
     return showSignup? (
-        <form onSubmit={handleSubmit} className='modal' id='modal'>
+        <form onSubmit={handleSubmit}>
           {/* remove id=modal */}
           <ul>
             {errors.map(error => <li key={error}>{error}</li>)}
