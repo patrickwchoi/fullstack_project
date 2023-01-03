@@ -6,9 +6,10 @@ import Navigation from "./components/Navigation";
 
 function App() {
   return (
-    <>
+    <div className='root'>
       <Navigation />
       <LoginFormPage />
+      <SignupFormPage />
           <Switch> 
             <Route path="/login"> 
               <LoginFormPage />
@@ -17,7 +18,7 @@ function App() {
               <SignupFormPage />
             </Route>
           </Switch> 
-    </>
+    </div>
   );
 }
 

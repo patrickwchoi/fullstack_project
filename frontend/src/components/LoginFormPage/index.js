@@ -2,11 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/session";
 import { Redirect } from "react-router-dom";
-// import './LoginForm.css'
+import './LoginFormPage.css'
 import { useLoginModal } from "../../context/Modal";
 
 const LoginFormPage = () => {
-    // const { showModal, setShowModal, modal, setModal } = useModal();
     const { showLogin, closeLogin } = useLoginModal();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
@@ -16,7 +15,11 @@ const LoginFormPage = () => {
 
     if (sessionUser) return <Redirect to='/' /> 
 
-    
+    const handleDemoLogin = (e) => { 
+        setCredential('walter_white');
+        setPassword('password');
+        handleSubmit();
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         // const user = {
@@ -39,9 +42,8 @@ const LoginFormPage = () => {
             });
     }
 
-    console.log(`showLogin: ${showLogin}`);
     return showLogin ? ( //only returns form if showLogin is true
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className ='modal'>
             <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
@@ -64,7 +66,8 @@ const LoginFormPage = () => {
                 />
             </label>
             <button type="submit">Log In</button>
-            <button onClick={closeLogin}>Close</button> {/* replace with closing modal when you click outside modal */}
+            <button onClick={closeLogin} className='close-button'>Close</button> {/* replace with closing modal when you click outside modal */}
+            <button onClick={handleDemoLogin} >Demo Login</button> 
         </form>
     ) : null;
 }

@@ -1,1 +1,40 @@
 /* TODO Add site wide styles */
+:root { /* why isnt this working */
+   --black: 0, 0, 0;
+  --white: 255, 255, 255;
+  --white-on-dark: 255, 255, 255;
+  --navy: 0, 25, 53;
+  --red: 255, 73, 48;
+  --orange: 255, 138, 0;
+  --yellow: 232, 215, 56;
+  --green: 0, 207, 53;
+  --blue: 0, 184, 255;
+  --purple: 124, 92, 255;
+  --pink: 255, 98, 206;
+  --accent: 0, 184, 255;
+  --secondary-accent: 229, 231, 234;
+  --follow: 243, 248, 251;
+  --color-title: rgb(var(--white-on-dark));
+  --color-text: rgb(var(--white-on-dark));
+  --color-subtext: rgb(var(--white-on-dark));
+  --color-primary-link: rgb(var(--accent));
+  --color-bluespace-background: rgb(var(--navy));
+  --color-bluespace-card-background: rgba(var(--white-on-dark), 0.07);
+  --color-modal-close-button: rgb(var(--navy));
+  --color-modal-close-button-background: rgb(var(--white-on-dark));
+  --font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  --border-radius-small: 3px;
+} 
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.root {
+  padding: 20px;
+
+  font-size: 16px;
+  font-family: Helvetica;
+
+}

@@ -9,6 +9,9 @@ class Api::UsersController < ApplicationController
       return 
     end 
     render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity 
+    # render json: @user.errors.full_messages, status: 422
+
+
   end
 
   private 
