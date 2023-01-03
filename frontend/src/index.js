@@ -7,6 +7,7 @@ import App from './App';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
+import ModalProvider from './context/Modal';
 // import * as benchActions from './store/benches';
 
 const store = configureStore();
@@ -15,19 +16,25 @@ const store = configureStore();
 
 if (process.env.NODE_ENV !== 'production') {
   // window.dispatch = dispatch;
+
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
+
   // window.benchActions = benchActions;
 }
 
 function Root() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+    <ModalProvider>
+
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
     </Provider>
+
+    </ModalProvider>
   );
 }
 

@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <Navigation />
+      <LoginFormPage />
           <Switch> 
             <Route path="/login"> 
               <LoginFormPage />
