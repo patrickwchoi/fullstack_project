@@ -17,21 +17,24 @@ function Navigation() {
     );
   } else {
     sessionLinks = (
-      <>
+      <div className='navbar'>
       {/* replace with triggers to open modals */}
         {/* <NavLink to="/login">Log In</NavLink>
         <NavLink to="/signup">Sign Up</NavLink> */}
-        <button onClick={openLogin}>Open Login form</button>;
-        <button onClick={openSignup}>Open Signup form</button>;
+        <NavLink exact to="/">Home</NavLink>
+        <>
+          <button onClick={openLogin} id='login-button'>Open Login form</button>
+          <button onClick={openSignup} id='signup-button'>Open Signup form</button>
+        </>
 
-      </>
+      </div>
     );
   }
 
   return (
     <ul>
       <li>
-        <NavLink exact to="/">Home</NavLink>
+        {/* <NavLink exact to="/">Home</NavLink>  Moved this to nav bar*/} 
         {sessionLinks}
       </li>
     </ul>

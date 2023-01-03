@@ -1,0 +1,56 @@
+.navbar{
+    /* background-color: lightblue; */
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    box-sizing: border-box;
+    height: 54px;
+    /* justify-content: space-between; */
+    margin: auto;
+    max-width: 1716px;
+    padding-left: 22px;
+    padding-right: 20px;
+    width: 100%;
+    vertical-align: baseline;
+
+    
+    align-items: center;
+    display: flex;
+    justify-content: flex-end
+}
+
+/* for all buttons in navbar */
+.navbar > button{
+  color: black;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 6px 15px;
+  border-radius: 3px;
+  margin-right: 10px;
+  
+  align-items: center;
+  box-sizing: border-box;
+  color: var(--button-text);
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+
+}
+#login-button{
+  background:  #00cf35;
+}
+
+#signup-button{
+  background: #00b8ff;
+}

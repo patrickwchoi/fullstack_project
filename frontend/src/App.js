@@ -7,6 +7,9 @@ import Navigation from "./components/Navigation";
 function App() {
   return (
     <div className='root'>
+      {/* needed to add this to remove a 404 favicon get error. idrk */}
+      <link rel="shortcut icon" href=""></link> 
+
       <Navigation />
       <LoginFormPage />
       <SignupFormPage />
