@@ -24,6 +24,11 @@ ApplicationRecord.transaction do
     bio: 'I am the one who knocks!'
   )
 
+  Post.create!(
+    author_id: 1,
+    title: 'How to Cook', 
+    body: 'Grab Jesse and Cook!')
+    
   # More users
   10.times do 
     User.create!({

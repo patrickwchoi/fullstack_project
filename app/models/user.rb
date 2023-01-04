@@ -23,6 +23,11 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token 
 
+  has_many :posts,
+    foreign_key: :author_id,
+    class_name: :Post
+  
+    
   def self.find_by_credentials(credential, password)
     if credential.include?('@') 
       user = User.find_by(email: credential )
