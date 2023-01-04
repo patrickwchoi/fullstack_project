@@ -15,25 +15,31 @@ export const useSignupModal = () => useContext(SignupFormContext);
 export default function ModalProvider({ children }) {
   
   const [showLogin, setShowLogin] = useState(false);
-  const openLogin = () => setShowLogin(true);
+  const openLogin = () => {
+    setShowLogin(true);
+    setShowSignup(false);
+  }
   const closeLogin = () => setShowLogin(false);
   const loginFormContextValue = {showLogin, openLogin, closeLogin}
   
   const [showSignup, setShowSignup] = useState(false);
-  const openSignup = () => setShowSignup(true);
+  const openSignup = () => {
+    setShowSignup(true);
+    setShowLogin(false);
+  }
   const closeSignup = () => setShowSignup(false);
   const SignupFormContextValue = {showSignup, openSignup, closeSignup}
   
   
   const modal = document.getElementById('modal');
   // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(e) {
-    // e.preventDefault();    
-    if (e.target == modal) {
-      closeLogin(); //this is pretty ugly
-      closeSignup();
-    }
-  }
+  // window.onclick = function(e) {
+  //   // e.preventDefault();    
+  //   if (e.target == modal) {
+  //     closeLogin(); //this is pretty ugly
+  //     closeSignup();
+  //   }
+  // }
 
   return (
     <>

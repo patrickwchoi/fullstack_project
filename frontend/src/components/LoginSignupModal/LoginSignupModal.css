@@ -15,6 +15,10 @@
   width: 600px;
   z-index: 101;
   position: relative;
+  /* doesn't feel like a clean way to center modal */
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, 0%);
   
 }
 

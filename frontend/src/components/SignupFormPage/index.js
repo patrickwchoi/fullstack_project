@@ -46,6 +46,7 @@ const SignupFormPage = () => {
           </ul>
           <label>
             Email
+            <br/>
             <input
               type="text"
               value={email}
@@ -56,6 +57,8 @@ const SignupFormPage = () => {
           <br/>
           <label>
             Username
+            <br/>
+
             <input
               type="text"
               value={username}
@@ -66,6 +69,7 @@ const SignupFormPage = () => {
           <br/>
           <label>
             Password
+            <br/>
             <input
               type="password"
               value={password}
@@ -76,6 +80,7 @@ const SignupFormPage = () => {
           <br/>
           <label>
             Confirm Password
+            <br/>
             <input
               type="password"
               value={confirmPassword}
