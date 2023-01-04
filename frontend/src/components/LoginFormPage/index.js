@@ -16,19 +16,18 @@ const LoginFormPage = () => {
   if (sessionUser) return <Redirect to='/' /> 
 
   const handleDemoLogin = (e) => { 
-    setCredential('walter_white');
-    setPassword('password');
-    handleSubmit();
+    // setCredential('walter_white');
+    // setPassword('password');
+    // handleSubmit(e);
+    return dispatch(login({credential: 'walter_white', password: 'password'}))
+      .then( ()=> {closeLogin()})
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const user = {
-    //     credential,
-    //     password
-    // }
-    // dispatch(login(user))
+  
     setErrors([]);
     return dispatch(login({credential, password}))
+      .then( ()=> {closeLogin()}) //this is happening after modal is rendered, so its not closing
       .catch(async res => {
           let data; 
           try {
@@ -50,12 +49,15 @@ const LoginFormPage = () => {
         <label>
           Username or Email
           <input
+            // placeholder='Username or Email'
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
           />
         </label>
+        <br/>
+
         <label>
           Password
           <input
@@ -65,6 +67,7 @@ const LoginFormPage = () => {
             required
           />
         </label>
+          <br/>
           <button type="submit">Log In</button>
           <button onClick={closeLogin} className='close-button'>Close</button> {/* replace with closing modal when you click outside modal */}
           <button onClick={handleDemoLogin} >Demo Login</button> 

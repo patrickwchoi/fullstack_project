@@ -12,16 +12,14 @@ function App() {
       <link rel="shortcut icon" href=""></link> 
 
       <Navigation />
-      {/* <LoginFormPage />
-      <SignupFormPage /> */}
       <LoginSignupModal />
           <Switch> 
-            <Route path="/login"> 
+            {/* <Route path="/login"> 
               <LoginFormPage />
             </Route>
             <Route path="/signup">
               <SignupFormPage />
-            </Route>
+            </Route> */}
           </Switch> 
     </div>
   );

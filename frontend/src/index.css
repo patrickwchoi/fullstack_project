@@ -1,6 +1,6 @@
 /* TODO Add site wide styles */
 :root { /* why isnt this working */
-   --black: 0, 0, 0;
+  --black: 0, 0, 0;
   --white: 255, 255, 255;
   --white-on-dark: 255, 255, 255;
   --navy: 0, 25, 53;
@@ -36,5 +36,4 @@
   background: RGB(var(--navy));
   font-size: 16px;
   font-family: Helvetica;
-
 }
