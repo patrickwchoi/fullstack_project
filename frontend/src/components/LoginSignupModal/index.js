@@ -7,10 +7,20 @@ const LoginSignupModal = () => {
   const {showLogin, openLogin, closeLogin} = useLoginModal();
   const {showSignup, openSignup, closeSignup} = useSignupModal();
 
+  const closeModals = () => {
+    closeLogin();
+    closeSignup();
+  }
+
   return (showSignup||showLogin) ? (
+   <>
+    <div className='modal-background' id='modal-background' onClick={closeModals}>
+    </div>
+    
+    
     <div className='modal' id='modal' >
       <div id='modal_img'>
-        <img src="https://assets.tumblr.com/pop/src/assets/images/login-wall/art_v2-3f0f7a0b.gif"></img>
+        <img src="https://assets.tumblr.com/pop/src/assets/images/login-wall/art_v2-3f0f7a0b.gif"/>
       </div>
 
       <div className='modal-bottomhalf'>
@@ -24,6 +34,7 @@ const LoginSignupModal = () => {
         <SignupFormPage />
       </div>
     </div>
+   </>
   ): null;
 } 
 export default LoginSignupModal;

@@ -60,6 +60,7 @@ const LoginFormPage = () => {
 
         <label>
           Password
+          <br/>
           <input
             type="password"
             value={password}
