@@ -8,12 +8,12 @@ const PostIndexItem = ({post}) => {
   const dispatch = useDispatch();
   return (
     <div className='PostIndexItem'>
-      <Link to={`/posts/${post.id}`}>{post.title}</Link>
-      <p>{post.authorId}</p>
+      <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
+      <p>Author Id: {post.authorId}</p>
       <p> {post.body} </p>
       {/* <Link to={`/posts/${post.id}`}>{post.title}</Link>
       <Link to={`/posts/${post.id}/edit`}>Edit</Link>   */}
-    {/* <button onClick={()=>dispatch(deletePost(post.id))}>Delete</button> */}
+    <button onClick={()=>dispatch(deletePost(post.id))}>Delete</button>
     </div>
   )
 }

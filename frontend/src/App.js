@@ -5,6 +5,11 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom'
 import Navigation from "./components/Navigation";
 import PostIndex from "./components/Posts/PostIndex";
+import PostForm from "./components/Posts/PostCreate";
+import PostEdit from "./components/Posts/PostEdit";
+
+import PostShow from "./components/Posts/PostShow";
+
 
 function App() {
   return (
@@ -17,6 +22,10 @@ function App() {
       
         <Switch> 
           <Route exact path="/posts" component={PostIndex} />
+          <Route exact path="/posts/new" component={PostForm} />
+          <Route path="/posts/:postId/edit" component={PostEdit} />
+          {/* <Route exact path="/posts/:postId" component={PostShow} /> */}
+
         </Switch> 
     </div>
   );

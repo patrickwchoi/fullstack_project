@@ -4,6 +4,7 @@ import { login } from "../../store/session";
 import { Redirect } from "react-router-dom";
 import './LoginFormPage.css'
 import { useLoginModal } from "../../context/Modal";
+import { useHistory } from "react-router-dom";
 
 const LoginFormPage = () => {
   const { showLogin, closeLogin } = useLoginModal();
@@ -12,22 +13,34 @@ const LoginFormPage = () => {
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([])
-
+  const history = useHistory();
+  
   if (sessionUser) return <Redirect to='/' /> 
-
+  
   const handleDemoLogin = (e) => { 
     // setCredential('walter_white');
     // setPassword('password');
     // handleSubmit(e);
     return dispatch(login({credential: 'walter_white', password: 'password'}))
-      .then( ()=> {closeLogin()})
+    .then( ()=> {
+      closeLogin();
+      redirectToIndex();
+    })
   }
+  const redirectToIndex = ()=>{
+    history.push('/posts')
+  }
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
   
     setErrors([]);
     return dispatch(login({credential, password}))
-      .then( ()=> {closeLogin()}) //this is happening after modal is rendered, so its not closing
+      .then( ()=> {
+        closeLogin();
+        redirectToIndex();
+      }) 
       .catch(async res => {
           let data; 
           try {
@@ -39,6 +52,7 @@ const LoginFormPage = () => {
           else if (data) setErrors([data]);
           else setErrors([res.statusText]);
       });
+
   }
 
   return showLogin ? ( //only returns form if showLogin is true
@@ -50,22 +64,17 @@ const LoginFormPage = () => {
           Username or Email
           <input
             // placeholder='Username or Email'
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
+            type="text" value={credential}
+            onChange={(e) => setCredential(e.target.value)} required
           />
         </label>
         <br/>
-
         <label>
           Password
           <br/>
           <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+            type="password" value={password}
+            onChange={(e) => setPassword(e.target.value)} required
           />
         </label>
           <br/>

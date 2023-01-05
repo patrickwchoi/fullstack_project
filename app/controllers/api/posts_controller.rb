@@ -39,6 +39,7 @@ class Api::PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     if @post && @post.destroy
+      @posts = Post.all
       render :index
     elsif @post
       render json: @post.errors.full_messages, status: 422
@@ -54,7 +55,7 @@ class Api::PostsController < ApplicationController
       render json: ['Post not found'], status: :not_found
   end
 
-  def user_params 
-    params.require(:user).permit(:title, :body, :content_url)
+  def post_params 
+    params.require(:post).permit(:title, :body, :content_url)
   end 
 end
