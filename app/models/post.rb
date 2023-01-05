@@ -11,11 +11,11 @@
 #  author_id   :bigint
 #
 class Post < ApplicationRecord
-  validates :body, presence: true
+  validates :body, :author_id, presence: true
+  #i think i have to add the author_id validation on a migration :/
 
   belongs_to :author,
     foreign_key: :author_id,
     class_name: :User
 
-  
 end

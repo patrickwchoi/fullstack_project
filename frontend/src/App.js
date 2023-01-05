@@ -4,6 +4,7 @@ import LoginSignupModal from "./components/LoginSignupModal";
 import React from 'react';
 import {Route, Switch} from 'react-router-dom'
 import Navigation from "./components/Navigation";
+import PostIndex from "./components/Posts/PostIndex";
 
 function App() {
   return (
@@ -13,14 +14,10 @@ function App() {
 
       <Navigation />
       <LoginSignupModal />
-          <Switch> 
-            {/* <Route path="/login"> 
-              <LoginFormPage />
-            </Route>
-            <Route path="/signup">
-              <SignupFormPage />
-            </Route> */}
-          </Switch> 
+      
+        <Switch> 
+          <Route exact path="/posts" component={PostIndex} />
+        </Switch> 
     </div>
   );
 }
