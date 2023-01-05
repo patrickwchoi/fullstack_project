@@ -23,7 +23,7 @@ ApplicationRecord.transaction do
     username: 'walter_white', 
     email: 'bb@gmail.com', 
     password: 'password', 
-    profile_pic: 'jesse_pinkman.png', 
+    profile_pic: '../frontend/src/assets/default_profile_pic.png', 
     bio: 'I am the one who knocks!'
   )
 

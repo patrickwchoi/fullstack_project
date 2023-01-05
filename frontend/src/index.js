@@ -8,7 +8,6 @@ import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
 import ModalProvider from './context/Modal';
-// import * as benchActions from './store/benches';
 import * as postActions from './store/posts';
 
 const store = configureStore();

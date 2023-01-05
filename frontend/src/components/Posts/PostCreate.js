@@ -51,16 +51,3 @@ function PostCreate(){
 }
 
 export default PostCreate;
-/*
-Export as the default a `PostForm` component that renders a form to either
-create or edit a post. The form should determine whether it is a create or edit
-form based on the URL. For a create form, it should pre-fill the form's `title`
-and `body` fields from a blank post. For edit, it should grab the specified post
-from the store and pre-fill the form's fields with the data from that post. (It
-should also fetch the specified post from the database to ensure that it is in
-the store.)  
-
-Use controlled inputs and trigger the appropriate action upon submission. Label
-the `title` field `Title` and use a text input; label the `body` field `Body`
-and use a `textarea`. 
-*/
