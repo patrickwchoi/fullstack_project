@@ -7,7 +7,7 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  profile_pic     :text             default("pic_url"), not null
+#  profile_pic     :string
 #  bio             :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -19,7 +19,6 @@ class User < ApplicationRecord
   validates :username, length: {minimum:3, maximum:30}, format: { without: URI::MailTo::EMAIL_REGEXP, message: "Can't be an email" }, uniqueness: true 
   validates :email, length: {minimum:5, maximum:255}, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true 
-  validates :profile_pic, presence: true
 
   before_validation :ensure_session_token 
 
