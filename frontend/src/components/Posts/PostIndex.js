@@ -23,6 +23,7 @@ const PostIndex = (props) => {
     // dispatch(fetchUsers()); //later, I want to only fetch the users that are authors of the posts
   }, [])
   //returns another "loggedin index" if you are logged in
+  console.log(posts)
   return (
     <div className='PostIndex'>
       <ul>

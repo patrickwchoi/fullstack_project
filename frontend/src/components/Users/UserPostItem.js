@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, updatePost} from '../../store/posts';
 import { useHistory } from "react-router-dom";
-import './Posts.css'
 import defaultProfilePic from '../../assets/default_profile_pic.png';
 
-const PostIndexItem = ({post}) => {
+const UserPostItem = ({post, author}) => {
 
   const history = useHistory();
   const redirectToEdit = (postId)=>{
@@ -19,10 +18,10 @@ const PostIndexItem = ({post}) => {
   const dispatch = useDispatch();
 
   return (
-    <div className='PostIndexItem'>
-      <img src={defaultProfilePic} className='post-profile-pic'/>
+    <div className='UserPostItem'>
+      {/* <img src={defaultProfilePic} className='post-profile-pic'/> */}
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
-      <p>{post.author.username}</p>
+      <p>{author.username}</p>
       <p> {post.body} </p>
       {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
         <>
@@ -34,4 +33,4 @@ const PostIndexItem = ({post}) => {
   )
 }
 
-export default PostIndexItem;
+export default UserPostItem;

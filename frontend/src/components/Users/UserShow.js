@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import {deleteUser, updateUser, getUser, fetchUser} from '../../store/users';
 import './Users.css';
 import defaultProfilePic from '../../assets/default_profile_pic.png';
+// import PostIndexItem from '../Posts/PostIndexItem';
+import UserPostItem from './UserPostItem';
 
 const UserShow = () => {
   const {userId} = useParams();
@@ -23,7 +25,7 @@ const UserShow = () => {
 
   //this will prevent the component from running while user is null. 
   //it only runs after useEffect runs, which is an async function
-  if (!user) return null;
+  if (!user ) return null;
   return (
     <div className='UserShow'>
 
@@ -33,6 +35,11 @@ const UserShow = () => {
         <p>{user.bio}</p>
         {/* <img src={require('../../assets/default_profile_pic.png')}/> */}
         <img src={defaultProfilePic}/>
+        <br/>
+
+        <ul>
+          {(Object.values(user.posts)).map(post=> <UserPostItem post={post} key={post.id} author={user}/>)} 
+        </ul>
 
       </ul>
     </div>
