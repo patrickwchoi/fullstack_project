@@ -20,7 +20,7 @@ const removeUser = userId => ({
 
 //grabs user from state
 export const getUser = (userId) => (state) => { 
-  return state.users
+  // return state.users
   return state?.users ? state.users[userId] : null;
 }
 export const getUsers = (state) => { //not very useful bc we dont wanna get all the users prob
