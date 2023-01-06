@@ -3,4 +3,5 @@
 # end 
 json.user do
   json.partial! 'api/users/user', user: @user
+  #this route should do the same as just putting 'user'
 end

@@ -9,16 +9,14 @@ const UserShow = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const isUserLoggedIn = (sessionUser.id === userId);
-  
+
   const user = useSelector(getUser(userId));
   console.log(user)
   // const profile_pic_url = user.profile_pic; //i dont see profile pic in state, so this might error
   const history = useHistory();
-  
   useEffect(()=>{ //i dont think this will be necessary if we decide to add users to state in index. but ig it doesnt hurt
     dispatch(fetchUser(userId))
-    console.log('finished dispatch')
-  }, [userId, dispatch])
+  }, [userId])
   
   return (
     <div className='UserShow'>

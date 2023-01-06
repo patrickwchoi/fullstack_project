@@ -38,13 +38,12 @@ export const fetchUsers = () => async (dispatch) =>{
 export const fetchUser = (userId) => async (dispatch) =>{
   const res = await csrfFetch(`/api/users/${userId}`);
   if (res.ok){
-    const {user} = await res.json();
+    const {user} = await res.json(); //must deconstruct user bc backend now sends nested user
     dispatch(receiveUser(user));
   }
 }
- 
 
-//edits state and backend
+//edits state and backend from frontend
 export const createUser = (user) => async (dispatch) =>{
   const res = await csrfFetch(`/api/users`, {
     method: 'user',
