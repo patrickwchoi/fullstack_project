@@ -17,7 +17,7 @@ const removePost = postId => ({
   postId
 })
 
-export const getPost = (postId) => (state) => {
+export const getPost = (postId) => (state) => { //grabs from state, not backend
   return state?.posts ? state.posts[postId] : null;
 }
 export const getPosts = (state) => {

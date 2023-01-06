@@ -8,6 +8,7 @@ class ApplicationController < ActionController::API
       with: :invalid_authenticity_token
 
   before_action :snake_case_params, :attach_authenticity_token
+  helper_method :current_user
 
   #CRRLLL 
 

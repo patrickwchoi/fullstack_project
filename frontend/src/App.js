@@ -7,9 +7,8 @@ import Navigation from "./components/Navigation";
 import PostIndex from "./components/Posts/PostIndex";
 import PostForm from "./components/Posts/PostCreate";
 import PostEdit from "./components/Posts/PostEdit";
-
 import PostShow from "./components/Posts/PostShow";
-
+import UserShow from "./components/Users/UserShow";
 
 function App() {
   return (
@@ -25,6 +24,7 @@ function App() {
           <Route exact path="/posts/new" component={PostForm} />
           <Route path="/posts/:postId/edit" component={PostEdit} />
           {/* <Route exact path="/posts/:postId" component={PostShow} /> */}
+          <Route path="/users/:userId" component={UserShow} />
 
         </Switch> 
     </div>

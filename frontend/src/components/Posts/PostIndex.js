@@ -7,14 +7,14 @@ import './Posts.css';
 
 
 const PostIndex = (props) => {
+  useEffect(()=>{
+    dispatch(fetchPosts())
+  }, [])
 
   const dispatch = useDispatch();
   const posts = useSelector(getPosts) 
   const sessionUser = useSelector(state => state.session.user);
 
-  useEffect(()=>{
-    dispatch(fetchPosts())
-  }, [])
 
   const history = useHistory();
   const redirectToCreate = ()=>{

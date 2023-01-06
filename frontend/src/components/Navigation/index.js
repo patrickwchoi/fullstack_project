@@ -18,9 +18,6 @@ function Navigation() {
   } else {
     sessionLinks = (
       <div className='navbar'>
-      {/* replace with triggers to open modals */}
-        {/* <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink> */}
         <NavLink exact to="/">Home</NavLink>
         <>
           <button onClick={openLogin} id='login-button'>Open Login form</button>
