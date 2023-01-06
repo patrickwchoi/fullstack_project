@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import {deleteUser, updateUser, getUser, fetchUser} from '../../store/users';
 import './Users.css';
+import defaultProfilePic from '../../assets/default_profile_pic.png';
 
 const UserShow = () => {
   const {userId} = useParams();
@@ -30,9 +31,8 @@ const UserShow = () => {
         <h2>{user.username}</h2>
         <p>{user.email}</p>
         <p>{user.bio}</p>
-        {/* <p>{user.profilePic}</p>
-        <img src='fullstack_project/frontend/src/assets/default_profile_pic.png'/>
-        <img src='https://www.birdnote.org/sites/default/files/Mountain%20Bluebird%20Male%20%C2%A9%20Tom%20Grey-crp.jpg'/> */}
+        {/* <img src={require('../../assets/default_profile_pic.png')}/> */}
+        <img src={defaultProfilePic}/>
 
       </ul>
     </div>

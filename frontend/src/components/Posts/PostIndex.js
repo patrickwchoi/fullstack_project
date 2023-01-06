@@ -4,23 +4,24 @@ import { useHistory  } from "react-router-dom";
 import PostIndexItem from './PostIndexItem';
 import { getPosts, fetchPosts } from '../../store/posts'
 import './Posts.css';
-
+import { fetchUsers, getUser } from '../../store/users';
 
 const PostIndex = (props) => {
-  useEffect(()=>{
-    dispatch(fetchPosts())
-  }, [])
-
   const dispatch = useDispatch();
-  const posts = useSelector(getPosts) 
+  const posts = useSelector(getPosts);
   const sessionUser = useSelector(state => state.session.user);
-
-
+  
+  
+  
   const history = useHistory();
   const redirectToCreate = ()=>{
     history.push('/posts/new')
   }
-
+  
+  useEffect(()=>{
+    dispatch(fetchPosts()); //later, I want to only fetch first 15~ posts
+    // dispatch(fetchUsers()); //later, I want to only fetch the users that are authors of the posts
+  }, [])
   //returns another "loggedin index" if you are logged in
   return (
     <div className='PostIndex'>
