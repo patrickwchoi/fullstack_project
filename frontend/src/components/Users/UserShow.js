@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import {deleteUser, updateUser, getUser, fetchUser} from '../../store/users';
 import './Users.css';
-import defaultProfilePic from '../../assets/default_profile_pic.png';
 // import PostIndexItem from '../Posts/PostIndexItem';
 import UserPostItem from './UserPostItem';
 
@@ -34,7 +33,7 @@ const UserShow = () => {
         <p>{user.email}</p>
         <p>{user.bio}</p>
         {/* <img src={require('../../assets/default_profile_pic.png')}/> */}
-        <img src={defaultProfilePic}/>
+        <img src={user.profilePic} className='user-profile-pic'/>
         <br/>
 
         <ul>

@@ -22,40 +22,29 @@ ApplicationRecord.transaction do
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   User.create!(
-    username: 'walter_white', 
-    email: 'bb@gmail.com', 
-    password: 'password', 
-    profile_pic: '../frontend/src/assets/default_profile_pic.png', 
-    bio: 'I am the one who knocks!'
-  )
-  # .photo.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/heisenberg.png"), 
-  # filename: "heisenberg.png")
+    username: 'walter_white', email: 'bb@gmail.com', password: 'password', bio: 'I am the one who knocks!'
+  ).profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/heisenberg.png"), filename: "heisenberg.png")
 
   User.create!(
-    username: 'jesse_pinkman', 
-    email: 'hellokitty@gmail.com', 
-    password: 'password', 
-    profile_pic: 'hello_kitty.png', 
-    bio: 'whats up, b***h?'
-  )
+    username: 'jesse_pinkman', email: 'hellokitty@gmail.com', password: 'password', bio: 'whats up, b***h?'
+  ).profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/jesse_jane.jpg"), filename: 'jesse_jane.jpg')
 
 
   Post.create!(
-    author_id: 1,
-    title: 'How to Cook', 
-    body: 'Grab Jesse and Cook!'
+    author_id: 1, title: 'How to Cook', body: 'Grab Jesse and Cook!'
   )
   Post.create!(
-    author_id: 2,
-    title: 'I love my friends', 
-    body: 'Yo Mr. White, I love you'
+    author_id: 2, title: 'I love my friends', body: 'Yo Mr. White, I love you'
   )
   Post.create!(
-    author_id: 2,
-    title: 'Been having thoughts lately tbh...', 
-    body: 'not null'
-  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_photos/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
+    author_id: 2, title: 'Been having thoughts lately...', body: 'not null'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
     
+  Post.create!(
+    author_id: 1, title: 'Loser Alert ROFL', body: 'not null'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
+
+  
   # More users
   5.times do 
     User.create!({

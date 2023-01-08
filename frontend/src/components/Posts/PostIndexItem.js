@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, updatePost} from '../../store/posts';
 import { useHistory } from "react-router-dom";
 import './Posts.css'
-import defaultProfilePic from '../../assets/default_profile_pic.png';
 
 const PostIndexItem = ({post}) => {
 
@@ -20,7 +19,7 @@ const PostIndexItem = ({post}) => {
 
   return (
     <div className='PostIndexItem'>
-      <img src={defaultProfilePic} className='post-profile-pic'/>
+      <img src={post.author.profilePic} className='post-profile-pic'/>
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
       <p>{post.author.username}</p>
       <p> {post.body} </p>

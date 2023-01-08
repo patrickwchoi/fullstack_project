@@ -25,7 +25,9 @@ class User < ApplicationRecord
   has_many :posts,
     foreign_key: :author_id,
     class_name: :Post
-  has_one_attached :photo #will need to replace profile pic with this has_one_attached :profile_pic
+
+  has_one_attached :profile_pic#, default_url: 'https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_profile_pic.png'
+  #will need to replace with profile pic
 
     
   def self.find_by_credentials(credential, password)

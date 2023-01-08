@@ -1,7 +1,13 @@
 # This is before I extracted the has_many stuff to the partial, not each view
 # json.extract! user, :id, :username, :email, :profile_pic, :bio, :created_at, :updated_at
 
-json.extract! user, :id, :username, :email, :profile_pic, :bio, :created_at, :updated_at
+json.extract! user, :id, :username, :email, :bio, :created_at, :updated_at
+if user.profile_pic.attached?
+  json.ProfilePic user.profile_pic.url #
+else
+  json.ProfilePic 'https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_profile_pic.png'
+end
+# json.photoUrl user.photo.url #
 
 # json.posts.each do |post|
 #   json.partial! 'api/posts/post', posts: post
