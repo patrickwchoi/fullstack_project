@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
+
 ApplicationRecord.transaction do 
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
@@ -26,6 +28,8 @@ ApplicationRecord.transaction do
     profile_pic: '../frontend/src/assets/default_profile_pic.png', 
     bio: 'I am the one who knocks!'
   )
+  # .photo.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/heisenberg.png"), 
+  # filename: "heisenberg.png")
 
   User.create!(
     username: 'jesse_pinkman', 
@@ -46,6 +50,11 @@ ApplicationRecord.transaction do
     title: 'I love my friends', 
     body: 'Yo Mr. White, I love you'
   )
+  Post.create!(
+    author_id: 2,
+    title: 'Been having thoughts lately tbh...', 
+    body: 'not null'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_photos/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
     
   # More users
   5.times do 

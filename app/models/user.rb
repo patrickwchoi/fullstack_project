@@ -25,7 +25,8 @@ class User < ApplicationRecord
   has_many :posts,
     foreign_key: :author_id,
     class_name: :Post
-  
+  has_one_attached :photo #will need to replace profile pic with this has_one_attached :profile_pic
+
     
   def self.find_by_credentials(credential, password)
     if credential.include?('@') 

@@ -24,6 +24,7 @@ const PostIndexItem = ({post}) => {
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
       <p>{post.author.username}</p>
       <p> {post.body} </p>
+      <img src={post.photoUrl} className='post-photo'/>
       {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
         <>
           <button onClick={()=>{redirectToEdit(post.id)}}>Edit</button>
