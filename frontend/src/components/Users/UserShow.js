@@ -38,7 +38,7 @@ const UserShow = () => {
         <ul>
           {(Object.values(user.posts)).map(post=> <UserPostItem post={post} key={post.id} author={user}/>)} 
         </ul>
-
+ 
       </ul>
     </div>
   )
