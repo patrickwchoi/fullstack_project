@@ -24,6 +24,9 @@
   --color-modal-close-button-background: rgb(var(--white-on-dark));
   --font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
   --border-radius-small: 3px;
+  display: flex;
+  justify-content: center;
+  background-color: RGB(var(--navy));
 } 
 
 * {

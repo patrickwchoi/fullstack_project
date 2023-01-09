@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, updatePost} from '../../store/posts';
@@ -22,7 +23,7 @@ const PostIndexItem = ({post}) => {
     <div className='PostIndexItem'>
       <img src={post.author.profilePic} className='post-profile-pic'/>
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
-      {/* <p>{post.author.username}</p> */}
+      <p>{post.author.username}</p>
       <p> {post.body} </p>
       <img src={post.photoUrl} className='post-photo'/>
       {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc

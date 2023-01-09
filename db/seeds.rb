@@ -22,7 +22,7 @@ ApplicationRecord.transaction do
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   walter = User.create!(
-    username: 'walter_white', email: 'bb@gmail.com', password: 'password', bio: 'I am the one who knocks!')
+    username: 'walter_white', email: 'bb@gmail.com', password: 'password', bio: 'Say my name')
   walter.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/heisenberg.png"), filename: "heisenberg.png")
   walter.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_backgrund_img.jpg"), filename: "default_backgrund_img.jpg")
   
@@ -43,7 +43,7 @@ ApplicationRecord.transaction do
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
     
   Post.create!(
-    author_id: 1, title: 'Loser Alert ROFL', body: 'not null'
+    author_id: 1, title: 'Loser', body: 'not null'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
 
   
