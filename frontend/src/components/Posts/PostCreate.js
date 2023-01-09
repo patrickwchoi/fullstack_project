@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPost, fetchPost, createPost, updatePost } from '../../store/posts';
 import { useHistory } from "react-router-dom";
+import csrfFetch from '../../store/csrf';
 
 function PostCreate(){
   let post = { 
@@ -11,6 +12,8 @@ function PostCreate(){
   }
   const [title, setTitle] = useState(post.title)
   const [body, setBody] = useState(post.body)
+  const [photoFile, setPhotoFile] = useState (null);
+  const [photoUrl, setPhotoUrl] = useState (null); //what is this for? we never use it
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -18,15 +21,32 @@ function PostCreate(){
     history.push('/posts')
   }
 
-  // useEffect(()=>{
-  //   if (postId){ //whats this if for?
-  //     dispatch(fetchPost(postId))
-  //   }
-  // }, [postId]);
+  const handleFile = e => {
+    const file = e.currentTarget.files[0];
+    setPhotoFile(file);
+  }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit  = async (e)=>{
     e.preventDefault();
-    post = {...post, title, body}; //what is ...post??
+    const formData = new FormData();
+    formData.append('post[title]', title);
+    formData.append('post[body]', 'body temp');
+    if (photoFile) {
+      formData.append('post[photo]', photoFile);
+    }
+    const response = await csrfFetch('/api/posts', {
+      method: 'POST',
+      body: formData
+    });
+    if (response.ok) {
+      const message = await response.json();
+      console.log(message.message);
+      setTitle("");
+      setPhotoFile(null);
+      setPhotoUrl(null);
+    }
+
+    post = {...post, title, body}; 
     dispatch(createPost(post));
     redirectToIndex();
   }
@@ -44,6 +64,7 @@ function PostCreate(){
             placeholder='Body'
           />
         <br/>
+        <input type="file" onChange={handleFile} /> 
         <button>Create Post</button>
       </form>
     </div>

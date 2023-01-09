@@ -16,7 +16,8 @@ const PostIndexItem = ({post}) => {
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === post.authorId));
 
   const dispatch = useDispatch();
-  // console.log(post)
+  // console.log(`post: ${post}`)
+  // console.log(`post.author: ${post.author}`)
   return (
     <div className='PostIndexItem'>
       {/* <img src={post.author.profilePic} className='post-profile-pic'/> */}
