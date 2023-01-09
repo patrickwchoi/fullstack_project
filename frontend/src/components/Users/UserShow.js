@@ -32,7 +32,6 @@ const UserShow = () => {
         <h2>{user.username}</h2>
         <p>{user.email}</p>
         <p>{user.bio}</p>
-        {/* <img src={require('../../assets/default_profile_pic.png')}/> */}
         <img src={user.profilePic} className='user-profile-pic'/>
         <br/>
 

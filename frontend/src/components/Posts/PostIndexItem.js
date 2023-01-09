@@ -16,12 +16,12 @@ const PostIndexItem = ({post}) => {
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === post.authorId));
 
   const dispatch = useDispatch();
-
+  // console.log(post)
   return (
     <div className='PostIndexItem'>
-      <img src={post.author.profilePic} className='post-profile-pic'/>
+      {/* <img src={post.author.profilePic} className='post-profile-pic'/> */}
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
-      <p>{post.author.username}</p>
+      {/* <p>{post.author.username}</p> */}
       <p> {post.body} </p>
       <img src={post.photoUrl} className='post-photo'/>
       {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
