@@ -41,3 +41,7 @@
 button{
   cursor: pointer;
 }
+
+div{
+  display: block;
+}

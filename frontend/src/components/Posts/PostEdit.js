@@ -27,7 +27,6 @@ function PostEdit(){
     dispatch(updatePost(post));
     redirectToIndex();
   }
-  console.log(post)
   return (
     <div className='edit-post-form'>
       <form onSubmit={handleSubmit}>

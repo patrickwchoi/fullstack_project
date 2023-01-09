@@ -21,14 +21,16 @@ ApplicationRecord.transaction do
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
-  User.create!(
-    username: 'walter_white', email: 'bb@gmail.com', password: 'password', bio: 'I am the one who knocks!'
-  ).profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/heisenberg.png"), filename: "heisenberg.png")
-
-  User.create!(
+  walter = User.create!(
+    username: 'walter_white', email: 'bb@gmail.com', password: 'password', bio: 'I am the one who knocks!')
+  walter.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/heisenberg.png"), filename: "heisenberg.png")
+  walter.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_backgrund_img.jpg"), filename: "default_backgrund_img.jpg")
+  
+  jesse = User.create!(
     username: 'jesse_pinkman', email: 'hellokitty@gmail.com', password: 'password', bio: 'whats up, b***h?'
-  ).profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/jesse_jane.jpg"), filename: 'jesse_jane.jpg')
-
+  )
+  jesse.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/jesse_jane.jpg"), filename: 'jesse_jane.jpg')
+  jesse.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/power_background.jpg"), filename: 'power_background.jpg')
 
   Post.create!(
     author_id: 1, title: 'How to Cook', body: 'Grab Jesse and Cook!'

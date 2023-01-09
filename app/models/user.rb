@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_pic#, default_url: 'https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_profile_pic.png'
   #will need to replace with profile pic
-
+  has_one_attached :background_pic
     
   def self.find_by_credentials(credential, password)
     if credential.include?('@') 

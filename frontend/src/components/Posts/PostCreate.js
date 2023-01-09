@@ -30,7 +30,7 @@ function PostCreate(){
     e.preventDefault();
     const formData = new FormData();
     formData.append('post[title]', title);
-    formData.append('post[body]', 'body temp');
+    formData.append('post[body]', body);
     if (photoFile) {
       formData.append('post[photo]', photoFile);
     }
@@ -45,6 +45,9 @@ function PostCreate(){
       setPhotoFile(null);
       setPhotoUrl(null);
     }
+    //I have questions. Should I expedite this formData logic to my thunk action creators? 
+    //Is it ok that Im not updating state with the photo?
+    //Why can I dispatch two POST methods for the same post?
 
     post = {...post, title, body}; 
     dispatch(createPost(post));

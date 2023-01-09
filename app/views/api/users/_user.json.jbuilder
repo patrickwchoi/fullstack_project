@@ -7,6 +7,11 @@ if user.profile_pic.attached?
 else
   json.ProfilePic 'https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_profile_pic.png'
 end
+if user.background_pic.attached?
+  json.BackgroundPic user.background_pic.url #
+else
+  json.BackgroundPic 'https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_backgrund_img.jpg'
+end
 # json.photoUrl user.photo.url #
 
 # json.posts.each do |post|
