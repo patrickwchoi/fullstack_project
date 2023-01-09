@@ -7,8 +7,8 @@ json.user do
   json.posts do
     @user.posts.each do |post|
       json.set! post.id do
-        # json.partial! 'api/posts/post', post: post
-        json.extract! post, :id, :title, :body, :content_url, :author_id, :created_at, :updated_at
+        json.partial! 'api/posts/post', post: post
+        # json.extract! post, :id, :title, :body, :content_url, :author_id, :created_at, :updated_at
       end
     end
   end

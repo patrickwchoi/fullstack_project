@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :show, :update, :destroy, :index]
+    
       # resources :posts, only: [:create]  #so that we guarantee author_id is grabbable i think
 
     resources :posts, only: [:index, :show, :create, :update, :destroy]
