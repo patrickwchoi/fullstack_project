@@ -1,19 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import * as sessionActions from '../../store/session';
 import ProfileButton from './ProfileButton';
 import {useLoginModal, useSignupModal } from '../../context/Modal';
 import { BsFillHouseDoorFill, FaMoon, FaHouseUser  } from "react-icons/fa";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdEditNote } from "react-icons/md";
-
-
 import './Navigation.css';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
   const {showLogin, openLogin, closeLogin} = useLoginModal();
   const {showSignup, openSignup, closeSignup} = useSignupModal();
+  const dispatch = useDispatch();
+
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+  };
 
   let sessionLinks;
   if (sessionUser) {
@@ -23,6 +28,7 @@ function Navigation() {
         <a href='/posts'> <FaHouseUser/> </a>
         <a href='/users/{sessionUser.id}'> <BsFillPersonFill/> </a>  {/*how to implement?? */}
         <a href='/posts/new'> <MdEditNote/></a> 
+        <button onClick={logout}>Logout</button>
       </div>
 
     );

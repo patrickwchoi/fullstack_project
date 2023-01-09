@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, updatePost} from '../../store/posts';
 import { useHistory } from "react-router-dom";
-import defaultProfilePic from '../../assets/default_profile_pic.png';
 
 const UserPostItem = ({post, author}) => {
 

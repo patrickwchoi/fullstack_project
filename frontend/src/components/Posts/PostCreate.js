@@ -34,6 +34,7 @@ function PostCreate(){
     if (photoFile) {
       formData.append('post[photo]', photoFile);
     }
+    
     const response = await csrfFetch('/api/posts', {
       method: 'POST',
       body: formData
@@ -49,8 +50,8 @@ function PostCreate(){
     //Is it ok that Im not updating state with the photo?
     //Why can I dispatch two POST methods for the same post?
 
-    post = {...post, title, body}; 
-    dispatch(createPost(post));
+    // post = {...post, title, body}; 
+    // dispatch(createPost(post));
     redirectToIndex();
   }
 

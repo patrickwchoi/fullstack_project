@@ -11,8 +11,7 @@ const UserShow = () => {
   const {userId} = useParams();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const isUserLoggedIn =( sessionUser &&(sessionUser.id === userId));
-
+  const isAuthorLoggedIn = ( sessionUser && (sessionUser.id == userId)); //i think i need two equal signs here instead of 3 bc userId is num, not string
 
   const user = useSelector(getUser(userId));
   // const profile_pic_url = user.profile_pic; //i dont see profile pic in state, so this might error
@@ -36,16 +35,16 @@ const UserShow = () => {
           <div className='user-bio'>{user.bio}</div>
         </div>
       </header>
-      <ul>
-        <p>{user.email}</p>
-        <p>{user.bio}</p>
-        <br/>
-
+      {isAuthorLoggedIn ? ( 
+        <>
+          <button onClick={()=>{history.push(`/users/${userId}/edit`)}}>Edit</button>
+          <button onClick={()=>{history.push(`/posts/new`)}}>New Post</button>
+        </>
+      ) : null}
         <ul>
           {(Object.values(user.posts)).map(post=> <UserPostItem post={post} key={post.id} author={user}/>)} 
         </ul>
- 
-      </ul>
+
       
     </div>
   )

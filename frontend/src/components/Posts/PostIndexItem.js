@@ -20,7 +20,7 @@ const PostIndexItem = ({post}) => {
   // console.log(`post.author: ${post.author}`)
   return (
     <div className='PostIndexItem'>
-      {/* <img src={post.author.profilePic} className='post-profile-pic'/> */}
+      <img src={post.author.profilePic} className='post-profile-pic'/>
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
       {/* <p>{post.author.username}</p> */}
       <p> {post.body} </p>
