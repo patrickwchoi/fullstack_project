@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import {deleteUser, updateUser, getUser, fetchUser} from '../../store/users';
-import { fetchPosts, getPosts } from '../../store/posts';
 import './Users.css';
 // import PostIndexItem from '../Posts/PostIndexItem';
 import UserPostItem from './UserPostItem';
@@ -13,7 +12,6 @@ const UserShow = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const isUserLoggedIn =( sessionUser &&(sessionUser.id === userId));
-  const posts = useSelector(getPosts);
 
 
   const user = useSelector(getUser(userId));
@@ -23,7 +21,6 @@ const UserShow = () => {
     if (userId){
       dispatch(fetchUser(userId));
     }
-    dispatch(fetchPosts())
   }, [userId])
 
   //this will prevent the component from running while user is null. 

@@ -24,7 +24,9 @@
     
     align-items: center;
     display: flex;
-    justify-content: flex-end
+    justify-content: flex-end;
+    color: white;
+
 }
 
 /* for all buttons in navbar */
@@ -54,3 +56,4 @@
 #signup-button{
   background: #00b8ff;
 }
+
