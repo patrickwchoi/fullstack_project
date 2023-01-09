@@ -12,7 +12,7 @@ import UserShow from "./components/Users/UserShow";
 
 function App() {
   return (
-    <div className='root'>
+    <div className='root' id='root'>
       {/* needed to add this to remove a 404 favicon get error. idrk */}
       <link rel="shortcut icon" href=""></link> 
 

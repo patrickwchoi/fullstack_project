@@ -1,10 +1,29 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
+// import { Modal } from 'react-bootstrap';
+
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, updatePost} from '../../store/posts';
 import { useHistory } from "react-router-dom";
 import './Posts.css'
+
+
+Modal.setAppElement('#root');
+const customStyles = {
+  content: {
+    position: 'absolute', 
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    height: "320px",
+    width: "440px",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "5px",
+  },
+};
 
 const PostIndexItem = ({post}) => {
 
@@ -15,13 +34,28 @@ const PostIndexItem = ({post}) => {
 
   const sessionUser = useSelector(state => state.session.user);
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === post.authorId));
-
   const dispatch = useDispatch();
-  // console.log(`post: ${post}`)
-  // console.log(`post.author: ${post.author}`)
+  const [postModalIsOpen, setPostModalIsOpen] = useState(false);
+  const openPostModal = () => {
+    setPostModalIsOpen(true);
+  }
+  const closePostModal = () => {
+    setPostModalIsOpen(false);
+  }
+  
+  
   return (
     <div className='PostIndexItem'>
       <img src={post.author.profilePic} className='post-profile-pic'/>
+      <button onClick={openPostModal} style={{position: 'relative'}}>Open</button>
+      {/* <div className='post-modal'> */}
+        <Modal isOpen={postModalIsOpen} style={customStyles} overlayClassName="Overlay" 
+        backdrop={true} onRequestClose={closePostModal}    >
+            <h2>{post.title}</h2>
+            <button onClick={closePostModal}>Close</button>
+        </Modal>
+      {/* </div> */}
+
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
       <p>{post.author.username}</p>
       <p> {post.body} </p>

@@ -32,3 +32,25 @@
   border-radius: 50%;
   margin: 10px;
 }
+/* 
+#post-modal{
+  background-color: yellow;
+  color: red;
+  width: 100px;
+
+}
+ */
+.Overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* cursor: pointer; */
+
+  right: 0;
+  bottom: 0; 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
