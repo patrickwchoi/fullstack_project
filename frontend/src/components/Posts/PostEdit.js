@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPost, fetchPost, createPost, updatePost } from '../../store/posts';
 import { useHistory } from "react-router-dom";
+import csrfFetch from '../../store/csrf';
+
 
 function PostEdit(){
   const {postId} = useParams();
@@ -14,6 +16,8 @@ function PostEdit(){
  
   const [title, setTitle] = useState(post.title)
   const [body, setBody] = useState(post.body)
+  const [photoFile, setPhotoFile] = useState (null);
+  const [photoUrl, setPhotoUrl] = useState (null); 
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -21,12 +25,34 @@ function PostEdit(){
     history.push('/posts')
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async (e)=>{
     e.preventDefault();
-    post = {...post, title, body};
-    dispatch(updatePost(post));
+    const formData = new FormData();
+    formData.append('post[title]', title);
+    formData.append('post[body]', body);
+    if (photoFile) {
+      formData.append('post[photo]', photoFile);
+    }
+    
+    const response = await csrfFetch(`/api/posts/${postId}`, {
+      method: 'PATCH',
+      body: formData
+    });
+    if (response.ok) {
+      const message = await response.json();
+      setTitle("");
+      setPhotoFile(null);
+      setPhotoUrl(null);
+    }
+    // post = {...post, title, body};
+    // dispatch(updatePost(post));
     redirectToIndex();
   }
+  const handleFile = e => {
+    const file = e.currentTarget.files[0];
+    setPhotoFile(file);
+  }
+
   return (
     <div className='edit-post-form'>
       <form onSubmit={handleSubmit}>
@@ -40,6 +66,7 @@ function PostEdit(){
             placeholder='Body'
           />
         <br/>
+        <input type="file" onChange={handleFile} /> 
         <button>Edit Post</button>
       </form>
     </div>

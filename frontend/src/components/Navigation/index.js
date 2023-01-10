@@ -26,7 +26,7 @@ function Navigation() {
       <div className='navbar'>
         {/* <ProfileButton user={sessionUser} /> */}
         <a href='/posts'> <FaHouseUser/> </a>
-        <a href='/users/{sessionUser.id}'> <BsFillPersonFill/> </a>  {/*how to implement?? */}
+        <a href={`/users/${sessionUser.id}`}> <BsFillPersonFill/> </a>  {/*how to implement?? */}
         <a href='/posts/new'> <MdEditNote/></a> 
         <button onClick={logout}>Logout</button>
       </div>

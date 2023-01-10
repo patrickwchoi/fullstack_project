@@ -27,8 +27,12 @@ class Api::PostsController < ApplicationController
   end
 
   def update  
+    puts 'Bug1'
     @post = Post.find_by(id: params[:id])
+    @post.author_id = current_user.id
+    puts 'Bug2'
     if @post && @post.update(post_params)
+      puts 'Bug3'
       render :show
     elsif @post
       render json: @post.errors.full_messages, status: 422
@@ -57,6 +61,6 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params 
-    params.require(:post).permit(:title, :body, :content_url, :photo)
+    params.require(:post).permit(:id, :title, :body, :content_url, :photo)
   end 
 end

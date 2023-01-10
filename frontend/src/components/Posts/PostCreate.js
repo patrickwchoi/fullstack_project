@@ -23,7 +23,14 @@ function PostCreate(){
 
   const handleFile = e => {
     const file = e.currentTarget.files[0];
-    setPhotoFile(file);
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        setPhotoFile(file);
+        setPhotoUrl(fileReader.result);
+      };
+    }
   }
 
   const handleSubmit  = async (e)=>{
@@ -54,6 +61,8 @@ function PostCreate(){
     redirectToIndex();
   }
 
+  const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
+
   return (
     <div className='new-post-form'>
       <form onSubmit={handleSubmit}>
@@ -68,6 +77,7 @@ function PostCreate(){
           />
         <br/>
         <input type="file" onChange={handleFile} /> 
+        {preview}
         <button>Create Post</button>
       </form>
     </div>
