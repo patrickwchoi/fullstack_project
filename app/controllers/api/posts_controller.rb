@@ -28,7 +28,7 @@ class Api::PostsController < ApplicationController
 
   def update  
     @post = Post.find_by(id: params[:id])
-    @post.author_id = current_user.id
+    # @post.author_id = current_user.id
     if @post && @post.update(post_params)
       render :show
     elsif @post
