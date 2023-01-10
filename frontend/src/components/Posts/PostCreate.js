@@ -13,7 +13,7 @@ function PostCreate(){
   const [title, setTitle] = useState(post.title)
   const [body, setBody] = useState(post.body)
   const [photoFile, setPhotoFile] = useState (null);
-  const [photoUrl, setPhotoUrl] = useState (null); //what is this for? we never use it
+  const [photoUrl, setPhotoUrl] = useState (null); 
   const dispatch = useDispatch();
 
   const history = useHistory();
