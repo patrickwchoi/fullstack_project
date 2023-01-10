@@ -47,14 +47,7 @@ ApplicationRecord.transaction do
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
 
   
-  # More users
-  5.times do 
-    User.create!({
-      username: Faker::Internet.unique.username(specifier: 3),
-      email: Faker::Internet.unique.email,
-      password: 'password'
-    }) 
-  end
+ 
 
   puts "Done!"
 end

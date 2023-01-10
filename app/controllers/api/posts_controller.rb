@@ -27,12 +27,9 @@ class Api::PostsController < ApplicationController
   end
 
   def update  
-    puts 'Bug1'
     @post = Post.find_by(id: params[:id])
     @post.author_id = current_user.id
-    puts 'Bug2'
     if @post && @post.update(post_params)
-      puts 'Bug3'
       render :show
     elsif @post
       render json: @post.errors.full_messages, status: 422

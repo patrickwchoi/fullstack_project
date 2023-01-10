@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: fullstack_project_production
-  username: fullstack_project
-  password: <%= ENV["FULLSTACK_PROJECT_DATABASE_PASSWORD"] %>
+  # database: fullstack_project_production
+  # username: fullstack_project
+  # password: <%= ENV["FULLSTACK_PROJECT_DATABASE_PASSWORD"] %>
+  url: <%= ENV[’DATABASE_URL’] %>
