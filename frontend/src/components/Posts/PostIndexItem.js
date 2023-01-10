@@ -12,10 +12,10 @@ import './Posts.css'
 Modal.setAppElement('#root');
 const customStyles = {
   content: {
-    position: 'absolute', 
-    top: "50%",
-    left: "50%",
+    left: "0",
+    top: "100%",
     right: "auto",
+    bottom: "auto",
     bottom: "auto",
     height: "320px",
     width: "440px",
@@ -35,27 +35,30 @@ const PostIndexItem = ({post}) => {
   const sessionUser = useSelector(state => state.session.user);
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === post.authorId));
   const dispatch = useDispatch();
-  const [postModalIsOpen, setPostModalIsOpen] = useState(false);
-  const openPostModal = () => {
-    setPostModalIsOpen(true);
+  const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+  const openDropdown = () => {
+    setDropdownIsOpen(true);
   }
-  const closePostModal = () => {
-    setPostModalIsOpen(false);
+  const closeDropdown = () => {
+    setDropdownIsOpen(false);
   }
-  
-  
   return (
     <div className='PostIndexItem'>
       <img src={post.author.profilePic} className='post-profile-pic'/>
-      <button onClick={openPostModal} style={{position: 'relative'}}>Open</button>
+      {/* <button onClick={openPostModal} style={{position: 'relative',   display: 'inline-block'}}>Open</button> */}
       {/* <div className='post-modal'> */}
-        <Modal isOpen={postModalIsOpen} style={customStyles} overlayClassName="Overlay" 
+        {/* <Modal isOpen={postModalIsOpen} style={customStyles} overlayClassName="Overlay" 
         backdrop={true} onRequestClose={closePostModal}    >
             <h2>{post.title}</h2>
             <button onClick={closePostModal}>Close</button>
-        </Modal>
+        </Modal> */}
       {/* </div> */}
-
+      <button onClick={openDropdown} >dropdown </button>
+      {dropdownIsOpen && (
+        <div className='post-dropdown'>
+           <button onClick={closeDropdown}>close Dropdown</button>
+        </div>
+      )};
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
       <p>{post.author.username}</p>
       <p> {post.body} </p>

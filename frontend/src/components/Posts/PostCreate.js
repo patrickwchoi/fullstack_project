@@ -41,7 +41,6 @@ function PostCreate(){
     });
     if (response.ok) {
       const message = await response.json();
-      console.log(message.message);
       setTitle("");
       setPhotoFile(null);
       setPhotoUrl(null);

@@ -59,7 +59,7 @@ export const updatePost = (post) => async (dispatch) => {
     }
   );
   if (res.ok){
-    const newPost = await res.json();
+    const newPost = await res.json(); //content comes from show view in backend
     dispatch(receivePost(newPost))
   }
 }
