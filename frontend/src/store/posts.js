@@ -89,7 +89,11 @@ const postsReducer = (state={}, action) =>{//returns new state after handling ac
       delete newState[action.postId]
       return newState;
     case RECEIVE_USER:
-      return {...state, ...action.user.posts};
+      // return {...state, ...action.user.posts};
+      //rn, state only has posts, not session or users bc it is only postsReducer
+      //therefore, I dont have to return old state. I only want to grab user posts, so this resets posts to user posts
+      return {...action.user.posts};
+
       
     default: 
       return state;

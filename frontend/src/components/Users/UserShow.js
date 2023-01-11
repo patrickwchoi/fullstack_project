@@ -18,10 +18,18 @@ const UserShow = () => {
 
   const user = useSelector(getUser(userId));
   const history = useHistory();
+  const redirectToCreatePost = ()=>{
+    history.push('/posts/new')
+  }
+  const redirectToEditUser = ()=>{
+    history.push(`/users/${userId}/edit`)
+  }
+
   useEffect(()=>{ 
     if (userId){
       dispatch(fetchUser(userId));
     }
+    
   }, [userId, dispatch])
   
   
@@ -46,8 +54,8 @@ const UserShow = () => {
         </header>
         {isAuthorLoggedIn ? ( 
           <>
-            <button onClick={()=>{history.push(`/users/${userId}/edit`)}}>Edit</button>
-            <button onClick={()=>{history.push(`/posts/new`)}}>New Post</button>
+            <button onClick={redirectToEditUser}>Edit</button>
+            <button onClick={redirectToCreatePost}>New Post</button>
           </>
         ) : null}
           <ul>

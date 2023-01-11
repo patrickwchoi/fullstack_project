@@ -5,6 +5,8 @@ import { getPost, fetchPost, createPost, updatePost } from '../../store/posts';
 import { useHistory } from "react-router-dom";
 import csrfFetch from '../../store/csrf';
 
+
+console.log('post create')
 function PostCreate(){
   let post = { 
     title:'',

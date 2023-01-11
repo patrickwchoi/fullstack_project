@@ -19,7 +19,7 @@ const PostIndex = (props) => {
   
   useEffect(()=>{
     dispatch(fetchPosts()); //later, I want to only fetch first 15~ posts
-    dispatch(fetchUsers()); //I will only fetch the users that are authors of the posts bc _____
+    // dispatch(fetchUsers()); 
   }, [])
   //returns another "loggedin index" if you are logged in
 

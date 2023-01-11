@@ -23,25 +23,20 @@
     padding-left: 10px;
     width: 100%;
     vertical-align: baseline;
-
-    
     align-items: center;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+
 
 }
-navbar > * {
-  margin: 20px;
-}
-.navbar > a {
+
+.navbar * a {
   color: white;
 }
 
 /* for all buttons in navbar */
-.navbar > button{
+.navbar button{
   color: black;
-  display: flex;
-  justify-content: center;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5;
@@ -52,7 +47,6 @@ navbar > * {
   align-items: center;
   box-sizing: border-box;
   color: var(--button-text);
-  display: flex;
   justify-content: center;
   text-decoration: none;
 
@@ -65,3 +59,16 @@ navbar > * {
   background: #00b8ff;
 }
 
+#navbar-left{
+  height: 100%;
+}
+#logo{
+  /* how to make height fill out to parent div's height: */
+  height: 100%;
+  transform: translateY(3%);
+
+}
+
+.navbar-signup{
+
+}

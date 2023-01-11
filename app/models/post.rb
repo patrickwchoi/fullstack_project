@@ -16,7 +16,8 @@ class Post < ApplicationRecord
 
   belongs_to :author,
     foreign_key: :author_id,
-    class_name: :User
+    class_name: :User,
+    dependent: :destroy
 
   has_one_attached :photo #this is very similar to making new column
 

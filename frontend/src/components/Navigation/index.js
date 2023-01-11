@@ -9,6 +9,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { MdEditNote } from "react-icons/md";
 import './Navigation.css';
 
+
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
   const {showLogin, openLogin, closeLogin} = useLoginModal();
@@ -24,11 +25,16 @@ function Navigation() {
   if (sessionUser) {
     sessionLinks = (
       <div className='navbar'>
-        {/* <ProfileButton user={sessionUser} /> */}
-        <a href='/posts'> <FaHouseUser/> </a>
-        <a href={`/users/${sessionUser.id}`}> <BsFillPersonFill/> </a>  {/*how to implement?? */}
-        <a href='/posts/new'> <MdEditNote/></a> 
-        <button onClick={logout}>Logout</button>
+        {/* <div id="navbar-loggedin"> */}
+          <div id="navbar-left">
+            <img id="logo" src="https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_logo.png"></img>
+          </div>
+          <div id="navbar-right">
+            <a href='/posts'> <FaHouseUser/> </a>
+            <a href={`/users/${sessionUser.id}`}> <BsFillPersonFill/> </a>  {/*how to implement?? */}
+            <a href='/posts/new'> <MdEditNote/></a> 
+            <button onClick={logout}>Logout</button>
+          </div>
       </div>
 
     );
@@ -36,11 +42,10 @@ function Navigation() {
     sessionLinks = (
       <div className='navbar'>
         
-        <NavLink exact to="/">Home</NavLink>
-        <>
+        <div id="login-signup">
           <button onClick={openLogin} id='login-button'>Open Login form</button>
           <button onClick={openSignup} id='signup-button'>Open Signup form</button>
-        </>
+        </div>
 
       </div>
     );

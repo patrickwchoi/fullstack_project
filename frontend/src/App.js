@@ -2,7 +2,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginSignupModal from "./components/LoginSignupModal";
 import React from 'react';
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 import Navigation from "./components/Navigation";
 import PostIndex from "./components/Posts/PostIndex";
 import PostForm from "./components/Posts/PostCreate";
@@ -21,6 +21,7 @@ function App() {
       <LoginSignupModal />
       
         <Switch> 
+        <Route exact path="/"><Redirect to="/posts" /></Route>
           <Route exact path="/posts" component={PostIndex} />
           <Route exact path="/posts/new" component={PostForm} />
           <Route path="/posts/:postId/edit" component={PostEdit} />
