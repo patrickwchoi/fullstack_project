@@ -54,12 +54,6 @@ function PostEdit(){
       setPhotoFile(null);
       setPhotoUrl(null);
     }
-    //I have questions. Should I expedite this formData logic to my thunk action creators? 
-    //Is it ok that Im not updating state with the photo?
-    //Why can I dispatch two POST methods for the same post?
-
-    // post = {...post, title, body}; 
-    // dispatch(createPost(post));
     redirectToUser();
   }
   const handleFile = e => {

@@ -9,6 +9,7 @@ import PostForm from "./components/Posts/PostCreate";
 import PostEdit from "./components/Posts/PostEdit";
 import PostShow from "./components/Posts/PostShow";
 import UserShow from "./components/Users/UserShow";
+import UserEdit from "./components/Users/UserEdit";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/posts/:postId/edit" component={PostEdit} />
           {/* <Route exact path="/posts/:postId" component={PostShow} /> */}
           <Route path="/users/:userId" component={UserShow} />
+          <Route path="/users/:userId/edit" component={UserEdit} />
+
 
         </Switch> 
     </div>
