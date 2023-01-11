@@ -23,7 +23,7 @@ function UserEdit()  {
   const user = useSelector(getUser(userId));
   const [username, setUsername] = useState(user.username);
   const [bio, setBio] = useState(user.bio);
-  const [backgroundPic, setBackgroundPic] = useState ();
+  const [backgroundPic, setBackgroundPic] = useState (null);
   const [backgroundPicUrl, setBackgroundPicUrl] = useState (null);
   const [profilePic, setProfilePic] = useState (null);
   const [profilePicUrl, setProfilePicUrl] = useState (null);
@@ -32,7 +32,7 @@ function UserEdit()  {
     if (userId){
       dispatch(fetchUser(userId));
     }
-  }, [userId, dispatch])
+  }, [userId])
   
   const handleSubmit  = async (e)=>{
     e.preventDefault();
@@ -88,13 +88,10 @@ function UserEdit()  {
 
   //this will prevent the component from running while user is null. 
   //it only runs after useEffect runs, which is an async function
-  console.log('Helllooooooo')
 
   console.log(`is author logged in: ${isAuthorLoggedIn}`)
   if (!isAuthorLoggedIn) return null;
   if (!user ) return null;
-
-  console.log('Helllooooooo')
 
   return (
     <div className='user-show-container'>
@@ -110,12 +107,12 @@ function UserEdit()  {
             placeholder='bio'
           />
         <br/>
-        <input type="file" onChange={handleBackgroundPic}> Background Pic </input>
+        {/* <input type="file" onChange={handleBackgroundPic}> Background Pic </input>
         <input type="file" onChange={handleProfilePic}> Profile Pic </input>
 
 
         {BackgroundPicPreview}
-        {ProfilePicPreview}
+        {ProfilePicPreview} */}
 
         <button>Edit User</button>
       </form>
