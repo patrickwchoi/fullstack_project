@@ -88,7 +88,6 @@ const usersReducer = (state={}, action) =>{
     case RECEIVE_USERS:
       return {...action.users}; 
     case RECEIVE_USER:
-      console.log(`receiveuser: ${action.user.posts}`)
       return {...state, [action.user.id]: action.user}; 
       //here, action.user is an object that is being returned in our views jbuilder in rails
       //After I edited my show page to nest the has_many posts, it used to show up parallel to user and thus wasnt being collected in state, bc state only grabs action.user

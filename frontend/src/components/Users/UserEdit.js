@@ -7,9 +7,12 @@ import { getPosts } from '../../store/posts';
 import './Users.css';
 import PostIndexItem from '../Posts/PostIndexItem';
 import csrfFetch from '../../store/csrf';
+console.log('Helllooooooo')
 
 
-const UserEdit = () => {
+function UserEdit()  {
+  console.log('Helllooooooo')
+
   const {userId} = useParams();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -85,9 +88,13 @@ const UserEdit = () => {
 
   //this will prevent the component from running while user is null. 
   //it only runs after useEffect runs, which is an async function
+  console.log('Helllooooooo')
+
   console.log(`is author logged in: ${isAuthorLoggedIn}`)
   if (!isAuthorLoggedIn) return null;
   if (!user ) return null;
+
+  console.log('Helllooooooo')
 
   return (
     <div className='user-show-container'>
@@ -113,7 +120,6 @@ const UserEdit = () => {
         <button>Edit User</button>
       </form>
 
-        
       </div>
     </div>
   )
