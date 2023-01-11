@@ -18,13 +18,11 @@ const removeLike = likeId => ({
   likeId
 })
 
-//grabs user from state
-export const getUser = (userId) => (state) => { 
-  // return state.users
-  return state?.users ? state.users[userId] : null;
+export const getLike = (likeId) => (state) => { 
+  return state?.likes ? state.likes[likeId] : null;
 }
-export const getUsers = (state) => { //not very useful bc we dont wanna get all the users prob
-  return state?.users ? Object.values(state.users) : [];
+export const getLikes = (state) => { //not very useful bc we dont wanna get all the users prob
+  return state?.likes ? Object.values(state.likes) : [];
 }
 
 //updates state from backend

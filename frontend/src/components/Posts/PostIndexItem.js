@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, updatePost, fetchPost} from '../../store/posts';
+import {getUser} from '../../store/users';
 import { useHistory } from "react-router-dom";
 import './Posts.css'
 
@@ -25,7 +26,8 @@ const customStyles = {
   },
 };
 
-const PostIndexItem = ({post, author}) => {
+const PostIndexItem = ({post}) => {
+  const author = useSelector(getUser(post.authorId));
   const history = useHistory();
 
   const handleEdit = (postId) =>{
@@ -59,9 +61,13 @@ const PostIndexItem = ({post, author}) => {
       {/* </div> */}
       <button onClick={openDropdown} >dropdown </button>
       {dropdownIsOpen && (
-        <div className='post-dropdown'>
-           <button onClick={closeDropdown}>close Dropdown</button>
-        </div>
+        <>
+          <div id='post-modal-background' onClick={closeDropdown}>
+          </div>
+          <div className='post-dropdown'>
+            <button onClick={closeDropdown}>close Dropdown</button>
+          </div>
+        </>
       )};
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
       <a onClick={redirectToUser} id="username">{author.username}</a>

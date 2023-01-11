@@ -3,12 +3,15 @@ import thunk from 'redux-thunk';
 import session from './session';
 import posts from './posts';
 import users from './users';
+// import likes from './likes';
+
 let enhancer;
 export const rootReducer = combineReducers({
     //This is where we initialze our state with objects
     session ,
     posts, 
     users
+    // likes
 })
 
 if (process.env.NODE_ENV === 'production') {

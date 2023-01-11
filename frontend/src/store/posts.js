@@ -81,7 +81,7 @@ export const deletePost = (postId) => async (dispatch) => {
 const postsReducer = (state={}, action) =>{//returns new state after handling action
   switch(action.type){
     case RECEIVE_POSTS:
-      return {...action.posts}; 
+      return {...action.posts.posts}; 
     case RECEIVE_POST:
       return {...state, [action.post.id]: action.post};
     case REMOVE_POST:

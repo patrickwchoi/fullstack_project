@@ -25,6 +25,8 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Post
 
+  has_many :likes, dependent: :destroy
+
   has_one_attached :profile_pic#, default_url: 'https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_profile_pic.png'
   #will need to replace with profile pic
   has_one_attached :background_pic

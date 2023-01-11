@@ -69,10 +69,12 @@
   align-items: center;
 }
 
-post-dropdown{
-  display: none;
+.post-dropdown{
   position: absolute;
-  z-index: 1;
+  height:200px;
+  width: 200px;
+  border:1px solid rgba(0, 0, 0, 0.5);
+  z-index: 102;
 }
 
 #username{
@@ -81,4 +83,13 @@ post-dropdown{
 }
 .post-profile-pic{
   cursor: pointer;
+}
+
+#post-modal-background{
+  height: 100vh; /* view height, gets percent of the screen size */
+  width: 100vw;
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  left: 0;
 }

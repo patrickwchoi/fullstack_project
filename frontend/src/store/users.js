@@ -96,6 +96,8 @@ const usersReducer = (state={}, action) =>{
       const newState = {...state};
       delete newState[action.userId]
       return newState;
+    case RECEIVE_POSTS:
+      return {...action.posts.users};
     default: 
       return state;
   }

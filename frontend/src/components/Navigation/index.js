@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import ProfileButton from './ProfileButton';
@@ -15,19 +15,23 @@ function Navigation() {
   const {showLogin, openLogin, closeLogin} = useLoginModal();
   const {showSignup, openSignup, closeSignup} = useSignupModal();
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
-
+  const redirectToIndex = () => {
+    history.push(`/posts`)
+  }
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <div className='navbar'>
         {/* <div id="navbar-loggedin"> */}
           <div id="navbar-left">
-            <img id="logo" src="https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_logo.png"></img>
+            <Link to='/posts'>
+              <img id="logo"  src="https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_logo.png"></img>
+            </Link>
           </div>
           <div id="navbar-right">
             <a href='/posts'> <FaHouseUser/> </a>

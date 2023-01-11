@@ -26,8 +26,8 @@ function App() {
           <Route exact path="/posts/new" component={PostForm} />
           <Route path="/posts/:postId/edit" component={PostEdit} />
           {/* <Route exact path="/posts/:postId" component={PostShow} /> */}
-          <Route path="/users/:userId" component={UserShow} />
           <Route path="/users/:userId/edit" component={UserEdit} />
+          <Route path="/users/:userId" component={UserShow} />
 
 
         </Switch> 
