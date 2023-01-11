@@ -7,10 +7,11 @@ import csrfFetch from '../../store/csrf';
 
 function PostEdit(){
   const {postId} = useParams();
+  console.log(postId)
   let post = useSelector(getPost(postId));
 
   useEffect(()=>{
-    dispatch(fetchPost(postId)) //why do i need this if i have useSelector(getpost) above?
+    dispatch(fetchPost(postId)) 
   }, [postId]);
   console.log(post)
   // if (!post) return null;
@@ -23,6 +24,9 @@ function PostEdit(){
   const history = useHistory();
   const redirectToIndex = ()=>{
     history.push('/posts')
+  }
+  const redirectToUser = ()=>{
+    history.push(`/users/${post.authorId}`)
   }
 
   // const handleSubmit = (e)=>{
@@ -56,7 +60,7 @@ function PostEdit(){
 
     // post = {...post, title, body}; 
     // dispatch(createPost(post));
-    redirectToIndex();
+    redirectToUser();
   }
   const handleFile = e => {
     const file = e.currentTarget.files[0];

@@ -4,6 +4,10 @@ export const RECEIVE_POSTS = 'posts/RECEIVE_POSTS'
 export const RECEIVE_POST = 'posts/RECEIVE_POST'
 export const REMOVE_POST = 'posts/REMOVE_POST'
 
+export const RECEIVE_USERS = 'USERS/RECEIVE_USERS'
+export const RECEIVE_USER = 'USERS/RECEIVE_USER'
+export const REMOVE_USER = 'USERS/REMOVE_USER'
+
 const receivePosts = posts => ({
   type: RECEIVE_POSTS,
   posts
@@ -84,6 +88,9 @@ const postsReducer = (state={}, action) =>{//returns new state after handling ac
       const newState = {...state};
       delete newState[action.postId]
       return newState;
+    case RECEIVE_USER:
+      return {...state, ...action.user.posts};
+      
     default: 
       return state;
   }

@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, updatePost} from '../../store/posts';
+import { deletePost, updatePost, fetchPost} from '../../store/posts';
 import { useHistory } from "react-router-dom";
 import './Posts.css'
 
@@ -25,16 +25,17 @@ const customStyles = {
   },
 };
 
-const PostIndexItem = ({post}) => {
-
+const PostIndexItem = ({post, author}) => {
   const history = useHistory();
-  const redirectToEdit = (postId)=>{
+
+  const handleEdit = (postId) =>{
+    dispatch(fetchPost(postId)) //I want to make sure the post is in the store, bc going here from User show doesnt have post in the state
     history.push(`/posts/${postId}/edit`)
   }
-
-  const sessionUser = useSelector(state => state.session.user);
-  const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === post.authorId));
+  
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
+  const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === author.id));
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
   const openDropdown = () => {
     setDropdownIsOpen(true);
@@ -42,9 +43,12 @@ const PostIndexItem = ({post}) => {
   const closeDropdown = () => {
     setDropdownIsOpen(false);
   }
+  const redirectToUser = () => {
+    history.push(`/users/${post.authorId}`)
+  }
   return (
     <div className='PostIndexItem'>
-      <img src={post.author.profilePic} className='post-profile-pic'/>
+      <img src={author.profilePic} className='post-profile-pic' onClick={redirectToUser}/>
       {/* <button onClick={openPostModal} style={{position: 'relative',   display: 'inline-block'}}>Open</button> */}
       {/* <div className='post-modal'> */}
         {/* <Modal isOpen={postModalIsOpen} style={customStyles} overlayClassName="Overlay" 
@@ -60,12 +64,12 @@ const PostIndexItem = ({post}) => {
         </div>
       )};
       <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
-      <p>{post.author.username}</p>
+      <a onClick={redirectToUser} id="username">{author.username}</a>
       <p> {post.body} </p>
       <img src={post.photoUrl} className='post-photo'/>
       {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
         <>
-          <button onClick={()=>{redirectToEdit(post.id)}}>Edit</button>
+          <button onClick={()=>{handleEdit(post.id)}}>Edit</button>
           <button onClick={()=>dispatch(deletePost(post.id))}>Delete</button>
         </>
       ) : null}
