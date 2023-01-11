@@ -24,13 +24,19 @@ ApplicationRecord.transaction do
   walter = User.create!(
     username: 'walter_white', email: 'bb@gmail.com', password: 'password', bio: 'Say my name')
   walter.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/heisenberg.png"), filename: "heisenberg.png")
-  walter.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/default_backgrund_img.jpg"), filename: "default_backgrund_img.jpg")
+  walter.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/breaking_bad_background.jpg"), filename: "default_backgrund_img.jpg")
   
   jesse = User.create!(
     username: 'jesse_pinkman', email: 'hellokitty@gmail.com', password: 'password', bio: 'whats up, b***h?'
   )
   jesse.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/jesse_jane.jpg"), filename: 'jesse_jane.jpg')
   jesse.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/power_background.jpg"), filename: 'power_background.jpg')
+
+  saul = User.create!(
+    username: 'saul_goodman', email: 'bettercallsaul@gmail.com', password: 'password', bio: 'Cetter Call Saul!'
+  )
+  saul.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_face.png"), filename: 'saul_face.jpg')
+  saul.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_background.jpg"), filename: 'saul_background.jpg')
 
   Post.create!(
     author_id: 1, title: 'How to Cook', body: 'Grab Jesse and Cook!'
@@ -46,10 +52,17 @@ ApplicationRecord.transaction do
     author_id: 1, title: 'Loser', body: 'not null'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
 
+  Post.create!(
+    author_id: 3, title: 'Makima Pose', body: 'not null'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_makima.jpg'), filename: 'saul_makima.jpg')
+   
+
   
   Like.create!({user_id: 1, post_id:1})
   Like.create!({user_id: 1, post_id:2})
   Like.create!({user_id: 2, post_id:3})
+  Like.create!({user_id: 2, post_id:5})
+  Like.create!({user_id: 3, post_id:3})
 
   puts "Done!"
 end

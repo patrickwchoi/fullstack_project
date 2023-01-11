@@ -1,6 +1,15 @@
 class Api::LikesController < ApplicationController
   before_action :require_logged_in, only: [:create, :destroy]
 
+  def show
+    @like = Like.find_by(id: params[:id])
+    if @like
+      render :show
+    else
+      render json: ['Like not found'], status: :not_found
+    end
+  end
+  
   def create
     @like = Like.new(like_params)
     @like.user_id = current_user.id
