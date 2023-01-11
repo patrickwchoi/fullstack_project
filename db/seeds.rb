@@ -47,7 +47,9 @@ ApplicationRecord.transaction do
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
 
   
- 
+  Like.create!({user_id: 1, post_id:1})
+  Like.create!({user_id: 1, post_id:2})
+  Like.create!({user_id: 2, post_id:3})
 
   puts "Done!"
 end

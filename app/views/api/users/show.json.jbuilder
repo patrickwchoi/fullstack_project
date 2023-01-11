@@ -4,6 +4,7 @@ json.user do
   json.partial! 'api/users/user', user: @user
 
   #returns has_many posts nested under user
+  #I think I can get rid of this bc i updated state
   json.posts do
     @user.posts.each do |post|
       json.set! post.id do
