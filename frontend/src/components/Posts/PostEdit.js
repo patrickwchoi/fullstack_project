@@ -7,19 +7,17 @@ import csrfFetch from '../../store/csrf';
 
 function PostEdit(){
   const {postId} = useParams();
-  console.log(postId)
+  const dispatch = useDispatch();
   let post = useSelector(getPost(postId));
 
   useEffect(()=>{
     dispatch(fetchPost(postId)) 
-  }, [postId]);
-  console.log(post)
-  // if (!post) return null;
+  }, [postId, dispatch]);
+
   const [title, setTitle] = useState(post.title)
   const [body, setBody] = useState(post.body)
   const [photoFile, setPhotoFile] = useState (null);
   const [photoUrl, setPhotoUrl] = useState (null);
-  const dispatch = useDispatch();
 
   const history = useHistory();
   const redirectToIndex = ()=>{
@@ -69,6 +67,7 @@ function PostEdit(){
   }
   const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
 
+  if (!post) return null;
   return (
     <div className='edit-post-form'>
       <form onSubmit={handleSubmit}>

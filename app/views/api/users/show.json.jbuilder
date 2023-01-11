@@ -3,18 +3,23 @@ json.user do
   #this route should do the same as just putting 'user'
   json.partial! 'api/users/user', user: @user
 
-  #returns has_many posts nested under user
-  #I think I can get rid of this bc i updated state
-  json.posts do
-    @user.posts.each do |post|
-      json.set! post.id do
-        json.partial! 'api/posts/post', post: post
-        # json.extract! post, :id, :title, :body, :content_url, :author_id, :created_at, :updated_at
-      end
+  # json.posts do
+  #   @user.posts.each do |post|
+  #     json.set! post.id do
+  #       json.partial! 'api/posts/post', post: post
+  #       # json.extract! post, :id, :title, :body, :content_url, :author_id, :created_at, :updated_at
+  #     end
+  #   end
+  # end
+end
+p 'BUGUGBUGBUGBUG'
+json.posts do
+  @user.posts.each do |post|
+    json.set! post.id do
+      json.partial! 'api/posts/post', post: post
     end
   end
 end
-
 
 # json.user do 
 #   json.partial! 'user', user: @user

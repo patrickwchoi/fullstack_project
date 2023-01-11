@@ -13,6 +13,9 @@ json.posts do
   end
 end
 
+#bc I am sending two arrays, my action.posts in my posts reducer will have both
+#action.posts.posts, and action.posts.users
+#AKA my views sends over an action.posts, or whatever I call the prop in the action
 json.users do
   @posts.each do |post|
     json.set! post.author.id do

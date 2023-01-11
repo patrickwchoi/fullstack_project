@@ -83,7 +83,8 @@ const postsReducer = (state={}, action) =>{//returns new state after handling ac
     case RECEIVE_POSTS:
       return {...action.posts.posts}; 
     case RECEIVE_POST:
-      return {...state, [action.post.id]: action.post};
+      // return {...state, [action.post.id]: action.post};
+      return {[action.post.id]: action.post}; //i only want the one post ins state
     case REMOVE_POST:
       const newState = {...state};
       delete newState[action.postId]
@@ -92,7 +93,8 @@ const postsReducer = (state={}, action) =>{//returns new state after handling ac
       // return {...state, ...action.user.posts};
       //rn, state only has posts, not session or users bc it is only postsReducer
       //therefore, I dont have to return old state. I only want to grab user posts, so this resets posts to user posts
-      return {...action.user.posts};
+      console.log(action.user)
+      return {...action.posts};
 
       
     default: 
