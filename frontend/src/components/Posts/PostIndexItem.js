@@ -2,20 +2,18 @@ import React, {useState} from 'react';
 import Modal from 'react-modal';
 // import { Modal } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, useHistory  } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, updatePost, fetchPost} from '../../store/posts';
 import {getUser} from '../../store/users';
-import { useHistory } from "react-router-dom";
 import { formatDateTime } from '../../utils/dateUtil';
-
+import TempModal from './tempmodal';
 import './Posts.css'
 
 
 const PostIndexItem = ({post}) => {
   const author = useSelector(getUser(post.authorId));
   const history = useHistory();
-
 
   const handleEdit = (postId) =>{
     dispatch(fetchPost(postId)) //I want to make sure the post is in the store, bc going here from User show doesnt have post in the state
@@ -35,10 +33,53 @@ const PostIndexItem = ({post}) => {
   const redirectToUser = () => {
     history.push(`/users/${post.authorId}`)
   }
-  
+
+  //start
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+  //end
   return (
     <div className='PostIndexItem'>
-      {}
+      {/* temp modal */}
+      <TempModal userId={post.authorId} postId={post.id}/>
+
+      {/* modal */}
+    <div>
+      <button onClick={openModal}>Open Modal</button>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        shouldCloseOnOverlayClick={true}
+        style={{
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          },
+          content: {
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '80%',
+            height: '80%',
+          },
+        }}
+      >
+        <h1>Modal Title</h1>
+        <p>Modal content goes here</p>
+        <button onClick={closeModal}>Close</button>
+      </Modal>
+    </div>
+
+    {/* end of modal */}
+
+
       <img src={author.profilePic} className='post-profile-pic' onClick={redirectToUser}/>
       <button onClick={openDropdown} >dropdown </button>
       {dropdownIsOpen && (

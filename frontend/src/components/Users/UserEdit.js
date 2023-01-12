@@ -7,12 +7,9 @@ import { getPosts } from '../../store/posts';
 import './Users.css';
 import PostIndexItem from '../Posts/PostIndexItem';
 import csrfFetch from '../../store/csrf';
-console.log('Helllooooooo')
 
 
 function UserEdit()  {
-  console.log('Helllooooooo')
-
   const {userId} = useParams();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
