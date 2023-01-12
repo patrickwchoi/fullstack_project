@@ -97,19 +97,36 @@ function UserEdit()  {
     <div className='user-show-container'>
       <div className='UserEdit'>
       <form onSubmit={handleSubmit}>
-        <h1>Edit user</h1>
-          <input 
+      <div className='user-show-container'>
+      <div className='UserShow'>
+        <header className='user-header'>
+          <div className='background-img-container'>
+            <img className='user-backgroundimg' src={user.backgroundPic}/>
+          </div>
+          <div className='user-profile'>
+            <img className='user-profile-pic' src={user.profilePic}/>
+            <div className='user-text'>
+            <text>Username</text>
+              <h2><input 
             type="text"  value={username} onChange={(e)=> setUsername(e.target.value)}
             placeholder='username'
-          />
-          <input 
+              /></h2>
+              <text>Bio</text>
+              {/* <div className='user-bio'>{user.bio}</div> */}
+              <input 
             type="text"  value={bio} onChange={(e)=> setBio(e.target.value)}
             placeholder='bio'
-          />
-        <br/>
+              />
+            </div>
+          </div>
+        </header>
+
+      </div>
+    </div>
+      {/* end of imported user show */}
+
         {/* <input type="file" onChange={handleBackgroundPic}> Background Pic </input>
         <input type="file" onChange={handleProfilePic}> Profile Pic </input>
-
 
         {BackgroundPicPreview}
         {ProfilePicPreview} */}

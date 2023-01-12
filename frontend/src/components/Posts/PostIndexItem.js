@@ -51,33 +51,39 @@ const PostIndexItem = ({post}) => {
     <div className='PostIndexItem'>
 
       {/* <PostEdit postId={post.id} /> */}
+      <div className='postindex-left'>
+        <img src={author.profilePic} className='post-profile-pic' onClick={redirectToUser}/> 
+      </div>
+      <div className='postindex-right'>
+        <div className='postindex-right-header'>
+          <p>{author.username}</p>
+          <button id='three-dots' onClick={openDropdown} > <BsThreeDots/> </button>
+        </div>
+        {dropdownIsOpen && (
+          <>
+            <div id='post-modal-background' onClick={closeDropdown}></div>
+            <div className='post-dropdown'>
+              {/* <p>{createdAtDate}</p> */}
+              <p>{formatDateTime(post.createdAt)}</p>
+              <p>Share</p>
+              {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
+                <>
+                  <button onClick={()=>{handleEdit(post.id)}}>Edit</button>
+                  <PostEdit postId={post.id} />
+                  <button onClick={()=>dispatch(deletePost(post.id))}>Delete</button>
+                </>
+                ) : null}
+                <button onClick={closeDropdown}>Close</button>
+            </div>
+          </>
+        )}
+        {/* <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2> */}
+        <h2>{post.title}</h2>
+        <a onClick={redirectToUser} id="username">{author.username}</a>
+        <p> {post.body} </p>
+        <img src={post.photoUrl} className='post-photo'/>
+      </div>
 
-      <img src={author.profilePic} className='post-profile-pic' onClick={redirectToUser}/>
-      <button id='three-dots' onClick={openDropdown} > <BsThreeDots/> </button>
-      {dropdownIsOpen && (
-        <>
-          <div id='post-modal-background' onClick={closeDropdown}></div>
-          <div className='post-dropdown'>
-            {/* <p>{createdAtDate}</p> */}
-            <p>{formatDateTime(post.createdAt)}</p>
-            <p>Share</p>
-            {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
-              <>
-                <button onClick={()=>{handleEdit(post.id)}}>Edit</button>
-                <PostEdit postId={post.id} />
-                <button onClick={()=>dispatch(deletePost(post.id))}>Delete</button>
-              </>
-              ) : null}
-              <button onClick={closeDropdown}>Close</button>
-          </div>
-        </>
-      )}
-      {/* <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2> */}
-      <h2>{post.title}</h2>
-      <a onClick={redirectToUser} id="username">{author.username}</a>
-      <p> {post.body} </p>
-      <img src={post.photoUrl} className='post-photo'/>
-      
     </div>
   )
 }
