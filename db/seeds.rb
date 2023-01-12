@@ -55,7 +55,7 @@ ApplicationRecord.transaction do
     author_id: 1, title: 'How to Cook', body: 'Grab Jesse and Cook!'
   )
   Post.create!(
-    author_id: 2, title: 'I love my friends', body: 'Yo Mr. White, I love you'
+    author_id: 2, body: 'Yo Mr. White, I love you'
   )
   Post.create!(
     author_id: 2, title: 'Been having thoughts lately...'
