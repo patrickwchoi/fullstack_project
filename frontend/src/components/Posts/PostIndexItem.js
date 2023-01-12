@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
-// import { Modal } from 'react-bootstrap';
 
 import { BrowserRouter, Route, Link, useHistory  } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, updatePost, fetchPost} from '../../store/posts';
 import {getUser} from '../../store/users';
 import { formatDateTime } from '../../utils/dateUtil';
-import TempModal from './tempmodal';
-import './Posts.css'
+import {BsThreeDots} from "react-icons/bs";
+// import TempModal from './tempmodal';
+import PostEdit from './PostEdit';
+import './Posts.css';
 
 
 const PostIndexItem = ({post}) => {
@@ -45,43 +46,14 @@ const PostIndexItem = ({post}) => {
     setIsOpen(false);
   }
   //end
+  Modal.setAppElement("#root");
   return (
     <div className='PostIndexItem'>
-      {/* temp modal */}
-      <TempModal userId={post.authorId} postId={post.id}/>
 
-      {/* modal */}
-    <div>
-      <button onClick={openModal}>Open Modal</button>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
-        shouldCloseOnOverlayClick={true}
-        style={{
-          overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
-          },
-          content: {
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '80%',
-            height: '80%',
-          },
-        }}
-      >
-        <h1>Modal Title</h1>
-        <p>Modal content goes here</p>
-        <button onClick={closeModal}>Close</button>
-      </Modal>
-    </div>
-
-    {/* end of modal */}
-
+      {/* <PostEdit postId={post.id} /> */}
 
       <img src={author.profilePic} className='post-profile-pic' onClick={redirectToUser}/>
-      <button onClick={openDropdown} >dropdown </button>
+      <button id='three-dots' onClick={openDropdown} > <BsThreeDots/> </button>
       {dropdownIsOpen && (
         <>
           <div id='post-modal-background' onClick={closeDropdown}></div>
@@ -92,13 +64,15 @@ const PostIndexItem = ({post}) => {
             {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
               <>
                 <button onClick={()=>{handleEdit(post.id)}}>Edit</button>
+                <PostEdit postId={post.id} />
+
                 <button onClick={()=>dispatch(deletePost(post.id))}>Delete</button>
               </>
               ) : null}
               <button onClick={closeDropdown}>Close</button>
           </div>
         </>
-      )};
+      )}
       {/* <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2> */}
       <h2>{post.title}</h2>
       <a onClick={redirectToUser} id="username">{author.username}</a>

@@ -4,20 +4,50 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPost, fetchPost, createPost, updatePost } from '../../store/posts';
 import { useHistory } from "react-router-dom";
 import csrfFetch from '../../store/csrf';
+import Modal from 'react-modal';
 
-function PostEdit(){
-  const {postId} = useParams();
+const style={
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    zIndex: '1000',
+
+  },
+  content: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '50%',
+    height: '50%',
+    border: '1px solid #ccc',  },
+}
+
+
+
+function PostEdit({postId}){
+  // const {postId} = useParams();
   const dispatch = useDispatch();
   let post = useSelector(getPost(postId));
 
-  useEffect(()=>{
-    dispatch(fetchPost(postId)) 
-  }, [postId, dispatch]);
+  // useEffect(()=>{
+  //   dispatch(fetchPost(postId)) 
+  // }, [postId, dispatch]);
 
   const [title, setTitle] = useState(post.title)
   const [body, setBody] = useState(post.body)
   const [photoFile, setPhotoFile] = useState (null);
   const [photoUrl, setPhotoUrl] = useState (null);
+
+
+   //start
+   const [isOpen, setIsOpen] = useState(false);
+   const openModal = () => {
+     setIsOpen(true);
+   }
+   const closeModal = () => {
+     setIsOpen(false);
+   }
+   //end
 
   const history = useHistory();
   const redirectToIndex = ()=>{
@@ -27,12 +57,6 @@ function PostEdit(){
     history.push(`/users/${post.authorId}`)
   }
 
-  // const handleSubmit = (e)=>{
-  //   e.preventDefault();
-  //   post = {...post, title, body};
-  //   dispatch(updatePost(post));
-  //   redirectToIndex();
-  // }
   const handleSubmit  = async (e)=>{
     e.preventDefault();
     const formData = new FormData();
@@ -52,7 +76,7 @@ function PostEdit(){
       setPhotoFile(null);
       setPhotoUrl(null);
     }
-    redirectToUser();
+    closeModal();
   }
   const handleFile = e => {
     const file = e.currentTarget.files[0];
@@ -69,25 +93,44 @@ function PostEdit(){
 
   if (!post) return null;
   return (
-    <div className='edit-post-form'>
-      <form onSubmit={handleSubmit}>
-        <h1>Edit Post</h1>
-          <input 
-            type="text"  value={title} onChange={(e)=> setTitle(e.target.value)}
-            placeholder='Title'
-          />
-          <input 
-            type="text"  value={body} onChange={(e)=> setBody(e.target.value)}
-            placeholder='Body'
-          />
-        <br/>
-        <input type="file" onChange={handleFile} /> 
+    <>
+    <button onClick={openModal}>Open Edit Modal</button>
+    <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        shouldCloseOnOverlayClick={true}
+        style={style}
+      >
 
-        {preview}
+      <div className='edit-post-form'>
+        <form onSubmit={handleSubmit}>
+          <div className='postmodal-header'> 
+            <h1>Edit Post</h1>
+          </div>
+          <div className='postmodal-content'>
+            <input 
+              type="text"  value={title} onChange={(e)=> setTitle(e.target.value)}
+              placeholder='Title'
+            />
+            <input 
+              type="text"  value={body} onChange={(e)=> setBody(e.target.value)}
+              placeholder='Body'
+            />
 
-        <button>Edit Post</button>
-      </form>
-    </div>
+          </div>
+          <div className='postmodal-pic'>
+            <input type="file" onChange={handleFile} /> 
+            {preview}
+          </div>
+          <div className='postmodal-footer'>
+            <button>Edit Post</button>
+
+          </div>
+        </form>
+      </div>
+
+    </Modal>
+    </>
   );
 }
 

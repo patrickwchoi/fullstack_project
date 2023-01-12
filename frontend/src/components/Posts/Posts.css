@@ -54,7 +54,7 @@
   border:1px solid rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  z-index: 102;
+  z-index: 101;
   background: white;
   border-radius: 3px;
   box-shadow: 0ch;
@@ -83,3 +83,40 @@
   top: 0;
   left: 0;
 }
+#three-dots{
+  border: none;
+}
+input{
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  color: black;
+
+}
+
+.edit-post-form{
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.postmodal-header{
+  text-align: left;
+
+}
+.postmodal-content{
+  text-align: left;
+  
+}
+.postmodal-pic{
+
+}
+.postmodal-footer{
+
+}
+
