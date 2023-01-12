@@ -32,14 +32,6 @@ export default function ModalProvider({ children }) {
   
   
   const modal = document.getElementById('modal');
-  // When the user clicks anywhere outside of the modal, close it
-  // window.onclick = function(e) {
-  //   // e.preventDefault();    
-  //   if (e.target == modal) {
-  //     closeLogin(); //this is pretty ugly
-  //     closeSignup();
-  //   }
-  // }
 
   return (
     <>

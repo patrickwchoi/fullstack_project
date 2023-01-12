@@ -35,8 +35,10 @@ const PostIndexItem = ({post}) => {
   const redirectToUser = () => {
     history.push(`/users/${post.authorId}`)
   }
+  
   return (
     <div className='PostIndexItem'>
+      {}
       <img src={author.profilePic} className='post-profile-pic' onClick={redirectToUser}/>
       <button onClick={openDropdown} >dropdown </button>
       {dropdownIsOpen && (
