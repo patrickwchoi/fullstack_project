@@ -8,6 +8,7 @@ import { BsFillHouseDoorFill, FaMoon, FaHouseUser  } from "react-icons/fa";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdEditNote } from "react-icons/md";
 import './Navigation.css';
+import PostCreate from '../Posts/PostCreate'
 
 
 function Navigation() {
@@ -36,7 +37,8 @@ function Navigation() {
           <div id="navbar-right">
             <a href='/posts'> <FaHouseUser/> </a>
             <a href={`/users/${sessionUser.id}`}> <BsFillPersonFill/> </a>  {/*how to implement?? */}
-            <a href='/posts/new'> <MdEditNote/></a> 
+            {/* <a href='/posts/new'> <MdEditNote/></a>  */}
+            <PostCreate id='navbar-post-create'/>
             <button onClick={logout}>Logout</button>
           </div>
       </div>

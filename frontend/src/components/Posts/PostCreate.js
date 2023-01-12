@@ -4,9 +4,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPost, fetchPost, createPost, updatePost } from '../../store/posts';
 import { useHistory } from "react-router-dom";
 import csrfFetch from '../../store/csrf';
+import Modal from 'react-modal';
+import { MdEditNote } from "react-icons/md";
 
 
-console.log('post create')
+const style={
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    zIndex: '1000',
+
+  },
+  content: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '50%',
+    height: '50%',
+    border: '1px solid #ccc',  },
+}
+
 function PostCreate(){
   let post = { 
     title:'',
@@ -17,6 +34,16 @@ function PostCreate(){
   const [photoFile, setPhotoFile] = useState (null);
   const [photoUrl, setPhotoUrl] = useState (null); 
   const dispatch = useDispatch();
+
+  //start
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  }
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+  //end
 
   const history = useHistory();
   const redirectToIndex = ()=>{
@@ -54,18 +81,21 @@ function PostCreate(){
       setPhotoFile(null);
       setPhotoUrl(null);
     }
-    //I have questions. Should I expedite this formData logic to my thunk action creators? 
-    //Is it ok that Im not updating state with the photo?
-    //Why can I dispatch two POST methods for the same post?
-
-    // post = {...post, title, body}; 
-    // dispatch(createPost(post));
-    redirectToIndex();
+    closeModal();
   }
 
   const preview = photoUrl ? <img src={photoUrl} alt="" height="200" /> : null;
 
   return (
+    <>
+    <button id='new-post' onClick={openModal}><MdEditNote/></button>
+    <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        shouldCloseOnOverlayClick={true}
+        style={style}
+      >
+
     <div className='new-post-form'>
       <form onSubmit={handleSubmit}>
         <h1>Create New Post</h1>
@@ -83,6 +113,9 @@ function PostCreate(){
         <button>Create Post</button>
       </form>
     </div>
+    </Modal>
+
+    </>
   );
 }
 

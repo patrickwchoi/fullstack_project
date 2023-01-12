@@ -44,6 +44,7 @@
 .user-profile-pic{
   width: 100px;
   height: 100px;
+  object-fit: cover; /* crops image*/
   border-radius: 50%;
   border: 3px solid whitesmoke;
   transform: translate(0%, -55%);

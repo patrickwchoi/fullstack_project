@@ -45,6 +45,7 @@
   height: 50px;
   border-radius: 50%;
   margin: 10px;
+  object-fit: cover;
 }
 
 .post-dropdown{
@@ -66,6 +67,9 @@
   background: #efefef;
   /* cursor: pointer; */
 }
+.post-dropdown > *{
+  border:1px, solid,rgba(0, 0, 0, 0.5)
+}
 
 #username{
   /* how to add hover mouse */
@@ -85,6 +89,9 @@
 }
 #three-dots{
   border: none;
+}
+#new-post{
+  border:none;
 }
 input{
   border: 1px solid #efefef;

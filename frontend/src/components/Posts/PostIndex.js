@@ -5,6 +5,7 @@ import PostIndexItem from './PostIndexItem';
 import { getPosts, fetchPosts } from '../../store/posts'
 import './Posts.css';
 import { fetchUsers, getUser, getUsers } from '../../store/users';
+import PostCreate from './PostCreate'
 
 const PostIndex = (props) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const PostIndex = (props) => {
   function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
   }
-  posts = shuffle(posts); //randomize posts order, doesnt change state
+  //posts = shuffle(posts); //randomize posts order, doesnt change state
   
   const history = useHistory();
   const redirectToCreate = ()=>{
@@ -30,7 +31,8 @@ const PostIndex = (props) => {
   return (
     <div className='PostIndex'>
       <ul>
-        <button onClick={redirectToCreate}>new post button</button>
+        {/* <button onClick={redirectToCreate}>new post button</button> */}
+        <PostCreate/>
         {posts.map(post=> <PostIndexItem post={post} key={post.id} /*author={post.author}*//>)} 
       </ul>
     </div>

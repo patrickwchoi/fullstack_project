@@ -7,10 +7,10 @@ import { deletePost, updatePost, fetchPost} from '../../store/posts';
 import {getUser} from '../../store/users';
 import { formatDateTime } from '../../utils/dateUtil';
 import {BsThreeDots} from "react-icons/bs";
+
 // import TempModal from './tempmodal';
 import PostEdit from './PostEdit';
 import './Posts.css';
-
 
 const PostIndexItem = ({post}) => {
   const author = useSelector(getUser(post.authorId));
@@ -65,7 +65,6 @@ const PostIndexItem = ({post}) => {
               <>
                 <button onClick={()=>{handleEdit(post.id)}}>Edit</button>
                 <PostEdit postId={post.id} />
-
                 <button onClick={()=>dispatch(deletePost(post.id))}>Delete</button>
               </>
               ) : null}

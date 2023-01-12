@@ -38,6 +38,18 @@ ApplicationRecord.transaction do
   saul.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_face.png"), filename: 'saul_face.jpg')
   saul.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_background.jpg"), filename: 'saul_background.jpg')
 
+  cats = User.create!(
+    username: 'cat_pictures', email: 'cataccound@gmail.com', password: 'password', bio: 'We love cats'
+  )
+  cats.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley_cute.jpg"), filename: 'riley_cute.jpg')
+  cats.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/cats_backgrouond.jpg"), filename: 'cats_backgrouond.jpg')
+
+  gus = User.create!(
+    username: 'mr.gus', email: 'lospollos@gmail.com', password: 'password', bio: 'Los Pollos Hermanos CEO'
+  )
+  gus.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/gus_smile.jpg"), filename: 'gus_smile.jpg')
+  gus.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/gus_mad.jpg"), filename: 'gus_mad.jpg')
+
   Post.create!(
     author_id: 1, title: 'How to Cook', body: 'Grab Jesse and Cook!'
   )
@@ -55,6 +67,22 @@ ApplicationRecord.transaction do
   Post.create!(
     author_id: 3, title: 'Makima Pose', body: 'not null'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_makima.jpg'), filename: 'saul_makima.jpg')
+   
+  Post.create!(
+    author_id: 4, title: 'Riley NaeNae', body: 'not null'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley_naenae.jpg'), filename: 'riley_naenae.jpg')
+  
+  Post.create!(
+    author_id: 4, title: 'handsome', body: 'not null'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley.jpg'), filename: 'riley.jpg')
+  
+  Post.create!(
+    author_id: 5, title: 'Work', body: 'not null'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/work_kobeni.jpg'), filename: 'work_kobeni.jpg')
+   
+  Post.create!(
+    author_id: 1, title: 'Jerma', body: 'not null'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/jerma_BB.jpg'), filename: 'jerma_BB.jpg')
    
 
   

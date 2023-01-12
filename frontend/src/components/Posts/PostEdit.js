@@ -116,7 +116,6 @@ function PostEdit({postId}){
               type="text"  value={body} onChange={(e)=> setBody(e.target.value)}
               placeholder='Body'
             />
-
           </div>
           <div className='postmodal-pic'>
             <input type="file" onChange={handleFile} /> 
