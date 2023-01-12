@@ -21,18 +21,20 @@ function UserEdit()  {
   const posts = useSelector(getPosts); //grabs users posts bc state is only updated with user posts in reducer
   
   const user = useSelector(getUser(userId));
-  const [username, setUsername] = useState(user.username);
-  const [bio, setBio] = useState(user.bio);
+  const [username, setUsername] = useState('');
+  const [bio, setBio] = useState('');
   const [backgroundPic, setBackgroundPic] = useState (null);
   const [backgroundPicUrl, setBackgroundPicUrl] = useState (null);
   const [profilePic, setProfilePic] = useState (null);
   const [profilePicUrl, setProfilePicUrl] = useState (null);
   const history = useHistory();
   useEffect(()=>{ 
-    if (userId){
+    // if (userId){
       dispatch(fetchUser(userId));
-    }
-  }, [userId])
+      setUsername(user?.username);
+      setBio(user?.bio)
+    // }
+  }, [userId, dispatch])
   
   const handleSubmit  = async (e)=>{
     e.preventDefault();
@@ -59,6 +61,7 @@ function UserEdit()  {
       setBackgroundPic(null);
       setBackgroundPicUrl(null);
     }
+    history.push(`/users/${userId}`);
   }
   const handleBackgroundPic = e => {
     const file = e.currentTarget.files[0];

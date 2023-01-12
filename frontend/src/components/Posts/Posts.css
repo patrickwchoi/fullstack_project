@@ -46,35 +46,25 @@
   border-radius: 50%;
   margin: 10px;
 }
-/* 
-#post-modal{
-  background-color: yellow;
-  color: red;
-  width: 100px;
-
-}
- */
-.Overlay{
-  position: fixed;
-  top: 0;
-  left: 0;
-  /* cursor: pointer; */
-
-  right: 0;
-  bottom: 0; 
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .post-dropdown{
   position: absolute;
-  height:200px;
-  width: 200px;
+  height:170px;
+  width: 130px;
   border:1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
   z-index: 102;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0ch;
+  align-items: center; /*puts children to center of div vertically */
+  justify-content: space-around;
+  box-shadow: 0px 0px 6px 0px black;
+}
+.post-dropdown > *:hover{
+  background: #efefef;
+  /* cursor: pointer; */
 }
 
 #username{

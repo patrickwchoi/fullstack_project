@@ -93,8 +93,8 @@ const postsReducer = (state={}, action) =>{//returns new state after handling ac
       // return {...state, ...action.user.posts};
       //rn, state only has posts, not session or users bc it is only postsReducer
       //therefore, I dont have to return old state. I only want to grab user posts, so this resets posts to user posts
-      console.log(action.user)
-      return {...action.posts};
+      // console.log(action.posts)
+      return {...action.payload.posts};
 
       
     default: 

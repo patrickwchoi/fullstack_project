@@ -12,9 +12,9 @@ const receiveUsers = users => ({
   type: RECEIVE_USERS,
   users
 })
-const receiveUser = user => ({ 
+const receiveUser = payload => ({ //grabbing payload instead of user bc payload has both {posts, user}, and we want to access both
   type: RECEIVE_USER,
-  user
+  payload
 })
 const removeUser = userId => ({
   type: REMOVE_USER,
@@ -41,8 +41,9 @@ export const fetchUsers = () => async (dispatch) =>{
 export const fetchUser = (userId) => async (dispatch) =>{
   const res = await csrfFetch(`/api/users/${userId}`);
   if (res.ok){
-    const {user} = await res.json(); //must deconstruct user bc backend now sends nested user
-    dispatch(receiveUser(user));
+    const payload = await res.json();  //instead of user, we are grabbing the payload bc we changed our action
+                                      // now, our payload has {posts, user} so we can grab both
+    dispatch(receiveUser(payload));
   }
 }
 
@@ -88,7 +89,7 @@ const usersReducer = (state={}, action) =>{
     case RECEIVE_USERS:
       return {...action.users}; 
     case RECEIVE_USER:
-      return {...state, [action.user.id]: action.user}; 
+      return {...state, [action.payload.user.id]: action.payload.user}; 
       //here, action.user is an object that is being returned in our views jbuilder in rails
       //After I edited my show page to nest the has_many posts, it used to show up parallel to user and thus wasnt being collected in state, bc state only grabs action.user
       //To fix that, I nested the post data inside the user object in jbuilder.

@@ -9,6 +9,7 @@ import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
 import ModalProvider from './context/Modal';
 import * as postActions from './store/posts';
+import * as userActions from './store/users';
 
 const store = configureStore();
 // const dispatch = useDispatch()
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
   window.postActions = postActions;
+  window.userActions = userActions;
 }
 
 

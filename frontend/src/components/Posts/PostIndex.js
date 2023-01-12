@@ -8,9 +8,13 @@ import { fetchUsers, getUser, getUsers } from '../../store/users';
 
 const PostIndex = (props) => {
   const dispatch = useDispatch();
-  const posts = useSelector(getPosts);
+  let posts = useSelector(getPosts);
   const sessionUser = useSelector(state => state.session.user);
-  
+
+  function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+  posts = shuffle(posts); //randomize posts order, doesnt change state
   
   const history = useHistory();
   const redirectToCreate = ()=>{
