@@ -12,6 +12,7 @@ ApplicationRecord.transaction do
   # Unnecessary if using `rails db:seed:replant`
   Post.destroy_all
   User.destroy_all
+  # Like.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -57,40 +58,40 @@ ApplicationRecord.transaction do
     author_id: 2, title: 'I love my friends', body: 'Yo Mr. White, I love you'
   )
   Post.create!(
-    author_id: 2, title: 'Been having thoughts lately...', body: 'not null'
+    author_id: 2, title: 'Been having thoughts lately...'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
     
   Post.create!(
-    author_id: 1, title: 'Loser', body: 'not null'
+    author_id: 1, title: 'Loser'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
 
   Post.create!(
-    author_id: 3, title: 'Makima Pose', body: 'not null'
+    author_id: 3, title: 'Makima Pose'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_makima.jpg'), filename: 'saul_makima.jpg')
    
   Post.create!(
-    author_id: 4, title: 'Riley NaeNae', body: 'not null'
+    author_id: 4
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley_naenae.jpg'), filename: 'riley_naenae.jpg')
   
   Post.create!(
-    author_id: 4, title: 'handsome', body: 'not null'
+    author_id: 4, title: 'handsome'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley.jpg'), filename: 'riley.jpg')
   
   Post.create!(
-    author_id: 5, title: 'Work', body: 'not null'
+    author_id: 5, title: 'Work'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/work_kobeni.jpg'), filename: 'work_kobeni.jpg')
    
   Post.create!(
-    author_id: 1, title: 'Jerma', body: 'not null'
+    author_id: 1, title: 'Jerma'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/jerma_BB.jpg'), filename: 'jerma_BB.jpg')
    
 
   
-  Like.create!({user_id: 1, post_id:1})
-  Like.create!({user_id: 1, post_id:2})
-  Like.create!({user_id: 2, post_id:3})
-  Like.create!({user_id: 2, post_id:5})
-  Like.create!({user_id: 3, post_id:3})
+  # Like.create!({user_id: 1, post_id:1})
+  # Like.create!({user_id: 1, post_id:2})
+  # Like.create!({user_id: 2, post_id:3})
+  # Like.create!({user_id: 2, post_id:5})
+  # Like.create!({user_id: 3, post_id:3})
 
   puts "Done!"
 end

@@ -22,8 +22,6 @@ const style={
     border: '1px solid #ccc',  },
 }
 
-
-
 function PostEdit({postId}){
   // const {postId} = useParams();
   const dispatch = useDispatch();

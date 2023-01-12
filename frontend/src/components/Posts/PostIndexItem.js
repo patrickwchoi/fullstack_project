@@ -56,7 +56,8 @@ const PostIndexItem = ({post}) => {
       </div>
       <div className='postindex-right'>
         <div className='postindex-right-header'>
-          <p>{author.username}</p>
+          {/* <p>{author.username}</p> */}
+          <a onClick={redirectToUser} id="username">{author.username}</a>
           <button id='three-dots' onClick={openDropdown} > <BsThreeDots/> </button>
         </div>
         {dropdownIsOpen && (
@@ -78,8 +79,8 @@ const PostIndexItem = ({post}) => {
           </>
         )}
         {/* <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2> */}
+
         <h2>{post.title}</h2>
-        <a onClick={redirectToUser} id="username">{author.username}</a>
         <p> {post.body} </p>
         <img src={post.photoUrl} className='post-photo'/>
       </div>

@@ -33,6 +33,7 @@
   
 }
 .postindex-left{
+  margin-top: 0px;
 
 }
 .postindex-right{
@@ -41,13 +42,20 @@
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
+  text-align: left;
   justify-content: space-between;
   height: 100%;
   width: 100%;
 }
+.postindex-right > *{
+  /* margin-left: 10px;  */
+  /* margin-right: -10px; */
+
+}
 .postindex-right-header{
   border-bottom: 1px solid grey;
+  height:50px;
   width:100%;
   display: flex;
   /* flex-direction: row; */
@@ -57,16 +65,21 @@
   margin: 5px;
 }
 .post-photo{
-  width: 300px;
+  width: 500px;
   height: auto; 
+  margin-top: none;
+  margin-bottom: 10px;
+  /* margin-left: none !important; */
+
   /* auto ensures our dimensions are proportional */
 }
 .post-profile-pic{
   width: 50px;
   height: 50px;
   border-radius: 10%;
-  margin: 10px;
+  margin-right: 10px;
   object-fit: cover;
+  position: sticky; /* not working :( */
 }
 
 .post-dropdown{
@@ -142,7 +155,6 @@ input{
   
 }
 .postmodal-pic{
-
 }
 .postmodal-footer{
 

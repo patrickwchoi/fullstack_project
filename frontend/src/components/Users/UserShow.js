@@ -58,9 +58,11 @@ const UserShow = () => {
             <button onClick={redirectToCreatePost}>New Post</button>
           </>
         ) : null}
-          <ul>
-            {(Object.values(posts)).map(post=> <PostIndexItem post={post} key={post.id} author={user}/>)} 
-          </ul>
+          <div className='user-posts'>
+            <ul>
+              {(Object.values(posts)).map(post=> <PostIndexItem post={post} key={post.id} author={user}/>)} 
+            </ul>
+          </div>
 
         
       </div>
