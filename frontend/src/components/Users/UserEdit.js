@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import {deleteUser, updateUser, getUser, fetchUser} from '../../store/users';
+import {deleteUser, updateUser, getUser, fetchUser, receiveUser} from '../../store/users';
 import { getPosts } from '../../store/posts';
 import './Users.css';
 import PostIndexItem from '../Posts/PostIndexItem';
@@ -15,7 +15,7 @@ function UserEdit()  {
   const sessionUser = useSelector(state => state.session.user);
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id == userId)); //i think i need two equal signs here instead of 3 bc userId is num, not string
   
-  const posts = useSelector(getPosts); //grabs users posts bc state is only updated with user posts in reducer
+  // const posts = useSelector(getPosts); //grabs users posts bc state is only updated with user posts in reducer
   
   const user = useSelector(getUser(userId));
   const [username, setUsername] = useState('');
@@ -50,7 +50,8 @@ function UserEdit()  {
       body: formData
     });
     if (response.ok) {
-      const message = await response.json();
+      const user = await response.json();
+      dispatch(receiveUser(user))
       setUsername("");
       setBio("");
       setProfilePic(null);

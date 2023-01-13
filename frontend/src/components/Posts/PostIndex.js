@@ -10,12 +10,13 @@ import PostCreate from './PostCreate'
 const PostIndex = (props) => {
   const dispatch = useDispatch();
   let posts = useSelector(getPosts);
+  // posts = posts.reverse(); //reverse order of posts
   const sessionUser = useSelector(state => state.session.user);
 
   function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
   }
-  //posts = shuffle(posts); //randomize posts order, doesnt change state
+  posts = shuffle(posts); //randomize posts order, doesnt change state
   
   const history = useHistory();
   const redirectToCreate = ()=>{

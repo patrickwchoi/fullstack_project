@@ -8,15 +8,15 @@ export const RECEIVE_USERS = 'USERS/RECEIVE_USERS'
 export const RECEIVE_USER = 'USERS/RECEIVE_USER'
 export const REMOVE_USER = 'USERS/REMOVE_USER'
 
-const receiveUsers = users => ({
+export const receiveUsers = users => ({
   type: RECEIVE_USERS,
   users
 })
-const receiveUser = payload => ({ //grabbing payload instead of user bc payload has both {posts, user}, and we want to access both
+export const receiveUser = payload => ({ //grabbing payload instead of user bc payload has both {posts, user}, and we want to access both
   type: RECEIVE_USER,
   payload
 })
-const removeUser = userId => ({
+export const removeUser = userId => ({
   type: REMOVE_USER,
   userId
 })
