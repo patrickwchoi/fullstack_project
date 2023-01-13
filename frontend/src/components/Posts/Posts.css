@@ -27,8 +27,8 @@
   position: relative;
   flex-direction: row;
   /* align-items: center; */
-  margin: 10px;
-  padding: 10px;
+  margin: 15px;
+  /* padding: 10px; */
  
   
 }
@@ -56,7 +56,7 @@
 }
 .postindex-right-header{
   border-bottom: 1px solid grey;
-  height:50px;
+  height:40px;
   width:100%;
   display: flex;
   /* flex-direction: row; */
@@ -64,6 +64,9 @@
 }
 .postindex-right-header > *{
   margin: 5px;
+}
+.post-text > *{
+  margin: 4px;
 }
 .post-photo{
   width: 500px;
@@ -85,7 +88,7 @@
 
 .post-dropdown{
   position: absolute;
-  height:170px;
+  /* height:170px; */
   width: 130px;
   border:1px solid rgba(0, 0, 0, 0.5);
   display: flex;
@@ -97,13 +100,20 @@
   align-items: center; /*puts children to center of div vertically */
   justify-content: space-around;
   box-shadow: 0px 0px 6px 0px black;
+  transform: translate(320%, 15%);
+  flex-wrap: wrap;
+  align-content: stretch;
+
 }
 .post-dropdown > *:hover{
   background: #efefef;
   /* cursor: pointer; */
 }
 .post-dropdown > *{
-  border:1px, solid,rgba(0, 0, 0, 0.5)
+  border: .5px solid grey;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
 }
 
 #username{
@@ -124,6 +134,7 @@
 }
 #three-dots{
   border: none;
+  background: none;
 }
 #new-post{
   border:none;

@@ -106,12 +106,12 @@ function UserEdit()  {
           <div className='user-profile'>
             <img className='user-profile-pic' src={user.profilePic}/>
             <div className='user-text'>
-            <text>Username</text>
+            <p>Username</p>
               <h2><input 
             type="text"  value={username} onChange={(e)=> setUsername(e.target.value)}
             placeholder='username'
               /></h2>
-              <text>Bio</text>
+              <p>Bio</p>
               {/* <div className='user-bio'>{user.bio}</div> */}
               <input 
             type="text"  value={bio} onChange={(e)=> setBio(e.target.value)}

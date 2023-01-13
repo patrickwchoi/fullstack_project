@@ -6,7 +6,6 @@ import { getPosts, fetchPosts } from '../../store/posts'
 import './Posts.css';
 import { fetchUsers, getUser, getUsers } from '../../store/users';
 import PostCreate from './PostCreate'
-import testsvg from '../../assets/magnifying_glass.svg'
 
 const PostIndex = (props) => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const PostIndex = (props) => {
   useEffect(()=>{
     dispatch(fetchPosts()); //later, I want to only fetch first 15~ posts
     // dispatch(fetchUsers()); 
-  }, [window.location.pathname])
+  }, [window.location.pathname, dispatch])
   //returns another "loggedin index" if you are logged in
 
   return (

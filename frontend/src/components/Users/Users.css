@@ -19,7 +19,7 @@
   text-align: center;
 
 
-  background-color: whitesmoke;
+  background-color: none;
   display: block; /* makes inside vertical */
   flex-direction: row;
   align-items: center;
@@ -66,9 +66,13 @@
   left: 0;
   right: 0;
   bottom: 50%;
-
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px
 }
-
+.user-header{
+  background: whitesmoke;
+  border-radius: 5px;
+}
 .user-profile{
   display: contents;
     pointer-events: all;

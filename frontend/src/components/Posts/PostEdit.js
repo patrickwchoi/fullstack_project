@@ -92,7 +92,7 @@ function PostEdit({postId}){
   if (!post) return null;
   return (
     <>
-    <button onClick={openModal}>Open Edit Modal</button>
+    <div onClick={openModal}>Edit</div>
     <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}

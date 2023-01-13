@@ -62,7 +62,7 @@ require "open-uri"
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
     
   Post.create!(
-    author_id: 1, title: 'Loser'
+    author_id: 1, title: 'loser'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
 
   Post.create!(

@@ -65,23 +65,24 @@ const PostIndexItem = ({post}) => {
             <div id='post-modal-background' onClick={closeDropdown}></div>
             <div className='post-dropdown'>
               {/* <p>{createdAtDate}</p> */}
-              <p>{formatDateTime(post.createdAt)}</p>
-              <p>Share</p>
+              <div>{formatDateTime(post.createdAt)}</div>
+              <div>Share</div>
               {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
                 <>
-                  <button onClick={()=>{handleEdit(post.id)}}>Edit</button>
+                  {/* <button onClick={()=>{handleEdit(post.id)}}>Edit</button> */}
                   <PostEdit postId={post.id} />
-                  <button onClick={()=>dispatch(deletePost(post.id))}>Delete</button>
+                  <div onClick={()=>dispatch(deletePost(post.id))}>Delete</div>
                 </>
                 ) : null}
-                <button onClick={closeDropdown}>Close</button>
+                <div onClick={closeDropdown}>Close</div>
             </div>
           </>
         )}
         {/* <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2> */}
-
-        <h2>{post.title}</h2>
-        <p> {post.body} </p>
+        <div className='post-text'>
+          <h2>{post.title}</h2>
+          <p> {post.body} </p>
+        </div>
         <img src={post.photoUrl} className='post-photo'/>
       </div>
 
