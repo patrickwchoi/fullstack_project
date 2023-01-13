@@ -55,7 +55,7 @@ const UserShow = () => {
         {isAuthorLoggedIn ? ( 
           <>
             <button onClick={redirectToEditUser}>Edit</button>
-            <button onClick={redirectToCreatePost}>New Post</button>
+            {/* <button onClick={redirectToCreatePost}>New Post</button> */}
           </>
         ) : null}
           <div className='user-posts'>
