@@ -56,7 +56,7 @@ const LoginFormPage = () => {
   }
 
   return showLogin ? ( //only returns form if showLogin is true
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <ul>
             {errors.map(error => <li key={error}>{error}</li>)}
         </ul>

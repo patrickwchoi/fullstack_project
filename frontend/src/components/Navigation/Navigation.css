@@ -16,7 +16,7 @@
 
     box-sizing: border-box;
     height: 54px;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     /* margin: auto; */
     max-width: 1716px;
     padding-right: 10px;
@@ -70,7 +70,7 @@
 
 #logo{
   /* how to make height fill out to parent div's height: */
-  height: 100%;
+  height: 40px; /*used to be 100%, but im hardcoding it rn*/
   transform: translateY(3%);
   cursor: pointer;
 }

@@ -52,7 +52,7 @@ function Navigation() {
   } else {
     sessionLinks = (
       <div className='navbar'>
-        
+        <div>  <img id="logo"  src="https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_logo.png"></img></div>
         <div id="login-signup">
           <button onClick={openLogin} id='login-button'>Open Login form</button>
           <button onClick={openSignup} id='signup-button'>Open Signup form</button>
