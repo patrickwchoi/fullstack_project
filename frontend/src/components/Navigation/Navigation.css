@@ -26,12 +26,13 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
-
-
 }
 
-.navbar * a {
-  color: white;
+.nav-icon{
+  fill:white;
+  margin:8px;
+}
+#navbar-post-create{
 }
 
 /* for all buttons in navbar */
@@ -62,14 +63,18 @@
 #navbar-left{
   height: 100%;
 }
+#navbar-right{
+  display: flex;
+  align-items: center;
+}
+
 #logo{
   /* how to make height fill out to parent div's height: */
   height: 100%;
   transform: translateY(3%);
   cursor: pointer;
 }
-#navbar-post-create{
-}
+
 .navbar-signup{
 
 }

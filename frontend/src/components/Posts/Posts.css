@@ -126,6 +126,10 @@
 }
 #new-post{
   border:none;
+  /* background: rgb(0, 184, 225); */
+  background: rgb(var(--accent));
+  padding:none;
+  margin: none;
 }
 input{
   border: 1px solid #efefef;

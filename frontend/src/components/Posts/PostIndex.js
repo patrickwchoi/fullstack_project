@@ -6,6 +6,7 @@ import { getPosts, fetchPosts } from '../../store/posts'
 import './Posts.css';
 import { fetchUsers, getUser, getUsers } from '../../store/users';
 import PostCreate from './PostCreate'
+import testsvg from '../../assets/magnifying_glass.svg'
 
 const PostIndex = (props) => {
   const dispatch = useDispatch();
@@ -30,9 +31,11 @@ const PostIndex = (props) => {
 
   return (
     <div className='PostIndex'>
+      {/* <img src = {testsvg} alt="My SVG"/> */}
+
       <ul>
         {/* <button onClick={redirectToCreate}>new post button</button> */}
-        <PostCreate/>
+        {/* <PostCreate/> */}
         {posts.map(post=> <PostIndexItem post={post} key={post.id} /*author={post.author}*//>)} 
       </ul>
     </div>

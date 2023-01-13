@@ -4,8 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import ProfileButton from './ProfileButton';
 import {useLoginModal, useSignupModal } from '../../context/Modal';
-import { BsFillHouseDoorFill, FaMoon, FaHouseUser  } from "react-icons/fa";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsFillHouseDoorFill, FaMoon, FaHouseUser, FaRegCompass } from "react-icons/fa";
+import { BsFillPersonFill, BsFillLightningChargeFill } from "react-icons/bs";
+import { IoIosMail } from "react-icons/io";
+
 import { MdEditNote } from "react-icons/md";
 import './Navigation.css';
 import PostCreate from '../Posts/PostCreate'
@@ -35,8 +37,11 @@ function Navigation() {
             </Link>
           </div>
           <div id="navbar-right">
-            <a href='/posts'> <FaHouseUser/> </a>
-            <a href={`/users/${sessionUser.id}`}> <BsFillPersonFill/> </a>  {/*how to implement?? */}
+            <a href='/posts'> <FaHouseUser className='nav-icon'/> </a>
+            <FaRegCompass className='nav-icon' />
+            <IoIosMail  className='nav-icon' />
+            <BsFillLightningChargeFill  className='nav-icon' />
+            <a href={`/users/${sessionUser.id}`}> <BsFillPersonFill  className='nav-icon'/> </a>
             {/* <a href='/posts/new'> <MdEditNote/></a>  */}
             <PostCreate id='navbar-post-create'/>
             <button onClick={logout}>Logout</button>
