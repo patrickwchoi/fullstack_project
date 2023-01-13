@@ -51,14 +51,36 @@ require "open-uri"
   gus.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/gus_smile.jpg"), filename: 'gus_smile.jpg')
   gus.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/gus_mad.jpg"), filename: 'gus_mad.jpg')
 
+  twitter_art = User.create!(
+    username: 'twitter_art', email: 'ttart@gmail.com', password: 'password', bio: 'Sharing art from twitter'
+  )
+  twitter_art.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/kobeni.jpg"), filename: 'kobeni.jpg')
+  twitter_art.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/makima_post.jpg"), filename: 'makima_post.jpg')
+
   Post.create!(
-    author_id: 1, title: 'How to Cook', body: 'Grab Jesse and Cook!'
+    author_id: 6, title: 'power!', body: '@kimnenemMM_art'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/power_art.jpg'), filename: 'power_art.jpg')
+  
+  Post.create!(
+    author_id: 1, title: 'Chemistry', body: 'I love chemistry'
   )
   Post.create!(
-    author_id: 2, body: 'Yo Mr. White, I love you'
+    author_id: 4, title: 'handsome'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley.jpg'), filename: 'riley.jpg')
+  
+  Post.create!(
+    author_id: 6, title: 'yu-gi-oh', body: '@ManaMoonArt'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/dark_magicians_art.jpg'), filename: 'dark_magicians_art.jpg')
+
+  Post.create!(
+    author_id: 6, title: 'Part 7', body: "@Neg_50asu"
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/johny_gyro.jpg'), filename: 'johny_gyro.jpg')
+
+  Post.create!(
+    author_id: 2, body: "What's up Mr.White"
   )
   Post.create!(
-    author_id: 2, title: 'Been having thoughts lately...'
+    author_id: 2, title: 'Mr.White'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
     
   Post.create!(
@@ -66,16 +88,13 @@ require "open-uri"
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
 
   Post.create!(
-    author_id: 3, title: 'Makima Pose'
+    author_id: 3, title: 'Pose'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_makima.jpg'), filename: 'saul_makima.jpg')
    
   Post.create!(
     author_id: 4
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley_naenae.jpg'), filename: 'riley_naenae.jpg')
   
-  Post.create!(
-    author_id: 4, title: 'handsome'
-  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley.jpg'), filename: 'riley.jpg')
   
   Post.create!(
     author_id: 5, title: 'Work'

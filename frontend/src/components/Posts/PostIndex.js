@@ -16,7 +16,7 @@ const PostIndex = (props) => {
   function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
   }
-  posts = shuffle(posts); //randomize posts order, doesnt change state
+  // posts = shuffle(posts); //randomize posts order, doesnt change state
   
   const history = useHistory();
   const redirectToCreate = ()=>{
