@@ -12,7 +12,7 @@ import './Navigation.css';
 import PostCreate from '../Posts/PostCreate'
 
 import LoginModal from '../Sessions/LoginModal';
-
+import SignupModal from '../Sessions/SignupModal';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -56,8 +56,9 @@ function Navigation() {
         <div>  <img id="logo"  src="https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_logo.png"></img></div>
         <div id="login-signup">
           <LoginModal/>
-          <button onClick={openLogin} id='login-button'>Open Login form</button>
-          <button onClick={openSignup} id='signup-button'>Open Signup form</button>
+          <SignupModal/>
+          {/* <button onClick={openLogin} id='login-button'>Open Login form</button>
+          <button onClick={openSignup} id='signup-button'>Open Signup form</button> */}
         </div>
 
       </div>
