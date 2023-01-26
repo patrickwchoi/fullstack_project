@@ -33,6 +33,9 @@ function UserEdit()  {
     // }
   }, [userId, dispatch])
   
+  // const handleBackgroundPic = () => {
+
+  // }
   const handleSubmit  = async (e)=>{
     e.preventDefault();
     const formData = new FormData();
@@ -61,9 +64,10 @@ function UserEdit()  {
     }
     history.push(`/users/${userId}`);
   }
-  const handleBackgroundPic = e => {
+  const BackgroundPicReader = e => {
     const file = e.currentTarget.files[0];
     if (file) {
+      console.log('hello')
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
       fileReader.onload = () => {
@@ -72,7 +76,7 @@ function UserEdit()  {
       };
     }
   }
-  const handleProfilePic = e => {
+  const ProfilePicReader = e => {
     const file = e.currentTarget.files[0];
     if (file) {
       const fileReader = new FileReader();
@@ -90,7 +94,6 @@ function UserEdit()  {
   //this will prevent the component from running while user is null. 
   //it only runs after useEffect runs, which is an async function
 
-  console.log(`is author logged in: ${isAuthorLoggedIn}`)
   if (!isAuthorLoggedIn) return null;
   if (!user ) return null;
 
@@ -102,7 +105,7 @@ function UserEdit()  {
       <div className='UserShow'>
         <header className='user-header'>
           <div className='background-img-container'>
-            <img className='user-backgroundimg' src={user.backgroundPic}/>
+            <img  className='user-backgroundimg' src={user.backgroundPic}/>
           </div>
           <div className='user-profile'>
             <img className='user-profile-pic' src={user.profilePic}/>
@@ -118,6 +121,9 @@ function UserEdit()  {
             type="text"  value={bio} onChange={(e)=> setBio(e.target.value)}
             placeholder='bio'
               />
+              <input type="file" onChange={BackgroundPicReader} /> 
+              <input type="file" onChange={ProfilePicReader} /> 
+
             </div>
           </div>
         </header>

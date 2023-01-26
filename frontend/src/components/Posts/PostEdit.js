@@ -63,7 +63,6 @@ function PostEdit({postId}){
     if (photoFile) {
       formData.append('post[photo]', photoFile);
     }
-    console.log(photoFile)
     const response = await csrfFetch(`/api/posts/${post.id}`, {
       method: 'PATCH',
       body: formData

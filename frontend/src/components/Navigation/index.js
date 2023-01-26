@@ -7,10 +7,11 @@ import {useLoginModal, useSignupModal } from '../../context/Modal';
 import { BsFillHouseDoorFill, FaMoon, FaHouseUser, FaRegCompass } from "react-icons/fa";
 import { BsFillPersonFill, BsFillLightningChargeFill } from "react-icons/bs";
 import { IoIosMail } from "react-icons/io";
-
 import { MdEditNote } from "react-icons/md";
 import './Navigation.css';
 import PostCreate from '../Posts/PostCreate'
+
+import LoginModal from '../Sessions/LoginModal';
 
 
 function Navigation() {
@@ -54,6 +55,7 @@ function Navigation() {
       <div className='navbar'>
         <div>  <img id="logo"  src="https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_logo.png"></img></div>
         <div id="login-signup">
+          <LoginModal/>
           <button onClick={openLogin} id='login-button'>Open Login form</button>
           <button onClick={openSignup} id='signup-button'>Open Signup form</button>
         </div>
