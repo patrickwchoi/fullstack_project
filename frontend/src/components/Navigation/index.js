@@ -2,8 +2,6 @@ import React from 'react';
 import { NavLink, useHistory, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import ProfileButton from './ProfileButton';
-import {useLoginModal, useSignupModal } from '../../context/Modal';
 import { BsFillHouseDoorFill, FaMoon, FaHouseUser, FaRegCompass } from "react-icons/fa";
 import { BsFillPersonFill, BsFillLightningChargeFill } from "react-icons/bs";
 import { IoIosMail } from "react-icons/io";
@@ -16,8 +14,6 @@ import SignupModal from '../Sessions/SignupModal';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
-  const {showLogin, openLogin, closeLogin} = useLoginModal();
-  const {showSignup, openSignup, closeSignup} = useSignupModal();
   const dispatch = useDispatch();
   const history = useHistory();
   const logout = (e) => {
@@ -57,8 +53,6 @@ function Navigation() {
         <div id="login-signup">
           <LoginModal/>
           <SignupModal/>
-          {/* <button onClick={openLogin} id='login-button'>Open Login form</button>
-          <button onClick={openSignup} id='signup-button'>Open Signup form</button> */}
         </div>
 
       </div>

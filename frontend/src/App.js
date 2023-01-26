@@ -1,6 +1,3 @@
-import LoginFormPage from "./components/LoginFormPage";
-import SignupFormPage from "./components/SignupFormPage";
-import LoginSignupModal from "./components/LoginSignupModal";
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom'
 import Navigation from "./components/Navigation";
@@ -18,9 +15,7 @@ function App() {
       {/* needed to add this to remove a 404 favicon get error. idrk */}
       <link rel="shortcut icon" href=""></link> 
 
-      <Navigation />
-      <LoginSignupModal />
-      
+      <Navigation />      
         <Switch> 
         <Route exact path="/"><Redirect to="/posts" /></Route>
           <Route exact path="/posts" component={PostIndex} />

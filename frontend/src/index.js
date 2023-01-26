@@ -7,7 +7,7 @@ import App from './App';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
-import ModalProvider from './context/Modal';
+// import ModalProvider from './context/Modal';
 import * as postActions from './store/posts';
 import * as userActions from './store/users';
 
@@ -27,14 +27,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 function Root() {
   return (
-    <ModalProvider>
+    // <ModalProvider>
       <Provider store={store}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
     </Provider>
 
-    </ModalProvider>
+    // </ModalProvider>
   );
 }
 
