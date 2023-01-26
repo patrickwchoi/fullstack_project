@@ -18,9 +18,14 @@ const style={
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '50%',
-    height: '50%',
-    border: '1px solid #ccc',  },
+    width: 'clamp(200px, 50%, 500px)',
+    height: 'fit-content',
+    border: 'none',  
+    background: 'RGB(var(--purple))', 
+    color: 'white',
+    padding: '10px',
+
+  },
 }
 
 const LoginModal = () => {
@@ -86,7 +91,7 @@ const LoginModal = () => {
         shouldCloseOnOverlayClick={true}
         style={style}
       >
-        <div className='login-modal'>
+        <div className='login-modal session'>
           <div id='modal_img'>
             <img src="https://assets.tumblr.com/pop/src/assets/images/login-wall/art_v2-3f0f7a0b.gif"/>
           </div>

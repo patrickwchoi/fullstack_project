@@ -18,9 +18,14 @@ const style={
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '50%',
-    height: '50%',
-    border: '1px solid #ccc',  },
+    width: 'clamp(200px, 50%, 500px)',
+    height: 'fit-content',
+    border: 'none',  
+    background: 'RGB(var(--purple))', 
+    color: 'white',
+    padding: '10px',
+
+  },
 }
 
 const SignupModal = () => {
@@ -44,17 +49,9 @@ const SignupModal = () => {
   
   if (sessionUser) return <Redirect to='/' /> 
 
-  const handleDemoLogin = (e) => { 
-    return dispatch(login({credential: 'walter_white', password: 'password'}))
-    .then( ()=> {
-      // closeLogin();
-      redirectToIndex();
-    })
-  }
   const redirectToIndex = ()=>{
     history.push('/posts')
   }
-
 
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -74,7 +71,7 @@ const SignupModal = () => {
             }) 
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
-}
+  }
 
   return (
     <>
@@ -85,7 +82,7 @@ const SignupModal = () => {
         shouldCloseOnOverlayClick={true}
         style={style}
       >
-        <div className='login-modal'>
+        <div className='login-modal session'>
           <div id='modal_img'>
             <img src="https://assets.tumblr.com/pop/src/assets/images/login-wall/art_v2-3f0f7a0b.gif"/>
           </div>
@@ -140,7 +137,6 @@ const SignupModal = () => {
           </label>
           <br/>
           <button type="submit">Sign Up</button>
-          <button onClick={closeModal} className='close-button'>Close</button>
         </form>
           </div>
         </div>
