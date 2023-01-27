@@ -33,6 +33,8 @@ function PostCreate(){
   const [body, setBody] = useState(post.body)
   const [photoFile, setPhotoFile] = useState (null);
   const [photoUrl, setPhotoUrl] = useState (null); 
+  const [errors, setErrors] = useState([])
+
   const dispatch = useDispatch();
 
   //start
@@ -74,7 +76,18 @@ function PostCreate(){
     const response = await csrfFetch('/api/posts', {
       method: 'POST',
       body: formData
-    });
+    }).catch(async (res) =>{
+                let data; 
+                try {
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text();
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+                console.log(errors)
+            }) 
     if (response.ok) {
       const message = await response.json();
       setTitle("");

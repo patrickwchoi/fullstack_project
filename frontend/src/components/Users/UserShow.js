@@ -5,8 +5,7 @@ import { useHistory } from "react-router-dom";
 import {deleteUser, updateUser, getUser, fetchUser} from '../../store/users';
 import { getPosts } from '../../store/posts';
 import './Users.css';
-// import PostIndexItem from '../Posts/PostIndexItem';
-import UserPostItem from './UserPostItem';
+// import UserPostItem from './UserPostItem';
 import PostIndexItem from '../Posts/PostIndexItem';
 
 const UserShow = () => {
@@ -18,9 +17,6 @@ const UserShow = () => {
 
   const user = useSelector(getUser(userId));
   const history = useHistory();
-  const redirectToCreatePost = ()=>{
-    history.push('/posts/new')
-  }
   const redirectToEditUser = ()=>{
     history.push(`/users/${userId}/edit`)
   }

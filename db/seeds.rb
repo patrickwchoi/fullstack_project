@@ -77,7 +77,7 @@ require "open-uri"
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/johny_gyro.jpg'), filename: 'johny_gyro.jpg')
 
   Post.create!(
-    author_id: 2, body: "What's up Mr.White"
+    author_id: 2, title: 'title', body: "What's up Mr.White"
   )
   Post.create!(
     author_id: 2, title: 'Mr.White'
@@ -92,7 +92,7 @@ require "open-uri"
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/saul_makima.jpg'), filename: 'saul_makima.jpg')
    
   Post.create!(
-    author_id: 4
+    author_id: 4, title: 'title'
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley_naenae.jpg'), filename: 'riley_naenae.jpg')
   
   
