@@ -17,16 +17,14 @@ const PostIndex = (props) => {
     return array.sort(() => Math.random() - 0.5);
   }
   // posts = shuffle(posts); //randomize posts order, doesnt change state
-  
   const history = useHistory();
   const redirectToCreate = ()=>{
     history.push('/posts/new')
   }
-  
   useEffect(()=>{
     dispatch(fetchPosts()); //later, I want to only fetch first 15~ posts
     // dispatch(fetchUsers()); 
-  }, [window.location.pathname, dispatch])
+  }, [window.location.pathname, dispatch, posts])
   //returns another "loggedin index" if you are logged in
 
   return (
