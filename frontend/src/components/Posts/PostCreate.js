@@ -72,28 +72,24 @@ function PostCreate(){
     if (photoFile) {
       formData.append('post[photo]', photoFile);
     }
-    
-    const response = await csrfFetch('/api/posts', {
-      method: 'POST',
-      body: formData
-    }).catch(async (res) =>{
-                let data; 
-                try {
-                    data = await res.clone().json();
-                } catch {
-                    data = await res.text();
-                }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
-                else setErrors([res.statusText]);
-                console.log(errors)
-            }) 
-    if (response.ok) {
-      const message = await response.json();
-      setTitle("");
-      setPhotoFile(null);
-      setPhotoUrl(null);
+    try {
+      const response = await csrfFetch('/api/posts', {
+        method: 'POST',
+        body: formData
+      })
+      if (response.ok) {
+        const message = await response.json();
+        setTitle("");
+        setPhotoFile(null);
+        setPhotoUrl(null);
+      }
     }
+
+    catch (error) {
+      console.log(error)
+      setErrors(error)
+      }
+    console.log(errors)
     closeModal();
   }
 

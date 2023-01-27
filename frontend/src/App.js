@@ -7,7 +7,6 @@ import PostEdit from "./components/Posts/PostEdit";
 import PostShow from "./components/Posts/PostShow";
 import UserShow from "./components/Users/UserShow";
 import UserEdit from "./components/Users/UserEdit";
-import TempModal from "./components/Posts/tempmodal";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
         <Route exact path="/"><Redirect to="/posts" /></Route>
           <Route exact path="/posts" component={PostIndex} />
           <Route exact path="/posts/new" component={PostForm} />
-          <Route exact path="/posts/temp" component={TempModal} />
           <Route path="/posts/:postId/edit" component={PostEdit} />
           {/* <Route exact path="/posts/:postId" component={PostShow} /> */}
           <Route path="/users/:userId/edit" component={UserEdit} />
