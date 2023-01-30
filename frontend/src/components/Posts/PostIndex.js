@@ -24,16 +24,11 @@ const PostIndex = (props) => {
   useEffect(()=>{
     dispatch(fetchPosts()); //later, I want to only fetch first 15~ posts
     // dispatch(fetchUsers()); 
-  }, [window.location.pathname, dispatch, posts])
-  //returns another "loggedin index" if you are logged in
+  }, [window.location.pathname])
 
   return (
     <div className='PostIndex'>
-      {/* <img src = {testsvg} alt="My SVG"/> */}
-
       <ul>
-        {/* <button onClick={redirectToCreate}>new post button</button> */}
-        {/* <PostCreate/> */}
         {posts.map(post=> <PostIndexItem post={post} key={post.id} /*author={post.author}*//>)} 
       </ul>
     </div>

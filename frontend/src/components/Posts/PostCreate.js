@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPost, fetchPost, createPost, updatePost } from '../../store/posts';
+import { getPost, fetchPosts, createPost, updatePost } from '../../store/posts';
 import { useHistory } from "react-router-dom";
 import csrfFetch from '../../store/csrf';
 import Modal from 'react-modal';
@@ -82,6 +82,7 @@ function PostCreate(){
         setTitle("");
         setPhotoFile(null);
         setPhotoUrl(null);
+        dispatch(fetchPosts());
       }
     }
 
@@ -90,6 +91,7 @@ function PostCreate(){
       setErrors(error)
       }
     console.log(errors)
+
     closeModal();
   }
 
