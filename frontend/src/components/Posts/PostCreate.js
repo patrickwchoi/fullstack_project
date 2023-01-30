@@ -91,7 +91,6 @@ function PostCreate(){
       setErrors(error)
       }
     console.log(errors)
-
     closeModal();
   }
 

@@ -26,7 +26,7 @@ const UserShow = () => {
       dispatch(fetchUser(userId));
     }
     
-  }, [userId, dispatch, posts])
+  }, [userId, dispatch])
   
   
 
