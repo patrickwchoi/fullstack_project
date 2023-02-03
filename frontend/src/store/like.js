@@ -44,7 +44,7 @@ export const fetchLike = (likeId) => async (dispatch) =>{
 //edits state and backend from frontend
 export const createLike = (like) => async (dispatch) =>{
   const res = await csrfFetch(`/api/likes`, {
-    method: 'like',
+    method: 'POST',
     headers: { 
       'Content-Type': 'application/json'
     } , 

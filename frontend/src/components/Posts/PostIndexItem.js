@@ -15,7 +15,7 @@ import './Posts.css';
 const PostIndexItem = ({post}) => {
   const author = useSelector(getUser(post.authorId));
   const history = useHistory();
-
+  
   const handleEdit = (postId) =>{
     dispatch(fetchPost(postId)) //I want to make sure the post is in the store, bc going here from User show doesnt have post in the state
     history.push(`/posts/${postId}/edit`)
