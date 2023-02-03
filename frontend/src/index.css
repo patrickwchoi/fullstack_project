@@ -39,12 +39,18 @@
   font-family:'Favorit';
   src: url('./assets/FavoritC.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Poppins';
+  font-style: 'regular';
+  font-weight: 300;
+  src: url('./assets/Poppins-Regular.ttf');
+}
 .root {
   padding: 20px;
   background: RGB(var(--navy));
   font-size: 16px;
   /* font-family: 'roboto'; */
-  font-family: 'Favorit';
+  font-family: 'Poppins';
   font-size: 14px;
   font-weight: 100;
 }
