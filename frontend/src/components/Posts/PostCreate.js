@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPost, fetchPosts, createPost, updatePost } from '../../store/posts';
 import { useHistory } from "react-router-dom";
 import csrfFetch from '../../store/csrf';
-import Modal from 'react-modal';
 import { MdEditNote } from "react-icons/md";
+import Modal from 'react-modal';
 
 
 const style={
@@ -33,9 +33,13 @@ function PostCreate(){
   const [body, setBody] = useState(post.body)
   const [photoFile, setPhotoFile] = useState (null);
   const [photoUrl, setPhotoUrl] = useState (null); 
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState('Post title cannot be empty')
 
   const dispatch = useDispatch();
+
+  useEffect(()=>{
+    title ? setErrors([]) : setErrors('Post title cannot be empty')
+  }, [title])
 
   //start
   const [isOpen, setIsOpen] = useState(false);
@@ -109,8 +113,9 @@ function PostCreate(){
     <div className='new-post-form'>
       <form onSubmit={handleSubmit}>
         <h1>Create New Post</h1>
+          {errors}
           <input 
-            type="text"  value={title} onChange={(e)=> setTitle(e.target.value)}
+            required={true} type="text"  value={title} onChange={(e)=> setTitle(e.target.value)}
             placeholder='Title'
           />
           <input 

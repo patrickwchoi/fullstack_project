@@ -3,7 +3,7 @@
 # Table name: posts
 #
 #  id          :bigint           not null, primary key
-#  title       :string
+#  title       :string           not null
 #  body        :text
 #  content_url :text
 #  created_at  :datetime         not null

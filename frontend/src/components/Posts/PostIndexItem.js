@@ -35,17 +35,17 @@ const PostIndexItem = ({post}) => {
     history.push(`/users/${post.authorId}`)
   }
 
-  //start
-  const [isOpen, setIsOpen] = useState(false);
+  // //start
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
-  }
+  // const openModal = () => {
+  //   setIsOpen(true);
+  // }
 
-  const closeModal = () => {
-    setIsOpen(false);
-  }
-  //end
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  // }
+  // //end
   Modal.setAppElement("#root");
   return (
     <div className='PostIndexItem'>

@@ -121,7 +121,6 @@ function PostEdit({postId}){
           </div>
           <div className='postmodal-footer'>
             <button>Edit Post</button>
-
           </div>
         </form>
       </div>

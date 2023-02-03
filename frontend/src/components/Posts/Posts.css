@@ -103,7 +103,6 @@
   transform: translate(320%, 15%);
   flex-wrap: wrap;
   align-content: stretch;
-
 }
 .post-dropdown > *:hover{
   background: #efefef;

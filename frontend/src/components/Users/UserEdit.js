@@ -3,9 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import {deleteUser, updateUser, getUser, fetchUser, receiveUser} from '../../store/users';
-import { getPosts } from '../../store/posts';
 import './Users.css';
-import PostIndexItem from '../Posts/PostIndexItem';
 import csrfFetch from '../../store/csrf';
 
 
@@ -47,7 +45,7 @@ function UserEdit()  {
     if (profilePic) {
       formData.append('user[profilePic]', profilePic);
     }
-    
+    console.log("formData", ...formData)
     const response = await csrfFetch(`/api/users/${userId}`, {
       method: 'PATCH',
       body: formData
@@ -67,7 +65,6 @@ function UserEdit()  {
   const BackgroundPicReader = e => {
     const file = e.currentTarget.files[0];
     if (file) {
-      console.log('hello')
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
       fileReader.onload = () => {
@@ -122,8 +119,9 @@ function UserEdit()  {
             placeholder='bio'
               />
               <input type="file" onChange={BackgroundPicReader} /> 
+              {BackgroundPicPreview}
               <input type="file" onChange={ProfilePicReader} /> 
-
+              {ProfilePicPreview}
             </div>
           </div>
         </header>
