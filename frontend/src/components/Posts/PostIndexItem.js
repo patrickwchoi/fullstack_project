@@ -66,7 +66,6 @@ const PostIndexItem = ({post}) => {
             <div className='post-dropdown'>
               {/* <p>{createdAtDate}</p> */}
               <div>{formatDateTime(post.createdAt)}</div>
-              <div>Share</div>
               {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
                 <>
                   {/* <button onClick={()=>{handleEdit(post.id)}}>Edit</button> */}
