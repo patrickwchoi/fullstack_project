@@ -7,6 +7,7 @@ import { deletePost, updatePost, fetchPost} from '../../store/posts';
 import {getUser} from '../../store/users';
 import { formatDateTime } from '../../utils/dateUtil';
 import {BsThreeDots} from "react-icons/bs";
+import {} from '../../store/likes'
 
 // import TempModal from './tempmodal';
 import PostEdit from './PostEdit';

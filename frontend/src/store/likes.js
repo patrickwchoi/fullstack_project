@@ -4,6 +4,9 @@ export const RECEIVE_LIKES = 'likes/RECEIVE_LIKES'
 export const RECEIVE_LIKE = 'likes/RECEIVE_LIKE'
 export const REMOVE_LIKE = 'likes/REMOVE_LIKE'
 
+export const RECEIVE_POSTS = 'posts/RECEIVE_POSTS'
+export const RECEIVE_POST = 'posts/RECEIVE_POST'
+export const REMOVE_POST = 'posts/REMOVE_POST'
 
 const receiveLikes = likes => ({
   type: RECEIVE_LIKES,
@@ -79,6 +82,10 @@ const likesReducer = (state={}, action) =>{
       const newState = {...state};
       delete newState[action.likeId]
       return newState;
+    // case RECEIVE_POST:
+    //   return {...action.post.likes};
+    case RECEIVE_POSTS:
+      return {...state, ...action.posts.likes};
     default: 
       return state;
   }

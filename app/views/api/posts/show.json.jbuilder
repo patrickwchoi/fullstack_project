@@ -9,3 +9,10 @@ json.author do
 end
 # This returns {var1: __, var2: __, author: __}
 # alternative when you wrap with json.post.do returns {post: {var1: __, var2: __, author: __}}
+json.likes do
+  @post.likes.each do |like|
+    json.set! like.id do
+      json.partial! 'api/likes/like', like: like
+    end
+  end
+end
