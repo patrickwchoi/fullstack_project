@@ -8,6 +8,10 @@ export const RECEIVE_POSTS = 'posts/RECEIVE_POSTS'
 export const RECEIVE_POST = 'posts/RECEIVE_POST'
 export const REMOVE_POST = 'posts/REMOVE_POST'
 
+export const RECEIVE_USERS = 'USERS/RECEIVE_USERS'
+export const RECEIVE_USER = 'USERS/RECEIVE_USER'
+export const REMOVE_USER = 'USERS/REMOVE_USER'
+
 const receiveLikes = likes => ({
   type: RECEIVE_LIKES,
   likes
@@ -84,8 +88,10 @@ const likesReducer = (state={}, action) =>{
       return newState;
     // case RECEIVE_POST:
     //   return {...action.post.likes};
-    case RECEIVE_POSTS:
+    case RECEIVE_POSTS: //for post index
       return {...state, ...action.posts.likes};
+    case RECEIVE_USER: //for user show
+      return {...action.payload.likes}
     default: 
       return state;
   }

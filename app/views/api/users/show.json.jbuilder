@@ -21,8 +21,12 @@ json.posts do
   end
 end
 
-# json.user do 
-#   json.partial! 'user', user: @user
-
-# end
-
+json.likes do
+  @user.posts.each do |post|
+    post.likes.each do |like|
+      json.set! like.id do
+        json.partial! 'api/likes/like', like: like
+      end
+    end
+  end
+end
