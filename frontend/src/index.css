@@ -66,3 +66,9 @@ a{
   color: black;
   text-decoration: none; 
 }
+.red{
+  color: red;
+}
+.grey{
+  color: rgb(184, 184, 184);
+}

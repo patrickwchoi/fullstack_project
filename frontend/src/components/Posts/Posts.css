@@ -175,3 +175,7 @@ input{
 
 }
 
+.fa-heart{
+  font-size: 30px;
+  animation-duration: 1s;
+}

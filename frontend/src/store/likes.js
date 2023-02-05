@@ -31,6 +31,12 @@ export const getLike = (likeId) => (state) => {
 export const getLikes = (state) => { //not very useful bc we dont wanna get all the users prob
   return state?.likes ? Object.values(state.likes) : [];
 }
+export const getLikesGivenPost = (postId) => (state) => { 
+  // return state.posts[postId] ? Object.values(state.post.likes) : [];
+  if (state.posts[postId])
+    return Object.values(state.likes).filter(like => like.postId === postId);
+  return [];
+}
 
 //updates state from backend
 // export const fetchUsers = () => async (dispatch) =>{ 
@@ -59,6 +65,7 @@ export const createLike = (like) => async (dispatch) =>{
   });
   if (res.ok){
     const like = await res.json();
+    // console.log(like)
     dispatch(receiveLike(like));
   }
 }
@@ -79,9 +86,6 @@ const likesReducer = (state={}, action) =>{
       return {...action.likes}; 
     case RECEIVE_LIKE:
       return {...state, [action.like.id]: action.like}; 
-      //here, action.like is an object that is being returned in our views jbuilder in rails
-      //After I edited my show page to nest the has_many posts, it used to show up parallel to like and thus wasnt being collected in state, bc state only grabs action.like
-      //To fix that, I nested the post data inside the like object in jbuilder.
     case REMOVE_LIKE:
       const newState = {...state};
       delete newState[action.likeId]

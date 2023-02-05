@@ -7,7 +7,8 @@ import { deletePost, updatePost, fetchPost} from '../../store/posts';
 import {getUser} from '../../store/users';
 import { formatDateTime } from '../../utils/dateUtil';
 import {BsThreeDots} from "react-icons/bs";
-import {} from '../../store/likes'
+import {getLikesGivenPost , createLike } from '../../store/likes'
+import LikePostItem from '../Likes/LikePostItem';
 
 // import TempModal from './tempmodal';
 import PostEdit from './PostEdit';
@@ -15,14 +16,11 @@ import './Posts.css';
 
 const PostIndexItem = ({post}) => {
   const author = useSelector(getUser(post.authorId));
+  const likes = useSelector(getLikesGivenPost(post.id));
   const history = useHistory();
   
-  const handleEdit = (postId) =>{
-    dispatch(fetchPost(postId)) //I want to make sure the post is in the store, bc going here from User show doesnt have post in the state
-    history.push(`/posts/${postId}/edit`)
-  }
-  
   const dispatch = useDispatch();
+  const [isRed, setIsRed] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === author.id));
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
@@ -36,28 +34,20 @@ const PostIndexItem = ({post}) => {
     history.push(`/users/${post.authorId}`)
   }
 
-  // //start
-  // const [isOpen, setIsOpen] = useState(false);
+  const handleLike = (e) => {
+    setIsRed(current => !current);
+    const like = {post_id : post.id, user_id: sessionUser.id}
+    dispatch(createLike(like));
+  }
 
-  // const openModal = () => {
-  //   setIsOpen(true);
-  // }
 
-  // const closeModal = () => {
-  //   setIsOpen(false);
-  // }
-  // //end
-  Modal.setAppElement("#root");
   return (
     <div className='PostIndexItem'>
-
-      {/* <PostEdit postId={post.id} /> */}
       <div className='postindex-left'>
         <img src={author.profilePic} className='post-profile-pic' onClick={redirectToUser}/> 
       </div>
       <div className='postindex-right'>
         <div className='postindex-right-header'>
-          {/* <p>{author.username}</p> */}
           <a onClick={redirectToUser} id="username">{author.username}</a>
           <button id='three-dots' onClick={openDropdown} > <BsThreeDots/> </button>
         </div>
@@ -84,6 +74,22 @@ const PostIndexItem = ({post}) => {
           <p> {post.body} </p>
         </div>
         <img src={post.photoUrl} className='post-photo'/>
+        <div className='postindex-right-footer'>
+          <div className="notes-footer-left">
+            {likes.length} notes
+          </div>
+          <div className="notes-footer-right">
+            {/* add heart here */}
+            {/* <FontAwesomeIcon icon="fa-solid fa-heart" /> */}
+            {/* <i className='fa-solid fa-heart'></i> */}
+            {/* <FontAwesomeIcon icon={heart} /> */}
+            <i className={'fa fa-heart '.concat(isRed ? 'red' : 'grey')} onClick={handleLike}></i>
+
+          </div>
+          {/* <div className="postindex-likes">
+            {likes.map(like => <LikePostItem postId={like.postId} userId={like.userId} key={like.id}/>)}
+          </div> */}
+        </div>
       </div>
 
     </div>
