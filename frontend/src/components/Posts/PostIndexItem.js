@@ -8,7 +8,7 @@ import {getUser} from '../../store/users';
 import { formatDateTime } from '../../utils/dateUtil';
 import {BsThreeDots} from "react-icons/bs";
 import {getLikesGivenPost , createLike, getLikeGivenPostAndUser, deleteLike} from '../../store/likes'
-import LikePostItem from '../Likes/LikePostItem';
+import LikePostItem from '../Notes/Likes/LikePostItem';
 
 // import TempModal from './tempmodal';
 import PostEdit from './PostEdit';
@@ -38,7 +38,7 @@ const PostIndexItem = ({post}) => {
   //     setIsLiked(false)
   //   }
   // }, [sessionUser]);
-
+  
   const redirectToUser = () => {
     history.push(`/users/${post.authorId}`)
   }

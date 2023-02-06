@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink, useHistory, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
@@ -16,10 +16,11 @@ function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
-  };
+    };
   const redirectToIndex = () => {
     history.push(`/posts`)
   }

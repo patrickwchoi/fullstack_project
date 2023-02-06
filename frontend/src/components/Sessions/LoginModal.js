@@ -50,9 +50,18 @@ const LoginModal = () => {
   const handleDemoLogin = (e) => { 
     return dispatch(login({credential: 'walter_white', password: 'password'}))
     .then( ()=> {
-      // closeLogin();
       redirectToIndex();
-    })
+    }).catch(async res => {
+      let data; 
+      try {
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
+      }
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data]);
+      else setErrors([res.statusText]);
+    });
   }
   const redirectToIndex = ()=>{
     history.push('/posts')
@@ -81,6 +90,7 @@ const LoginModal = () => {
       });
 
   }
+  Modal.setAppElement('#root');
 
   return (
     <>

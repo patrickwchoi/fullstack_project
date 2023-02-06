@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getPost } from '../../store/posts';
-import { getUser } from '../../store/users';
+import { getPost } from '../../../store/posts';
+import { getUser } from '../../../store/users';
 
 const LikePostItem = ({postId, userId}) => {
   const dispatch = useDispatch();
