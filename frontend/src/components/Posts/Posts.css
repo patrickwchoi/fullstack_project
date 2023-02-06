@@ -179,3 +179,10 @@ input{
   font-size: 30px;
   animation-duration: 1s;
 }
+
+.notes-footer-left{
+  cursor: pointer;
+}
+.notes-open{
+  border: 1px solid black !important;
+}

@@ -9,6 +9,7 @@ import { formatDateTime } from '../../utils/dateUtil';
 import {BsThreeDots} from "react-icons/bs";
 import {getLikesGivenPost , createLike, getLikeGivenPostAndUser, deleteLike} from '../../store/likes'
 import LikePostItem from '../Notes/Likes/LikePostItem';
+import NotesDropdown from '../Notes/Dropdown/NotesDropdown';
 
 // import TempModal from './tempmodal';
 import PostEdit from './PostEdit';
@@ -58,7 +59,18 @@ const PostIndexItem = ({post}) => {
       dispatch(deleteLike(like.id));
     }
   }
-
+  const [notesIsOpen, setNotesIsOpen] = useState(false)
+  const toggleNotes = () => {
+    if (notesIsOpen) {
+      setNotesIsOpen(false);
+    }
+    else{
+      setNotesIsOpen(true);
+    }
+  }
+  const closeNotes = () => {
+    setNotesIsOpen(false);
+  }
 
   return (
     <div className='PostIndexItem'>
@@ -87,23 +99,22 @@ const PostIndexItem = ({post}) => {
             </div>
           </>
         )}
-        {/* <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2> */}
         <div className='post-text'>
           <h2>{post.title}</h2>
           <p> {post.body} </p>
         </div>
         <img src={post.photoUrl} className='post-photo'/>
         <div className='postindex-right-footer'>
-          <div className="notes-footer-left">
+          <div className={notesIsOpen ? 'notes-open notes-footer-left' : 'notes-closed notes-footer-left'} onClick={toggleNotes}>
             {likes.length} notes
           </div>
           <div className="notes-footer-right">
-            {/* add heart here */}
-            {/* <FontAwesomeIcon icon="fa-solid fa-heart" /> */}
-            {/* <i className='fa-solid fa-heart'></i> */}
-            {/* <FontAwesomeIcon icon={heart} /> */}
             <i className={'fa fa-heart '.concat(isLiked ? 'red' : 'grey')} onClick={handleLike}></i>
-
+            {notesIsOpen && <>
+              <NotesDropdown likes={likes}/>
+              <button onClick={closeNotes}></button>
+            </>
+             }
           </div>
           {/* <div className="postindex-likes">
             {likes.map(like => <LikePostItem postId={like.postId} userId={like.userId} key={like.id}/>)}

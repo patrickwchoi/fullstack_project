@@ -6,13 +6,17 @@ const LikePostItem = ({postId, userId}) => {
   const dispatch = useDispatch();
   const post = useSelector(getPost(postId));
   const user = useSelector(getUser(userId));
+  
+  if (!user ) return null;
   return (
-    <div className="like-item">
-      {/* <img src={user.profilePic} className="like-profile-pic" /> */}
-      <div className="like-item-right">
-        <a className="like-username">{user.username}</a>
+    <>
+      <div className="like-item">
+        {/* <img src={user.profilePic} className="like-profile-pic" /> */}
+        <div className="like-item-right">
+          <a className="like-username">{user.username}</a>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
