@@ -11,7 +11,7 @@ const LikePostItem = ({postId, userId}) => {
   return (
     <>
       <div className="like-item">
-        {/* <img src={user.profilePic} className="like-profile-pic" /> */}
+        {/* <img src={user.profilePic} className="notes-profile-pic" /> */}
         <div className="like-item-right">
           <a className="like-username">{user.username}</a>
         </div>

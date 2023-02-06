@@ -77,7 +77,7 @@ require "open-uri"
 
   Post.create!(
     author_id: 6, title: 'Part 7', body: "@Neg_50asu"
-  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/johny_gyro.jpg'), filename: 'johny_gyro.jpg')
+  )#.photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/johny_gyro.jpg'), filename: 'johny_gyro.jpg')
 
   Post.create!(
     author_id: 2, title: 'title', body: "What's up Mr.White"
@@ -101,11 +101,11 @@ require "open-uri"
   
   Post.create!(
     author_id: 5, title: 'Work'
-  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/work_kobeni.jpg'), filename: 'work_kobeni.jpg')
+  )#.photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/work_kobeni.jpg'), filename: 'work_kobeni.jpg')
    
   Post.create!(
     author_id: 1, title: 'Jerma'
-  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/jerma_BB.jpg'), filename: 'jerma_BB.jpg')
+  )#.photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/jerma_BB.jpg'), filename: 'jerma_BB.jpg')
    
 
   

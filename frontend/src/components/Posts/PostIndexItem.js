@@ -10,6 +10,7 @@ import {BsThreeDots} from "react-icons/bs";
 import {getLikesGivenPost , createLike, getLikeGivenPostAndUser, deleteLike} from '../../store/likes'
 import LikePostItem from '../Notes/Likes/LikePostItem';
 import NotesDropdown from '../Notes/Dropdown/NotesDropdown';
+import {getCommentsGivenPost} from '../../store/comments';
 
 // import TempModal from './tempmodal';
 import PostEdit from './PostEdit';
@@ -23,8 +24,10 @@ const PostIndexItem = ({post}) => {
   
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const sessionUserId = sessionUser ? sessionUser.id : null;
   const [isLiked, setIsLiked] = useState(sessionUser && likes.some(like => like.userId === sessionUser.id));
   let like = useSelector(getLikeGivenPostAndUser(post, sessionUser))
+  let comments = useSelector(getCommentsGivenPost(post.id));
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === author.id));
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
   const openDropdown = () => {
@@ -46,7 +49,7 @@ const PostIndexItem = ({post}) => {
 
   const handleLike = (e) => {
     if (sessionUser===null) {
-      alert('Please log in to like a post.')
+      alert('Please log in to comment')
     }
     else if (isLiked===false) {
       setIsLiked(current => !current);
@@ -111,7 +114,7 @@ const PostIndexItem = ({post}) => {
           <div className="notes-footer-right">
             <i className={'fa fa-heart '.concat(isLiked ? 'red' : 'grey')} onClick={handleLike}></i>
             {notesIsOpen && <>
-              <NotesDropdown likes={likes}/>
+              <NotesDropdown likes={likes} comments={comments} postId={post.id} userId={sessionUserId}/>
               <button onClick={closeNotes}></button>
             </>
              }
