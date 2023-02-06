@@ -18,7 +18,7 @@ class Post < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
   has_many :likes, dependent: :destroy
-  
+  has_many :comments, dependent: :destroy
   has_one_attached :photo #this is very similar to making new column
 
 end

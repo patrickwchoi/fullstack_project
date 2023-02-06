@@ -26,7 +26,8 @@ class User < ApplicationRecord
     class_name: :Post
 
   has_many :likes, dependent: :destroy
-
+  has_many :comments, dependent: :destroy
+  
   has_one_attached :profile_pic
   has_one_attached :background_pic
     

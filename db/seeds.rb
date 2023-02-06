@@ -11,6 +11,7 @@ require "open-uri"
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   Like.destroy_all
+  Comment.destroy_all
   Post.destroy_all
   User.destroy_all
 
@@ -19,6 +20,7 @@ require "open-uri"
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('posts')
   ApplicationRecord.connection.reset_pk_sequence!('likes')
+  ApplicationRecord.connection.reset_pk_sequence!('comments')
 
 
   puts "Creating users..."
@@ -112,6 +114,17 @@ require "open-uri"
   Like.create!({user_id: 2, post_id:3})
   Like.create!({user_id: 2, post_id:5})
   Like.create!({user_id: 3, post_id:3})
+
+  Comment.create!({user_id: 1, post_id: 1, body: 'I love this'})
+  Comment.create!({user_id: 2, post_id: 1, body: 'great art'})
+  Comment.create!({user_id: 1, post_id: 2, body: 'Fantastic'})
+  Comment.create!({user_id: 1, post_id: 3, body: 'Fantastic'})
+  Comment.create!({user_id: 1, post_id: 4, body: 'Fantastic'})
+  Comment.create!({user_id: 1, post_id: 5, body: 'Fantastic'})
+  Comment.create!({user_id: 2, post_id: 5, body: 'wow'})
+  Comment.create!({user_id: 2, post_id: 3, body: 'crazy'})
+
+
 
   puts "Done!"
 # end
