@@ -37,6 +37,15 @@ export const getLikesGivenPost = (postId) => (state) => {
     return Object.values(state.likes).filter(like => like.postId === postId);
   return [];
 }
+export const getLikeGivenPostAndUser = (post, user) => (state) => {
+  if (post === null || user === null) return null;
+  let postId= post.id;
+  let userId= user.id;
+  if (state.posts[postId]){
+    return Object.values(state.likes).find(like => like.postId === postId && like.userId === userId);
+  }
+  return null;
+}
 
 //updates state from backend
 // export const fetchUsers = () => async (dispatch) =>{ 

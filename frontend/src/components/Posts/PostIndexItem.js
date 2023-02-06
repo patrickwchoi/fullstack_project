@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Modal from 'react-modal';
 
 import { BrowserRouter, Route, Link, useHistory  } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { deletePost, updatePost, fetchPost} from '../../store/posts';
 import {getUser} from '../../store/users';
 import { formatDateTime } from '../../utils/dateUtil';
 import {BsThreeDots} from "react-icons/bs";
-import {getLikesGivenPost , createLike } from '../../store/likes'
+import {getLikesGivenPost , createLike, getLikeGivenPostAndUser, deleteLike} from '../../store/likes'
 import LikePostItem from '../Likes/LikePostItem';
 
 // import TempModal from './tempmodal';
@@ -19,9 +19,11 @@ const PostIndexItem = ({post}) => {
   const likes = useSelector(getLikesGivenPost(post.id));
   const history = useHistory();
   
+  
   const dispatch = useDispatch();
-  const [isRed, setIsRed] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
+  const [isLiked, setIsLiked] = useState(sessionUser && likes.some(like => like.userId === sessionUser.id));
+  let like = useSelector(getLikeGivenPostAndUser(post, sessionUser))
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === author.id));
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
   const openDropdown = () => {
@@ -30,14 +32,31 @@ const PostIndexItem = ({post}) => {
   const closeDropdown = () => {
     setDropdownIsOpen(false);
   }
+  //This causes error, I think bc in POstINdex there will be two useEffects running
+  // useEffect = (() => {
+  //   if (sessionUser===null) {
+  //     setIsLiked(false)
+  //   }
+  // }, [sessionUser]);
+
   const redirectToUser = () => {
     history.push(`/users/${post.authorId}`)
   }
 
   const handleLike = (e) => {
-    setIsRed(current => !current);
-    const like = {post_id : post.id, user_id: sessionUser.id}
-    dispatch(createLike(like));
+    if (sessionUser===null) {
+      alert('Please log in to like a post.')
+    }
+    else if (isLiked===false) {
+      setIsLiked(current => !current);
+      const like = {post_id : post.id, user_id: sessionUser.id}
+      dispatch(createLike(like));
+    }
+    else {
+      setIsLiked(current => !current);
+      // console.log(like)
+      dispatch(deleteLike(like.id));
+    }
   }
 
 
@@ -83,7 +102,7 @@ const PostIndexItem = ({post}) => {
             {/* <FontAwesomeIcon icon="fa-solid fa-heart" /> */}
             {/* <i className='fa-solid fa-heart'></i> */}
             {/* <FontAwesomeIcon icon={heart} /> */}
-            <i className={'fa fa-heart '.concat(isRed ? 'red' : 'grey')} onClick={handleLike}></i>
+            <i className={'fa fa-heart '.concat(isLiked ? 'red' : 'grey')} onClick={handleLike}></i>
 
           </div>
           {/* <div className="postindex-likes">
