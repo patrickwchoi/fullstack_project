@@ -6,7 +6,7 @@ import CommentPostItem from '../Comments/CommentPostItem';
 import {createComment} from '../../../store/comments';
 
 
-const NotesDropdown = ({likes, comments, postId, userId}) => {
+const NotesDropdown = ({likes, comments, postId, sessionUserId}) => {
   const dispatch = useDispatch();
   const [showLikes, setShowLikes] = useState(true)
   const closeLikes = () => {
@@ -28,11 +28,11 @@ const NotesDropdown = ({likes, comments, postId, userId}) => {
     
   const handleSubmitComment = (e) => {
     e.preventDefault();
-    if (userId===null) {
+    if (sessionUserId===null) {
       alert('Please log in to like a post.')
     }
     else{
-      const comment = {post_id : postId, user_id: userId, body: commentBody}
+      const comment = {post_id : postId, user_id: sessionUserId, body: commentBody}
       dispatch(createComment(comment))
       setCommentBody('');
     }
@@ -54,8 +54,9 @@ const NotesDropdown = ({likes, comments, postId, userId}) => {
         }
         {showComments && 
         <>
+          {/* <CommentsDropdown/> */}
           <ul>
-            {comments.map(comment => <CommentPostItem key={comment.id} comment={comment} />)}
+            {comments.map(comment => <CommentPostItem key={comment.id} comment={comment} sessionUserId={sessionUserId} />)}
           </ul>
           <form onSubmit={handleSubmitComment}>
             <input type="text" value={commentBody} onChange={e => setCommentBody(e.target.value)} />

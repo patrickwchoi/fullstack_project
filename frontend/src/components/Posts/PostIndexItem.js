@@ -114,7 +114,7 @@ const PostIndexItem = ({post}) => {
           <div className="notes-footer-right">
             <i className={'fa fa-heart '.concat(isLiked ? 'red' : 'grey')} onClick={handleLike}></i>
             {notesIsOpen && <>
-              <NotesDropdown likes={likes} comments={comments} postId={post.id} userId={sessionUserId}/>
+              <NotesDropdown likes={likes} comments={comments} postId={post.id} sessionUserId={sessionUserId}/>
               <button onClick={closeNotes}></button>
             </>
              }

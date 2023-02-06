@@ -1,0 +1,32 @@
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+const CommentsDropdown = ({comments, userId}) => { //rmbr userId is null if not logged in
+  const dispatch = useDispatch();
+  const [commentBody, setCommentBody] = useState(''); //user's input comment
+
+  const handleSubmitComment = (e) => {
+    e.preventDefault();
+    if (userId===null) {
+      alert('Please log in to like a post.')
+    }
+    else{
+      const comment = {post_id : postId, user_id: userId, body: commentBody}
+      dispatch(createComment(comment))
+      setCommentBody('');
+    }
+  }
+
+  return (
+    <>
+      <ul>
+        {comments.map(comment => <CommentPostItem key={comment.id} comment={comment} />)}
+      </ul>
+      <form onSubmit={handleSubmitComment}>
+        <input type="text" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
+      </form>
+    
+    </>
+  )
+}
+export default CommentsDropdown;
