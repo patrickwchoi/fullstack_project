@@ -109,7 +109,7 @@ const PostIndexItem = ({post}) => {
         <img src={post.photoUrl} className='post-photo'/>
         <div className='postindex-right-footer'>
           <div className={notesIsOpen ? 'notes-open notes-footer-left' : 'notes-closed notes-footer-left'} onClick={toggleNotes}>
-            {likes.length} notes
+            {likes.length + comments.length} notes
           </div>
           <div className="notes-footer-right">
             <i className={'fa fa-heart '.concat(isLiked ? 'red' : 'grey')} onClick={handleLike}></i>
