@@ -1,6 +1,9 @@
 .user-show-container{
   display: flex;
   justify-content: center;
+  background-color: rgb(202, 230, 255);
+  margin-top:40px;
+  border-radius:15px;
 }
 
 .UserShow{
@@ -11,17 +14,14 @@
   flex-direction: column;
   max-width: 580px;
   border-radius: 8px;
-    box-sizing: border-box;
-    height: 100%;
-    position: relative;
-    /* width: 6400px; */
-
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  /* width: 6400px; */
   text-align: center;
-
-
   background-color: none;
-  display: block; /* makes inside vertical */
-  flex-direction: row;
+  display: flex; /* makes inside vertical */
+  flex-direction: column;
   align-items: center;
 
   margin: 20px;

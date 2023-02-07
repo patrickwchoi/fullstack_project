@@ -28,9 +28,16 @@
 }
 
 .nav-icon{
-  fill:white;
+  fill:rgb(218, 218, 218);
   margin:8px;
+  transition: margin 0.2s ease-in-out;
+
 }
+.nav-icon:hover{
+  fill:rgb(255, 255, 255);
+  margin-top: 6px;
+}
+
 #navbar-post-create{
 }
 
@@ -80,4 +87,7 @@
 #login-signup{
   display: flex;
   align-items: center;
+}
+.logout-button:hover{
+  background: #e3e3e3;
 }

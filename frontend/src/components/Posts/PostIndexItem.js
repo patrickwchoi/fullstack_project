@@ -113,16 +113,17 @@ const PostIndexItem = ({post}) => {
           </div>
           <div className="notes-footer-right">
             <i className={'fa fa-heart '.concat(isLiked ? 'red' : 'grey')} onClick={handleLike}></i>
-            {notesIsOpen && <>
-              <NotesDropdown likes={likes} comments={comments} postId={post.id} sessionUserId={sessionUserId}/>
-              <button onClick={closeNotes}></button>
-            </>
-             }
           </div>
+          
           {/* <div className="postindex-likes">
             {likes.map(like => <LikePostItem postId={like.postId} userId={like.userId} key={like.id}/>)}
           </div> */}
         </div>
+        {notesIsOpen && <>
+            <NotesDropdown likes={likes} comments={comments} postId={post.id} sessionUserId={sessionUserId}/>
+            {/* <button onClick={closeNotes}></button> */}
+          </>
+        }
       </div>
 
     </div>

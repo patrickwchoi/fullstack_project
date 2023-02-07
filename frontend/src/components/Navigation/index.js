@@ -39,7 +39,7 @@ function Navigation() {
             <BsFillLightningChargeFill  className='nav-icon' /> */}
             <a href={`/users/${sessionUser.id}`}> <BsFillPersonFill  className='nav-icon'/> </a>
             <PostCreate id='navbar-post-create'/>
-            <button onClick={logout}>Logout</button>
+            <button className="logout-button" onClick={logout}>Logout</button>
           </div>
       </div>
 

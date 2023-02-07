@@ -142,8 +142,12 @@
   padding-bottom:0;
   padding-left:10px;
   padding-right:9px;
-
   font-size: 20px;
+  transition: margin 0.2s ease-in-out;
+}
+#new-post:hover{
+  /* background: rgb(var(--accent-hover)); */
+  margin-top:-5px
 }
 input{
   border: 1px solid #efefef;
@@ -180,7 +184,8 @@ input{
 
 .fa-heart{
   font-size: 30px;
-  animation-duration: 1s;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .notes-footer-left{
@@ -188,4 +193,15 @@ input{
 }
 .notes-open{
   border: 1px solid black !important;
+}
+.postindex-right-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid grey;
+  height: 30px;
+  width: 100%;
+  padding-top:10px;
+  /* padding-right: 10px; */
 }

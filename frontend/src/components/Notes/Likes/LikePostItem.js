@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getPost } from '../../../store/posts';
 import { getUser } from '../../../store/users';
+import '../Notes.css'
 
 const LikePostItem = ({postId, userId}) => {
   const dispatch = useDispatch();
@@ -11,9 +12,9 @@ const LikePostItem = ({postId, userId}) => {
   return (
     <>
       <div className="like-item">
-        {/* <img src={user.profilePic} className="notes-profile-pic" /> */}
+        <img src={user.profilePic} className="notes-profile-pic" />
         <div className="like-item-right">
-          <a className="like-username">{user.username}</a>
+          <a className="notes-username">{user.username}</a>
         </div>
       </div>
     </>

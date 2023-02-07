@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LikePostItem from '../Likes/LikePostItem';
 import CommentPostItem from '../Comments/CommentPostItem';
 import {createComment} from '../../../store/comments';
+import '../Notes.css'
 
 
 const NotesDropdown = ({likes, comments, postId, sessionUserId}) => {
@@ -45,6 +46,9 @@ const NotesDropdown = ({likes, comments, postId, sessionUserId}) => {
         <button onClick={openComments}>Comments</button>
       </div>
       <div className="notes-dropdown-content">
+        <form onSubmit={handleSubmitComment}>
+          <input type="text" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
+        </form>
         {showLikes && 
           <>
             <ul>
@@ -58,9 +62,6 @@ const NotesDropdown = ({likes, comments, postId, sessionUserId}) => {
           <ul>
             {comments.map(comment => <CommentPostItem key={comment.id} comment={comment} sessionUserId={sessionUserId} />)}
           </ul>
-          <form onSubmit={handleSubmitComment}>
-            <input type="text" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
-          </form>
         </>
         }
       </div>
