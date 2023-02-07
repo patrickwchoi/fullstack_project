@@ -102,7 +102,7 @@ function PostCreate(){
 
   return (
     <>
-    <button id='new-post' onClick={openModal}><MdEditNote/></button>
+    <button id='new-post' onClick={openModal}><MdEditNote /></button>
     <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}

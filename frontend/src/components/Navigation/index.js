@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import { NavLink, useHistory, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { BsFillHouseDoorFill, FaMoon, FaHouseUser, FaRegCompass } from "react-icons/fa";
+import {FaHouseUser, FaRegCompass } from "react-icons/fa";
 import { BsFillPersonFill, BsFillLightningChargeFill } from "react-icons/bs";
 import { IoIosMail } from "react-icons/io";
-import { MdEditNote } from "react-icons/md";
 import './Navigation.css';
 import PostCreate from '../Posts/PostCreate'
 
@@ -28,7 +27,6 @@ function Navigation() {
   if (sessionUser) {
     sessionLinks = (
       <div className='navbar'>
-        {/* <div id="navbar-loggedin"> */}
           <div id="navbar-left">
             <Link to='/posts'>
               <img id="logo"  src="https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/tumblr_logo.png"></img>
@@ -36,11 +34,10 @@ function Navigation() {
           </div>
           <div id="navbar-right">
             <a href='/posts'> <FaHouseUser className='nav-icon'/> </a>
-            <FaRegCompass className='nav-icon' />
+            {/* <FaRegCompass className='nav-icon' />
             <IoIosMail  className='nav-icon' />
-            <BsFillLightningChargeFill  className='nav-icon' />
+            <BsFillLightningChargeFill  className='nav-icon' /> */}
             <a href={`/users/${sessionUser.id}`}> <BsFillPersonFill  className='nav-icon'/> </a>
-            {/* <a href='/posts/new'> <MdEditNote/></a>  */}
             <PostCreate id='navbar-post-create'/>
             <button onClick={logout}>Logout</button>
           </div>

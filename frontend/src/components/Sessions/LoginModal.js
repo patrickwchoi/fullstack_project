@@ -6,7 +6,6 @@ import Modal from 'react-modal';
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import './Sessions.css'
-
 const style={
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
@@ -94,7 +93,7 @@ const LoginModal = () => {
 
   return (
     <>
-      <div onClick={openModal}>Modal</div>
+      <div onClick={openModal} className="navbar-button" id="login-button">Login</div>
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}

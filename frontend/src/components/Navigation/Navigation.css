@@ -5,7 +5,6 @@
     border-bottom: .6px solid rgb(133, 133, 133);
     font-size: 1.5rem;
     font-weight: 600;
-    padding: 0.5rem 0;
     display: flex;
     align-items: center;
     position: fixed;
@@ -67,14 +66,18 @@
   display: flex;
   align-items: center;
 }
+#navbar-right > a{
+  margin-top:8px;
+}
 
 #logo{
   /* how to make height fill out to parent div's height: */
   height: 40px; /*used to be 100%, but im hardcoding it rn*/
-  transform: translateY(3%);
+  transform: translateY(5px);
   cursor: pointer;
 }
 
-.navbar-signup{
-
+#login-signup{
+  display: flex;
+  align-items: center;
 }

@@ -75,7 +75,7 @@ const SignupModal = () => {
 
   return (
     <>
-      <div onClick={openModal}>singup modal</div>
+      <div onClick={openModal} className="navbar-button" id="signup-button">Signup</div>
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}

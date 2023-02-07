@@ -139,8 +139,11 @@
   border:none;
   /* background: rgb(0, 184, 225); */
   background: rgb(var(--accent));
-  padding:none;
-  margin: none;
+  padding-bottom:0;
+  padding-left:10px;
+  padding-right:9px;
+
+  font-size: 20px;
 }
 input{
   border: 1px solid #efefef;
