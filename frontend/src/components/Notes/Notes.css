@@ -15,7 +15,7 @@
   margin-right: 10px;
 }
 .notes-dropdown-content{
-  height:150px;
+  height:200px;
   overflow-y: auto;
   overflow-x: hidden;
   padding-top:10px;
@@ -30,11 +30,37 @@
   padding:10px;
 }
 .notes-profile-pic{
-  height: 70%;
+  height: 30px;
   width:auto;
   border-radius: 50%;
 }
 
+.comment-input-form{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid rgb(159, 159, 159);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.comment-input-form input{
+  border: none;
+  background-color: inherit;
+}
+.comment-input-form input:focus{
+  outline: none;
+}
+.comment-input-form button{
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  color: grey;
+  transition: color 0.3s ease-in-out;
+  margin-right:5px;
+}
+#blue{
+  color: rgb(var(--accent));
+}
 .comment-item-left{
   display:flex;
   flex-direction: row;

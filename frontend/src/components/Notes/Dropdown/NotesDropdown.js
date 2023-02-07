@@ -46,8 +46,14 @@ const NotesDropdown = ({likes, comments, postId, sessionUserId}) => {
         <button onClick={openComments}>Comments</button>
       </div>
       <div className="notes-dropdown-content">
-        <form onSubmit={handleSubmitComment}>
-          <input type="text" value={commentBody} onChange={e => setCommentBody(e.target.value)} />
+        <form onSubmit={handleSubmitComment} className="comment-input-form">
+          {showComments && 
+          <>
+            <input type="text" placeholder="Send something nice" value={commentBody} 
+            onChange={e => setCommentBody(e.target.value)} />
+            <button id={(commentBody ? "blue" : "")} type="submit">Reply</button>
+          </>
+          }
         </form>
         {showLikes && 
           <>
