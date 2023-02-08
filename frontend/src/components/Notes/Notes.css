@@ -1,3 +1,4 @@
+
 .notes-dropdown{
   display:flex;
   flex-direction: column;
@@ -8,11 +9,22 @@
   align-items: center;
   margin-top:10px;
   padding:10px;
+  padding-left:20px;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
 }
-.notes-dropdown-header > *{
-  margin-right: 10px;
+.notes-icon{
+  margin-right: 15px;
+  display: flex;
+  flex-direction: row;
+}
+.notes-dropdown-header button{
+  border:none;
+  font-size: 20px !important;
+  color: inherit;
+}
+.notes-icon-count{
+  margin-left: 5px;
 }
 .notes-dropdown-content{
   height:200px;
@@ -42,6 +54,7 @@
   border: 1px solid rgb(159, 159, 159);
   border-radius: 10px;
   margin-bottom: 10px;
+  margin-right:10px;
 }
 .comment-input-form input{
   border: none;
@@ -58,8 +71,8 @@
   transition: color 0.3s ease-in-out;
   margin-right:5px;
 }
-#blue{
-  color: rgb(var(--accent));
+.blue{
+  color: rgb(var(--accent)) !important;
 }
 .comment-item-left{
   display:flex;
@@ -77,6 +90,13 @@
   margin-left: 10px;
   margin-bottom:5px;
   padding:5px;
+  max-width: 250px;
+}
+.notes_highlighted{
+  color: rgb(var(--accent)) ;
+}
+.fa-comment{
+  transition: color 0.3s ease-in-out;
 }
 .notes-username{
   font-weight: bold;

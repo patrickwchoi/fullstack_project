@@ -42,19 +42,27 @@ const NotesDropdown = ({likes, comments, postId, sessionUserId}) => {
   return (
     <div className="notes-dropdown">
       <div className="notes-dropdown-header">
-        <button onClick={openLikes}>Likes</button>
-        <button onClick={openComments}>Comments</button>
+        <div className={"notes-icon ".concat(showLikes ? "notes_highlighted" : "")}>
+          <button onClick={openLikes}
+             className={"fa-regular fa-heart "}/>
+          <div className="notes-icon-count">{likes.length}</div>
+        </div>
+        <div className={"notes-icon ".concat(showComments ? "notes_highlighted" : "")}>
+          <button onClick={openComments} 
+            className={"fa-regular fa-comment "}/>
+          <div className="notes-icon-count">{comments.length}</div>
+        </div>
       </div>
       <div className="notes-dropdown-content">
-        <form onSubmit={handleSubmitComment} className="comment-input-form">
-          {showComments && 
+        {showComments && 
           <>
-            <input type="text" placeholder="Send something nice" value={commentBody} 
-            onChange={e => setCommentBody(e.target.value)} />
-            <button id={(commentBody ? "blue" : "")} type="submit">Reply</button>
+            <form onSubmit={handleSubmitComment} className="comment-input-form">
+              <input type="text" placeholder="Send something nice" value={commentBody} 
+              onChange={e => setCommentBody(e.target.value)} />
+              <button className={(commentBody ? "blue" : "")} type="submit">Reply</button>
+            </form>
           </>
-          }
-        </form>
+        }
         {showLikes && 
           <>
             <ul>

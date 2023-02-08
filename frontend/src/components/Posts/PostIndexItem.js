@@ -15,6 +15,7 @@ import {getCommentsGivenPost} from '../../store/comments';
 // import TempModal from './tempmodal';
 import PostEdit from './PostEdit';
 import './Posts.css';
+import '../Notes/Notes.css'
 
 const PostIndexItem = ({post}) => {
   const author = useSelector(getUser(post.authorId));
@@ -110,18 +111,14 @@ const PostIndexItem = ({post}) => {
         <div className='postindex-right-footer'>
           <div className={notesIsOpen ? 'notes-open notes-footer-left' : 'notes-closed notes-footer-left'} onClick={toggleNotes}>
             {likes.length + comments.length} notes
+            {notesIsOpen ? <i class="fa-solid fa-angles-up"></i> : <i class="fa-solid fa-angles-down"></i>}
           </div>
           <div className="notes-footer-right">
             <i className={'fa fa-heart '.concat(isLiked ? 'red' : 'grey')} onClick={handleLike}></i>
           </div>
-          
-          {/* <div className="postindex-likes">
-            {likes.map(like => <LikePostItem postId={like.postId} userId={like.userId} key={like.id}/>)}
-          </div> */}
         </div>
         {notesIsOpen && <>
             <NotesDropdown likes={likes} comments={comments} postId={post.id} sessionUserId={sessionUserId}/>
-            {/* <button onClick={closeNotes}></button> */}
           </>
         }
       </div>

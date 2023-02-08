@@ -51,21 +51,28 @@
 .postindex-right > *{
   /* margin-left: 10px;  */
   /* margin-right: -10px; */
-
+ 
 }
 .postindex-right-header{
   border-bottom: 1px solid grey;
   height:40px;
-  width:100%;
   display: flex;
   /* flex-direction: row; */
   justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .postindex-right-header > *{
   margin: 5px;
 }
+.post-text{
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .post-text > *{
   margin: 4px;
+  
 }
 .post-photo{
   width: 500px;
@@ -188,19 +195,31 @@ input{
 }
 
 .notes-footer-left{
+  font-size: 16px;
   cursor: pointer;
+  padding:6px;
+  transition: background-color .3s ease-in-out;
+}
+.notes-footer-left:hover{
+  background-color: rgb(220, 220, 220);
+  border-radius: 10px;
+}
+.notes-footer-left > *{
+  margin: 5px;
 }
 .notes-open{
-  border: 1px solid black !important;
+  border: 1px solid grey !important;
+  border-radius: 10px;
+  background-color: rgb(220, 220, 220);
 }
 .postindex-right-footer{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid grey;
   height: 30px;
-  width: 100%;
-  padding-top:10px;
-  /* padding-right: 10px; */
+  /* padding-top:10px; */
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
 }
