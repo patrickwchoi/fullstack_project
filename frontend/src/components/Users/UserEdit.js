@@ -102,10 +102,12 @@ function UserEdit()  {
       <div className='UserShow'>
         <header className='user-header'>
           <div className='background-img-container'>
-            <img  className='user-backgroundimg' src={user.backgroundPic}/>
+            {backgroundPicUrl && <img className='user-backgroundimg' src={backgroundPicUrl}/>}
+            {!backgroundPicUrl && <img className='user-backgroundimg' src={user.backgroundPic}/>}
           </div>
           <div className='user-profile'>
-            <img className='user-profile-pic' src={user.profilePic}/>
+            {profilePicUrl && <img className='user-backgroundimg' src={profilePicUrl}/>}
+            {!profilePicUrl && <img className='user-profile-pic' src={user.profilePic}/>}
             <div className='user-text'>
             <p>Username</p>
               <h2><input 
@@ -118,10 +120,16 @@ function UserEdit()  {
             type="text"  value={bio} onChange={(e)=> setBio(e.target.value)}
             placeholder='bio'
               />
-              <input type="file" onChange={BackgroundPicReader} /> 
-              {BackgroundPicPreview}
-              <input type="file" onChange={ProfilePicReader} /> 
-              {ProfilePicPreview}
+              <div className="file-reader">
+                <p>Background Picture</p>
+                <input type="file" onChange={BackgroundPicReader}/>
+                {/* {BackgroundPicPreview} */}
+              </div>
+              <div className="file-reader">
+                <p>Profile Picture</p>
+                <input type="file" onChange={ProfilePicReader}/>
+                {/* {ProfilePicPreview} */}
+              </div>
             </div>
           </div>
         </header>

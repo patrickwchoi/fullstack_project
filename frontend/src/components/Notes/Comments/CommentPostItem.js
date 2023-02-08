@@ -4,9 +4,11 @@ import { getUser } from '../../../store/users';
 import { useState } from 'react';
 import { deleteComment } from '../../../store/comments';
 import '../Notes.css'
+import {useHistory} from 'react-router-dom';
 
 const CommentPostItem = ({comment, sessionUserId}) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const post = useSelector(getPost(comment.postId));
   const user = useSelector(getUser(comment.userId));
   const [body, setBody] = useState(comment.body)
@@ -16,6 +18,9 @@ const CommentPostItem = ({comment, sessionUserId}) => {
   const editButton = document.getElementById("comment-edit-button");
   const editCommentForm = document.getElementById("edit-comment-form");
 
+  const redirectToUser = (userId) => () => {
+    history.push(`/users/${userId}`)
+  }
   const handleDelete = (e) => {
     dispatch(deleteComment(comment.id))
   }
@@ -37,9 +42,9 @@ const CommentPostItem = ({comment, sessionUserId}) => {
     <>
       <div className="comment-item">
         <div className="comment-item-left">
-          <img src={user.profilePic} className="notes-profile-pic" />
+          <img src={user.profilePic} onClick={redirectToUser(user.id)} className="notes-profile-pic pointer" />
           <div className="comment-text-container">
-            <a className="notes-username ">{user.username}</a>
+            <a className="notes-username pointer" onClick={redirectToUser(user.id)}>{user.username}</a>
             <p className="comment-body" id="comment-body">{comment.body}</p>
             
             <form id="edit-comment-form" onSubmit={handleEdit} style={{display: "none"}}>
