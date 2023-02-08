@@ -1,29 +1,12 @@
 <<<<<<< HEAD
 =======
-# README
+# Tumble
 
 https://tumble-q6r6.onrender.com/
+ 
+##Background
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tumble is a full stack clone of the Tumblr, a social media site. It was built with a Ruby on Rails backend, a PostgreSQL database, and a JavaScript React/Redux frontend. Tumble has full CRUD functionality for posts and comments and partial CRUD for users and likes. It features use of AWS.
 
-Things you may want to cover:
+##Features
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
->>>>>>> d9ae76b88bda40ca377a3590907dfc702d073da1
