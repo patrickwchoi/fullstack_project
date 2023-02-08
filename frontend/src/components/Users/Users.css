@@ -82,6 +82,22 @@
 }
 .user-text{
   margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-text > *{
+  margin:5px;
+}
+.user-edit-button{
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 5px;
+  color: black;
+  font:inherit;
+
 }
 .username{
   font-weight: bold;

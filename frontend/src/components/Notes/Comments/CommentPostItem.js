@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPost } from '../../../store/posts';
 import { getUser } from '../../../store/users';
 import { useState } from 'react';
-import { deleteComment } from '../../../store/comments';
+import { deleteComment, updateComment } from '../../../store/comments';
 import '../Notes.css'
 import {useHistory} from 'react-router-dom';
 
@@ -13,10 +13,7 @@ const CommentPostItem = ({comment, sessionUserId}) => {
   const user = useSelector(getUser(comment.userId));
   const [body, setBody] = useState(comment.body)
   const [authorLoggedIn, setauthorLoggedIn] = useState(comment.userId === sessionUserId)
-  
-  const commentBody = document.getElementById("comment-body");
-  const editButton = document.getElementById("comment-edit-button");
-  const editCommentForm = document.getElementById("edit-comment-form");
+  const [openCommentEdit, setOpenCommentEdit] = useState(false)
 
   const redirectToUser = (userId) => () => {
     history.push(`/users/${userId}`)
@@ -24,14 +21,17 @@ const CommentPostItem = ({comment, sessionUserId}) => {
   const handleDelete = (e) => {
     dispatch(deleteComment(comment.id))
   }
-  const startEdit = (e) => {
-    editButton.style.display = "none";
-    editCommentForm.style.display = "inline-block";
-  }
+
   const handleEdit = (e) => {
-    editButton.style.display = "inline-block";
-    editCommentForm.style.display = "none";
-    console.log(body)
+    e.preventDefault();
+    const newComment = {
+      id: comment.id,
+      body: body,
+      userId: comment.userId,
+      postId: comment.postId
+    }
+    dispatch(updateComment(newComment))
+    setOpenCommentEdit(false)
   }
 
   
@@ -45,19 +45,24 @@ const CommentPostItem = ({comment, sessionUserId}) => {
           <img src={user.profilePic} onClick={redirectToUser(user.id)} className="notes-profile-pic pointer" />
           <div className="comment-text-container">
             <a className="notes-username pointer" onClick={redirectToUser(user.id)}>{user.username}</a>
+            {openCommentEdit ? (
+              <form id="edit-comment-form" onSubmit={handleEdit} >
+                <input id="edit-comment-input"
+                  type="text" value={body} onChange={(e)=> setBody(e.target.value)}
+                />
+              </form>
+            ) : (
             <p className="comment-body" id="comment-body">{comment.body}</p>
+            )}
             
-            <form id="edit-comment-form" onSubmit={handleEdit} style={{display: "none"}}>
-              <input id="edit-comment-input"
-                type="text" value={body} onChange={(e)=> setBody(e.target.value)}
-              />
-            </form>
+            
+            
           </div>
         </div>
         <div className="comment-item-right">
           {authorLoggedIn && 
             <>
-              <button id="comment-edit-button"onClick={startEdit}>Edit</button>
+              <button id="comment-edit-button" onClick={() => setOpenCommentEdit(true)}>Edit</button>
               <button className="delete-comment" onClick={handleDelete}>Delete</button>
             </>
           }

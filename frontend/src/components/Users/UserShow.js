@@ -50,7 +50,7 @@ const UserShow = () => {
         </header>
         {isAuthorLoggedIn ? ( 
           <>
-            <button onClick={redirectToEditUser}>Edit</button>
+            <button onClick={redirectToEditUser} className="user-edit-button">User Edit</button>
             {/* <button onClick={redirectToCreatePost}>New Post</button> */}
           </>
         ) : null}

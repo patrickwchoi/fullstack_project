@@ -70,7 +70,18 @@ export const createComment = (comment) => async (dispatch) =>{
     dispatch(receiveComment(comment));
   }
 }
-
+export const updateComment = (comment) => async (dispatch) => {
+  const res = await csrfFetch(`/api/comments/${comment.id}`, {
+    method: 'PATCH',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(comment)
+    }
+  );
+  if (res.ok){
+    const newComment = await res.json(); //content comes from show view in backend
+    dispatch(receiveComment(newComment))
+  }
+}
 export const deleteComment = (commentId) => async (dispatch) => {
   const res = await csrfFetch(`/api/comments/${commentId}`, {
     method: 'DELETE'

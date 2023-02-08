@@ -25,6 +25,17 @@ class Api::CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment = Comment.find_by(id: params[:id])
+    if @comment && @comment.update(comment_params)
+      render :show
+    elsif @comment
+      render json: @comment.errors.full_messages, status: 422
+    else
+      render json: ['Comment not found'], status: :not_found
+    end
+  end
+  
   def destroy
     @comment = Comment.find_by(id: params[:id])
     if @comment && @comment.destroy
