@@ -22,11 +22,13 @@ const PostIndexItem = ({post}) => {
   const likes = useSelector(getLikesGivenPost(post.id));
   const history = useHistory();
   
-  
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const sessionUserId = sessionUser ? sessionUser.id : null;
-  const [isLiked, setIsLiked] = useState(sessionUser && likes.some(like => like.userId === sessionUser.id));
+  let didUserLike = likes.filter(like => like.userId === sessionUser?.id).length === 1;
+  // const [isLiked, setIsLiked] = useState(sessionUser && likes.some(like => like.userId === sessionUser.id));
+  //cant use useState bc it doesnt update when sessionUser changes bc it fires off at same time as sessionUser 
+  //normally, u use useEffect to update state when sessionUser changes, but useEffect wasnt working
   let like = useSelector(getLikeGivenPostAndUser(post, sessionUser))
   let comments = useSelector(getCommentsGivenPost(post.id));
   const isAuthorLoggedIn = ( sessionUser && (sessionUser.id === author.id));
@@ -38,7 +40,8 @@ const PostIndexItem = ({post}) => {
     setDropdownIsOpen(false);
   }
   //This causes error, I think bc in POstINdex there will be two useEffects running
-  // useEffect = (() => {
+
+  // useEffect = (() => { 
   //   if (sessionUser===null) {
   //     setIsLiked(false)
   //   }
@@ -48,21 +51,18 @@ const PostIndexItem = ({post}) => {
     history.push(`/users/${post.authorId}`)
   }
 
-  const handleLike = (e) => {
+  const handleCreateLike = (e) => {
     if (sessionUser===null) {
-      alert('Please log in to comment')
+      return alert('Please log in to comment')
     }
-    else if (isLiked===false) {
-      setIsLiked(current => !current);
-      const like = {post_id : post.id, user_id: sessionUser.id}
-      dispatch(createLike(like));
-    }
-    else {
-      setIsLiked(current => !current);
-      // console.log(like)
-      dispatch(deleteLike(like.id));
-    }
+    const like = {post_id : post.id, user_id: sessionUser.id}
+    dispatch(createLike(like));
   }
+
+  const handleDeleteLike = (e) => {
+    dispatch(deleteLike(like.id));
+  }
+
   const [notesIsOpen, setNotesIsOpen] = useState(false)
   const toggleNotes = () => {
     if (notesIsOpen) {
@@ -111,10 +111,12 @@ const PostIndexItem = ({post}) => {
         <div className='postindex-right-footer'>
           <div className={notesIsOpen ? 'notes-open notes-footer-left' : 'notes-closed notes-footer-left'} onClick={toggleNotes}>
             {likes.length + comments.length} notes
-            {notesIsOpen ? <i class="fa-solid fa-angles-up"></i> : <i class="fa-solid fa-angles-down"></i>}
+            {notesIsOpen ? <i className="fa-solid fa-angles-up"></i> : <i className="fa-solid fa-angles-down"></i>}
           </div>
           <div className="notes-footer-right">
-            <i className={'fa fa-heart '.concat(isLiked ? 'red' : 'grey')} onClick={handleLike}></i>
+            {(didUserLike) ? 
+              <i className={'fa fa-heart red'} onClick={handleDeleteLike}></i> : 
+              <i className={'fa fa-heart grey'} onClick={handleCreateLike}></i> }
           </div>
         </div>
         {notesIsOpen && <>

@@ -61,6 +61,7 @@ const LoginModal = () => {
       else if (data) setErrors([data]);
       else setErrors([res.statusText]);
     });
+    window.location.reload()
   }
   const redirectToIndex = ()=>{
     history.push('/posts')

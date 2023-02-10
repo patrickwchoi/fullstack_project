@@ -38,7 +38,7 @@ function PostCreate(){
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    title ? setErrors([]) : setErrors('Post title cannot be empty')
+    // title ? setErrors([]) : setErrors('Post title cannot be empty')
   }, [title])
 
   //start

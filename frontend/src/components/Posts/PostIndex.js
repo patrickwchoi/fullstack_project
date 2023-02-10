@@ -23,8 +23,7 @@ const PostIndex = (props) => {
   }
   useEffect(()=>{
     dispatch(fetchPosts()); //later, I want to only fetch first 15~ posts
-    // dispatch(fetchUsers()); 
-  }, [])
+  }, [sessionUser])
 
   return (
     <div className='PostIndex'>
