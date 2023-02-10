@@ -1,0 +1,42 @@
+.error-background{
+  align-items: center;
+  background-color: #001935;
+  background-position: 50%;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  position: absolute;
+  z-index:1000;
+  top:0;
+  left:0;
+  /* background: url('../../assets/tumble_404.gif') center center cover no-repeat fixed; */
+}
+.error-content{
+  position:absolute;
+
+  color:white;
+  z-index:1001;  
+  text-align: center;
+  width:40%;
+
+  top: 50%;
+  left: 50%;
+  margin-left: -20%;
+  margin-top: -10%;
+}
+.error-content h1{
+  font-size: 55px;
+}
+.error-content h2{
+  font-size: 28px;
+}
+#error-logo{
+  position:absolute;
+  z-index:1001;
+  top:2vh;
+  left:1.5vw;
+  width:70px;
+}

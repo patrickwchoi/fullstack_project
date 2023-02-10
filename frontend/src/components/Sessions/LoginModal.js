@@ -103,7 +103,7 @@ const LoginModal = () => {
       >
         <div className='login-modal session'>
           <div id='modal_img'>
-            <img src="https://assets.tumblr.com/pop/src/assets/images/login-wall/art_v2-3f0f7a0b.gif"/>
+            <img src="../../assets/tumble_404.gif'"/>
           </div>
           <div className='modal-bottomhalf'>
             <form onSubmit={handleSubmit} >
