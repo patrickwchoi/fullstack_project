@@ -18,4 +18,13 @@ Comments come with just a body of text. Comments can be made on yours and others
 After signing up, users can edit their username, bio, profile picture, and background picture.
 
 ### Likes
-Users can like other posts. Users can delete their likes
+Users can like other posts. Users can delete their likes.
+
+### Significant Code
+
+#### index.json.jbuilder for posts
+![image](https://user-images.githubusercontent.com/98565804/218039372-846cce99-ee27-43f4-b196-f152cabc0924.png)
+
+Here, I am bringing to my middleware the post content along with its associated likes and comments whenever I use the index route from my backend
+
+#### 
