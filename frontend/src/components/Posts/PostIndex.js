@@ -4,8 +4,10 @@ import { useHistory  } from "react-router-dom";
 import PostIndexItem from './PostIndexItem';
 import { getPosts, fetchPosts } from '../../store/posts'
 import './Posts.css';
-import { fetchUsers, getUser, getUsers } from '../../store/users';
-import PostCreate from './PostCreate'
+import linkedin from '../../assets/linkedin.png';
+import github from '../../assets/github_white.png';
+import bagon from '../../assets/bagon.jpg';
+import mern from '../../assets/mern.jpg';
 
 const PostIndex = (props) => {
   const dispatch = useDispatch();
@@ -26,10 +28,30 @@ const PostIndex = (props) => {
   }, [sessionUser])
 
   return (
-    <div className='PostIndex'>
-      <ul>
-        {posts.map(post=> <PostIndexItem post={post} key={post.id} /*author={post.author}*//>)} 
-      </ul>
+    <div className="PostIndex-container">
+      <div className='PostIndex'>
+        <ul>
+          {posts.map(post=> <PostIndexItem post={post} key={post.id} /*author={post.author}*//>)} 
+        </ul>
+      </div>
+      <div className="post-index-right">
+        <h2>Check out my other work!</h2>
+        <div className="post-index-right-patrick">
+          <h3>Patrick Choi</h3>
+          <div className="post-index-right-links">
+            <a href="https://www.linkedin.com/in/patrickwchoi/" target="_blank"><img src={linkedin} id='linkedin'/></a>
+            <a href="https://www.github.com/patrickwchoi/" target="_blank"><img src={github} id='github'/></a>
+          </div>
+        </div>
+        <div className="list-of-projects">
+          <div className="JS-project">
+            <img src={bagon}/>
+          </div>
+          <div className="MERN-project">
+
+          </div>
+        </div>
+      </div>
     </div>
   )
 };

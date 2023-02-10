@@ -39,7 +39,7 @@ const PostIndexItem = ({post}) => {
   const closeDropdown = () => {
     setDropdownIsOpen(false);
   }
-  //This causes error, I think bc in POstINdex there will be two useEffects running
+  //This causes error, I think bc in PostIndex there will be two useEffects running
 
   // useEffect = (() => { 
   //   if (sessionUser===null) {
@@ -90,11 +90,9 @@ const PostIndexItem = ({post}) => {
           <>
             <div id='post-modal-background' onClick={closeDropdown}></div>
             <div className='post-dropdown'>
-              {/* <p>{createdAtDate}</p> */}
               <div>{formatDateTime(post.createdAt)}</div>
-              {isAuthorLoggedIn ? ( //replace with a modal menu that gives options like delete, share, edit, etc
+              {isAuthorLoggedIn ? ( 
                 <>
-                  {/* <button onClick={()=>{handleEdit(post.id)}}>Edit</button> */}
                   <PostEdit postId={post.id} />
                   <div onClick={()=>dispatch(deletePost(post.id))}>Delete</div>
                 </>
@@ -124,7 +122,6 @@ const PostIndexItem = ({post}) => {
           </>
         }
       </div>
-
     </div>
   )
 }

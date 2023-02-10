@@ -1,3 +1,32 @@
+.PostIndex-container{
+  display:flex;
+  flex-direction: row;
+  margin-top:20px;
+}
+.post-index-right{
+  margin-top:10px;
+  color:white;
+  width:35%;
+}
+.post-index-right-patrick{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* padding:5px; */
+  padding-bottom:10px;
+  padding-top:10px;
+  border-bottom: 1px solid white;
+
+}
+.post-index-right-links img{
+  width:25px;
+  margin-left:10px;
+  margin-right:10px;
+  transition: transform .2s;
+}
+.post-index-right-links img:hover{
+  transform: scale(1.1);
+}
 .PostIndex{
   color: RGB(var(--black));
   display: flex;
@@ -5,19 +34,17 @@
   flex-direction: column;
   max-width: 580px;
   border-radius: 8px;
-    box-sizing: border-box;
-    height: 100%;
-    position: relative;
-    /* width: 6400px; */
-
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
   text-align: center;
-
 
   /* background-color: whitesmoke; */
   display: block; /* makes inside vertical */
   align-items: center;
 
   margin: 20px;
+  margin-top:0px;
   padding: 0;
   border: 0;
   position: relative;
