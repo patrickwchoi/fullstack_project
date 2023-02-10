@@ -70,7 +70,7 @@
   border: 2px solid hsla(0,0%,100%,.65);    border-radius: 10px;
   box-sizing: border-box;
   color: #fff;
-  font-family: var(--font-family);
+  /* font-family: var(--font-family); */
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.333;

@@ -89,6 +89,11 @@
 .user-text > *{
   margin:5px;
 }
+.user-text input{
+  width:90%;
+  text-align: center;
+}
+
 .user-edit-button{
   margin-top: 10px;
   background-color: #f5f5f5;
@@ -127,4 +132,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.user-edit-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
 }

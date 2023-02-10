@@ -155,6 +155,23 @@
   /* background: rgb(var(--accent-hover)); */
   margin-top:-5px
 }
+.new-post-form{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  text-align: center;
+}
+.new-post-form button{
+  box-sizing: border-box;
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 5px 15px;
+  margin: 5px;
+}
 input{
   border: 1px solid #efefef;
   border-radius: 3px;

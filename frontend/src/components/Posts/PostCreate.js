@@ -21,7 +21,8 @@ const style={
     transform: 'translate(-50%, -50%)',
     width: '50%',
     height: '50%',
-    border: '1px solid #ccc',  },
+    border: '1px solid #ccc',  
+    background: 'lightgrey',},
 }
 
 function PostCreate(){
@@ -33,12 +34,12 @@ function PostCreate(){
   const [body, setBody] = useState(post.body)
   const [photoFile, setPhotoFile] = useState (null);
   const [photoUrl, setPhotoUrl] = useState (null); 
-  const [errors, setErrors] = useState('Post title cannot be empty')
+  const [errors, setErrors] = useState('')
 
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    // title ? setErrors([]) : setErrors('Post title cannot be empty')
+    title ? setErrors([]) : setErrors('Post title cannot be empty')
   }, [title])
 
   //start
@@ -113,7 +114,7 @@ function PostCreate(){
     <div className='new-post-form'>
       <form onSubmit={handleSubmit}>
         <h1>Create New Post</h1>
-          {errors}
+          {/* {errors} */}
           <input 
             required={true} type="text"  value={title} onChange={(e)=> setTitle(e.target.value)}
             placeholder='Title'

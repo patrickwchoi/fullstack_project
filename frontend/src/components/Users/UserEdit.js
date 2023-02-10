@@ -97,7 +97,7 @@ function UserEdit()  {
   return (
     <div className='user-show-container'>
       <div className='UserEdit'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="user-edit-form">
       <div className='user-show-container'>
       <div className='UserShow'>
         <header className='user-header'>
@@ -144,7 +144,7 @@ function UserEdit()  {
         {BackgroundPicPreview}
         {ProfilePicPreview} */}
 
-        <button>Edit User</button>
+        <button className="user-edit-button">Edit User</button>
       </form>
 
       </div>
