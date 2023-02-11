@@ -47,6 +47,7 @@ const LoginModal = () => {
   if (sessionUser) return <Redirect to='/' /> 
 
   const handleDemoLogin = (e) => { 
+    e.preventDefault();
     return dispatch(login({credential: 'walter_white', password: 'password'}))
     .then( ()=> {
       redirectToIndex();
@@ -61,7 +62,6 @@ const LoginModal = () => {
       else if (data) setErrors([data]);
       else setErrors([res.statusText]);
     });
-    window.location.reload()
   }
   const redirectToIndex = ()=>{
     history.push('/posts')

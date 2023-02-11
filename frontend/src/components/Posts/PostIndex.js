@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory  } from "react-router-dom";
 import PostIndexItem from './PostIndexItem';
 import { getPosts, fetchPosts } from '../../store/posts'
+import { getComments } from '../../store/comments'
 import './Posts.css';
 import linkedin from '../../assets/linkedin.png';
 import github from '../../assets/github_white.png';
@@ -45,7 +46,7 @@ const PostIndex = (props) => {
         </div>
         <div className="list-of-projects">
           <div className="JS-project">
-            <img src={bagon}/>
+            {/* <img src={bagon}/> */}
           </div>
           <div className="MERN-project">
 
