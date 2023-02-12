@@ -74,7 +74,6 @@ export const createLike = (like) => async (dispatch) =>{
   });
   if (res.ok){
     const like = await res.json();
-    // console.log(like)
     dispatch(receiveLike(like));
   }
 }

@@ -45,7 +45,6 @@ function UserEdit()  {
     if (profilePic) {
       formData.append('user[profilePic]', profilePic);
     }
-    console.log("formData", ...formData)
     const response = await csrfFetch(`/api/users/${userId}`, {
       method: 'PATCH',
       body: formData

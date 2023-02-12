@@ -12,7 +12,6 @@ import * as postActions from './store/posts';
 import * as userActions from './store/users';
 
 const store = configureStore();
-// const dispatch = useDispatch()
 
 
 if (process.env.NODE_ENV !== 'production') {

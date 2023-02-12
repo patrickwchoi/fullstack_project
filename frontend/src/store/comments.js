@@ -66,7 +66,6 @@ export const createComment = (comment) => async (dispatch) =>{
   });
   if (res.ok){
     const comment = await res.json();
-    // console.log(comment)
     dispatch(receiveComment(comment));
   }
 }

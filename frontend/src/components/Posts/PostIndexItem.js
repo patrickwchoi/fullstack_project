@@ -8,11 +8,9 @@ import {getUser} from '../../store/users';
 import { formatDateTime } from '../../utils/dateUtil';
 import {BsThreeDots} from "react-icons/bs";
 import {getLikesGivenPost , createLike, getLikeGivenPostAndUser, deleteLike} from '../../store/likes'
-import LikePostItem from '../Notes/Likes/LikePostItem';
 import NotesDropdown from '../Notes/Dropdown/NotesDropdown';
 import {getCommentsGivenPost} from '../../store/comments';
 
-// import TempModal from './tempmodal';
 import PostEdit from './PostEdit';
 import './Posts.css';
 import '../Notes/Notes.css'
@@ -40,7 +38,6 @@ const PostIndexItem = ({post}) => {
     setDropdownIsOpen(false);
   }
   //This causes error, I think bc in PostIndex there will be two useEffects running
-
   // useEffect = (() => { 
   //   if (sessionUser===null) {
   //     setIsLiked(false)

@@ -23,19 +23,13 @@ const style={
 }
 
 function PostEdit({postId}){
-  // const {postId} = useParams();
   const dispatch = useDispatch();
   let post = useSelector(getPost(postId));
-
-  // useEffect(()=>{
-  //   dispatch(fetchPost(postId)) 
-  // }, [postId, dispatch]);
 
   const [title, setTitle] = useState(post.title)
   const [body, setBody] = useState(post.body)
   const [photoFile, setPhotoFile] = useState (null);
   const [photoUrl, setPhotoUrl] = useState (null);
-
 
    //start
    const [isOpen, setIsOpen] = useState(false);

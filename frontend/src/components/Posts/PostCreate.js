@@ -92,10 +92,8 @@ function PostCreate(){
     }
 
     catch (error) {
-      console.log(error)
       setErrors(error)
       }
-    console.log(errors)
     closeModal();
   }
 
