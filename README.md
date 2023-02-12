@@ -4,7 +4,14 @@ https://tumble-c367.onrender.com
 
 ## Background
 
-Tumble is a full stack clone of the Tumblr, a social media site. It was built with a Ruby on Rails backend, a PostgreSQL database, and a JavaScript React/Redux frontend. Tumble has full CRUD functionality for posts and comments and partial CRUD for users and likes. It features use of AWS.
+Tumble is a full stack clone of the Tumblr, a social media site. It was built with a Ruby on Rails backend, a PostgreSQL database, and a JavaScript React/Redux frontend. Tumble has full CRUD functionality for posts and comments and partial CRUD for users and likes.
+
+## Technologies Used
+
+  * Backend: Ruby on Rails
+  * Database: PostgreSQL
+  * Frontend: JS React/Redux, CSS3 and HTML5
+  * AWS for image storage
 
 ## Features
 
