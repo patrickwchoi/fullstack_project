@@ -26,6 +26,10 @@ https://user-images.githubusercontent.com/98565804/218302292-9785939b-cd9c-4bf7-
 
 ### Significant Code
 
+#### Post Create
+![image](https://user-images.githubusercontent.com/98565804/218302388-595c3152-7c87-4093-8d11-25f59f66906b.png)
+Here, I am creating a form to send to my backend which contains my post's information and a photo file
+
 #### index.json.jbuilder for posts
 ![image](https://user-images.githubusercontent.com/98565804/218039372-846cce99-ee27-43f4-b196-f152cabc0924.png)
 
