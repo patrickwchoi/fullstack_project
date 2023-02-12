@@ -27,6 +27,9 @@ export const getPost = (postId) => (state) => { //grabs from state, not backend
 export const getPosts = (state) => {
   return state?.posts ? Object.values(state.posts) : [];
 }
+export const getPostsReversed = (state) => {
+  return state?.posts ? Object.values(state.posts).reverse() : [];
+}
 
 export const fetchPosts = () => async (dispatch) =>{
   const res = await csrfFetch('/api/posts');

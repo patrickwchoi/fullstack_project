@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Modal from 'react-modal';
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import tumblr_login_gif from '../../assets/tumblr_login.gif'
 import './Sessions.css'
+
 const style={
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
@@ -103,7 +105,7 @@ const LoginModal = () => {
       >
         <div className='login-modal session'>
           <div id='modal_img'>
-            <img src="../../assets/tumble_404.gif'"/>
+            <img src={tumblr_login_gif}/>
           </div>
           <div className='modal-bottomhalf'>
             <form onSubmit={handleSubmit} >

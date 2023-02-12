@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory  } from "react-router-dom";
 import PostIndexItem from './PostIndexItem';
-import { getPosts, fetchPosts } from '../../store/posts'
+import { getPosts, getPostsReversed, fetchPosts } from '../../store/posts'
 import { getComments } from '../../store/comments'
 import './Posts.css';
 import linkedin from '../../assets/linkedin.png';
@@ -12,8 +12,8 @@ import mern from '../../assets/mern.jpg';
 
 const PostIndex = (props) => {
   const dispatch = useDispatch();
-  let posts = useSelector(getPosts);
-  // posts = posts.reverse(); //reverse order of posts
+  let posts = useSelector(getPostsReversed);
+
   const sessionUser = useSelector(state => state.session.user);
 
   function shuffle(array) {
@@ -21,9 +21,6 @@ const PostIndex = (props) => {
   }
   // posts = shuffle(posts); //randomize posts order, doesnt change state
   const history = useHistory();
-  const redirectToCreate = ()=>{
-    history.push('/posts/new')
-  }
   useEffect(()=>{
     dispatch(fetchPosts()); //later, I want to only fetch first 15~ posts
   }, [sessionUser])
