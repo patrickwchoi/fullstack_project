@@ -28,3 +28,10 @@ Users can like other posts. Users can delete their likes.
 Here, I am bringing to my middleware the post content along with its associated likes and comments whenever I use the index route from my backend
 
 #### 
+
+#### To Run:
+cd into root directory and run `sudo service postgresql start`, then `rails s` to start the backend server
+open another terminal and cd into frontend directory and run `npm start` to start the frontend server
+
+#### Notes:
+currently getting error on local where I need to restart computer bc of issue with aws3 fetching images in time.

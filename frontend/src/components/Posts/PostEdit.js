@@ -93,7 +93,6 @@ function PostEdit({postId}){
         shouldCloseOnOverlayClick={true}
         style={style}
       >
-
       <div className='edit-post-form'>
         <form onSubmit={handleSubmit}>
           <div className='postmodal-header'> 

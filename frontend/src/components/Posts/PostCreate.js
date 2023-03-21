@@ -90,7 +90,6 @@ function PostCreate(){
         dispatch(fetchPosts());
       }
     }
-
     catch (error) {
       setErrors(error)
       }
