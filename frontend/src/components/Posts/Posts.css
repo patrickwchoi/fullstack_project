@@ -1,3 +1,10 @@
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .PostIndex {
+    width: 100%;
+  }
+}
+
 .PostIndex-container{
   display:flex;
   flex-direction: row;
@@ -16,7 +23,6 @@
   padding-bottom:10px;
   padding-top:10px;
   border-bottom: 1px solid white;
-
 }
 .post-index-right-links img{
   width:25px;
