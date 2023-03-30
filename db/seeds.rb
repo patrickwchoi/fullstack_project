@@ -49,16 +49,22 @@ require "open-uri"
   cats.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/cats_backgrouond.jpg"), filename: 'cats_backgrouond.jpg')
 
   gus = User.create!(
-    username: 'mr.gus', email: 'lospollos@gmail.com', password: 'password', bio: 'Los Pollos Hermanos CEO'
+    username: 'mr.gus', email: 'lospollos@gmail.com', password: 'password', bio: 'Owner of Los Pollos Hermanos'
   )
   gus.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/gus_smile.jpg"), filename: 'gus_smile.jpg')
   gus.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/gus_mad.jpg"), filename: 'gus_mad.jpg')
 
   twitter_art = User.create!(
-    username: 'twitter_art', email: 'ttart@gmail.com', password: 'password', bio: 'Sharing art from twitter'
+    username: 'twitter_art', email: 'ttart@gmail.com', password: 'password', bio: 'Sharing art found on twitter'
   )
   twitter_art.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/kobeni.jpg"), filename: 'kobeni.jpg')
   twitter_art.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/makima_post.jpg"), filename: 'makima_post.jpg')
+
+  nature_photos = User.create!(
+    username: 'nature_photos', email: 'nature@gmail.com', password: 'password', bio: 'Sharing nature photos'
+  )
+  # nature_photos.profile_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/nature.jpg"), filename: 'nature.jpg')
+  # nature_photos.background_pic.attach(io: URI.open("https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/nature_background.jpg"), filename: 'nature_background.jpg')
 
   Post.create!(
     author_id: 6, title: 'power!', body: '@kimnenemMM_art'
@@ -80,7 +86,7 @@ require "open-uri"
   )#.photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/johny_gyro.jpg'), filename: 'johny_gyro.jpg')
 
   Post.create!(
-    author_id: 2, title: 'title', body: "What's up Mr.White"
+    author_id: 2, title: 'Yo Yo Yo', body: "What's up Mr.White"
   )
   Post.create!(
     author_id: 2, title: 'Mr.White'
@@ -99,8 +105,16 @@ require "open-uri"
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/riley_naenae.jpg'), filename: 'riley_naenae.jpg')
   
   Post.create!(
-    author_id: 5, title: 'Look at me Hector', body: '...'
-  )#.photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/work_kobeni.jpg'), filename: 'work_kobeni.jpg')
+    author_id: 5, title: 'Welcome to Los Pollos Hermanos'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/welcome_los_pollos_hermanos.jpg'), filename: 'lospollos.jpg')
+
+  Post.create!(
+    author_id: 7, title: 'Squirrel', 
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/nature_squirrel.jpg'), filename: 'squirrel.jpg')
+
+  Post.create!(
+    author_id: 7, title: 'Sunflowers', 
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/nature_sunflower.jpg'), filename: 'sunflower.jpg')
 
   
   Like.create!({user_id: 1, post_id:1})
