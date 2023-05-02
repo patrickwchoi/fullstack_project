@@ -7,3 +7,11 @@
   height: 100px;
   margin: 10px;
 }
+.hover{
+  transition: transform .2s;
+}
+
+.hover:hover{
+  transform: translateY(-2px);
+  cursor: pointer;
+}
