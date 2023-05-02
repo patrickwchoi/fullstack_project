@@ -71,7 +71,7 @@ require "open-uri"
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/power_art.jpg'), filename: 'power_art.jpg')
   
   Post.create!(
-    author_id: 1, title: 'Chemistry', body: 'I love chemistry'
+    author_id: 1, title: 'Chemistry', body: "Walter White here, sharing my love for chemistry! 😄 As a high school teacher, it's a joy to ignite curiosity in students. Chemistry unravels the mysteries of life at the molecular level, and it's truly mesmerizing. 🔬🧪 #ChemistryRocks #ScienceIsLife"
   )
   Post.create!(
     author_id: 4, title: 'handsome'
@@ -83,7 +83,7 @@ require "open-uri"
 
   Post.create!(
     author_id: 6, title: 'Part 7', body: "@Neg_50asu"
-  )#.photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/johny_gyro.jpg'), filename: 'johny_gyro.jpg')
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/johny_gyro.jpg'), filename: 'johny_gyro.jpg')
 
   Post.create!(
     author_id: 2, title: 'Yo Yo Yo', body: "What's up Mr.White"
@@ -93,8 +93,8 @@ require "open-uri"
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
     
   Post.create!(
-    author_id: 1, title: 'unfortunate'
-  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/ted_loser.jpg'), filename: 'ted_loser.jpg')
+    author_id: 1, title: 'Does anyone recognize this compound?'
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/meth_compound.jpg'), filename: 'meth_compound.jpg')
 
   Post.create!(
     author_id: 3, title: 'Pose'

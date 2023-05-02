@@ -5,6 +5,7 @@ import PostIndexItem from './PostIndexItem';
 import { getPosts, getPostsReversed, fetchPosts } from '../../store/posts'
 import { getComments } from '../../store/comments'
 import './Posts.css';
+import './MyProjects.css';
 import linkedin from '../../assets/linkedin.png';
 import github from '../../assets/github_white.png';
 import bagon from '../../assets/bagon.jpg';
@@ -42,11 +43,18 @@ const PostIndex = (props) => {
           </div>
         </div>
         <div className="list-of-projects">
-          <div className="JS-project">
-            {/* <img src={bagon}/> */}
+          <div className="JS-project project">
+            <img src={bagon}/>
+            <div className="project-text">
+              <h3>Bagon Adventures</h3>
+              <h4>Bagon Adventures is a browser-based game made with vanilla Javascript and HTML Canvas</h4>
+            </div>
           </div>
-          <div className="MERN-project">
-
+          <div className="MERN-project project">
+            <div className="project-text">
+              <h3>Singed</h3>
+              <h4>Singed is a group project with 3 other contributors for a web application that recommends users dishes and restaurants. Built using the MERN  stack.</h4>
+            </div>
           </div>
         </div>
       </div>
