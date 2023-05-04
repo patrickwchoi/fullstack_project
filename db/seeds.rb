@@ -89,8 +89,8 @@ require "open-uri"
     author_id: 2, title: 'Yo Yo Yo', body: "What's up Mr.White"
   )
   Post.create!(
-    author_id: 2, title: 'Mr.White'
-  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/mrwhite_whatrwe.jpg'), filename: 'mrwhite_whatrwe.jpg')
+    author_id: 7, title: 'Sunflowers', 
+  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/nature_sunflower.jpg'), filename: 'sunflower.jpg')
     
   Post.create!(
     author_id: 1, title: 'Does anyone recognize this compound?'
@@ -112,10 +112,7 @@ require "open-uri"
     author_id: 7, title: 'Squirrel', 
   ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/nature_squirrel.jpg'), filename: 'squirrel.jpg')
 
-  Post.create!(
-    author_id: 7, title: 'Sunflowers', 
-  ).photo.attach(io: URI.open('https://tumblrfullstackproject-seeds.s3.us-west-1.amazonaws.com/nature_sunflower.jpg'), filename: 'sunflower.jpg')
-
+  
   
   Like.create!({user_id: 1, post_id:1})
   Like.create!({user_id: 1, post_id:2})
